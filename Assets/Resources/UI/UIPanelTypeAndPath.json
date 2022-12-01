@@ -1,0 +1,17 @@
+{
+	"infoList":
+	[
+		{
+			"panelTypeString":"RootView",
+			"path":"Root/Fabs/RootView.prefab"
+		},
+		{
+			"panelTypeString":"LoadingView",
+			"path":"Common/LoadingView/LoadingView.prefab"
+		},
+		{
+			"panelTypeString":"FlyBirdView",
+			"path":"FlyBird/Fabs/FlyBirdView.prefab"
+		}
+	]
+}

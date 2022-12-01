@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Local_Root
+  m_EditorClassIdentifier: 
+  m_GroupName: Local_Root
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9aa34f3309b5a354a9fa289f6cbd7ddc
+  m_SerializeEntries:
+  - m_GUID: a21bb544964ef0f4cad87a316d4a718b
+    m_Address: Root/Fabs/RootView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1657f9e7f38915f4981cd5a37f71be59
+    m_Address: Root/Image/background1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5047ca03d32145941a681c1a62111a49
+    m_Address: Root/Image/background2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f99488a1385ebb04bbfdfafda9f7fb19
+    m_Address: Root/Image/background3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e2195feb6f9e15649a26306adb7d1dfe
+    m_Address: Root/Image/cloud1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1f5684d6f85046c4faf13eb696949759
+    m_Address: Root/Image/cloud2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ddfdf984b0366ad479d8d146ae4f824c
+    m_Address: Root/Image/cloud3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c1ad1904619e81f449e71711241a5701
+    m_Address: Root/Image/cloud4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf3fb1bfbc442d945aa1cbc254f012cb
+    m_Address: Root/Image/cloud5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 59e608e213f303e44af144de0e3b96f4
+    m_Address: Root/Image/cloud6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d0c9a0182509fcc468803902b19b8432
+    m_Address: Root/Image/cloud7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7b0bb09641c59204eaee47ff31dfba45
+    m_Address: Root/Image/cloud8.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a0ce4609c3d5d894988a8a5a624b439f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 734c425f9c5afae4c922a17c5285bfd4, type: 2}
+    - {fileID: 11400000, guid: 0bda5063d3edaa744b16793032322825, type: 2}
