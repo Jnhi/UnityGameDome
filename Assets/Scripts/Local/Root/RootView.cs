@@ -16,4 +16,8 @@ public class RootView : BasePanel
     void Update(){
         
     }
+
+    public override void OnPause(){
+        this.gameObject.SetActive(false);
+    }
 }

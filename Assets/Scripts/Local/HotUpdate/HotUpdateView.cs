@@ -10,85 +10,35 @@ using System.Collections;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using static UnityEngine.AddressableAssets.Addressables;
+using UnityEngine.ResourceManagement.Exceptions;
 
 public class HotUpdateView : MonoBehaviour {
-    private Button btnSure;
-    private Button btnCanel;
+    private GameObject noticePanel;
     private TMP_Text txtInfo;
     private Slider prgLoading;
+    private TMP_Text txtMsg;
+    private TMP_Text txtTitle;
+    private Button btn1;
+    private Button btn2;
 
+    private Action GameStart;
     void Awake() {
-        btnSure = this.transform.Find("btnSure").GetComponent<Button>();
-        btnCanel = this.transform.Find("btnCanel").GetComponent<Button>();
         txtInfo = this.transform.Find("txtInfo").GetComponent<TMP_Text>();
         prgLoading = this.transform.Find("prgLoading").GetComponent<Slider>();
-        prgLoading.value = 0;
-        btnSure.gameObject.SetActive(false);
-        btnCanel.gameObject.SetActive(false);
-    }
-    void Start()
-    {
-        StartCoroutine(DoUpdateAddressadble());
-    }
 
-    // async Task Start()
-    // {
-    //     await CheckUpdate();
-    // }
-    public async Task CheckUpdate()
-    {
-        var start = DateTime.Now;
-
-        txtInfo.text = "正在检查资源更新...";
-
-        await InitAsync();
-
-        var catalogs = await Addressables.CheckForCatalogUpdates(false).Task;
-        Debug.Log(string.Format("CheckIfNeededUpdate use {0}ms", (DateTime.Now - start).Milliseconds));
-        Debug.Log($"catalog count: {catalogs.Count}");
-        if (catalogs != null && catalogs.Count > 0)
-        {
-            txtInfo.text = "正在更新资源...";
-            start = DateTime.Now;
-            Debug.Log("2222");
-            List<IResourceLocator> locators = await Addressables.UpdateCatalogs(catalogs, false).Task;
-            foreach (var v in locators)
-            {
-                List<object> keys = new List<object>();
-                keys.AddRange(v.Keys);
-                Debug.Log(v);
-                var size = await Addressables.GetDownloadSizeAsync(keys).Task;
-                Debug.Log($"download size:{size/Math.Pow(1024,2)}");
-                txtInfo.text = $"本次更新大小：{size}MB";
-                // btnSure.gameObject.SetActive(true);
-                // btnCanel.gameObject.SetActive(true);
-                // btnSure.onClick.AddListener(()=>{
-                //     btnSure.gameObject.SetActive(false);
-                //     btnCanel.gameObject.SetActive(false);
-
-                // });
-                var downloadHandle = Addressables.DownloadDependenciesAsync(keys,MergeMode.Union,false);
-                while (!downloadHandle.IsDone)
-                {
-                    float percentage = downloadHandle.PercentComplete;
-                    Debug.Log($"download pregress: {percentage}");
-                    // prgLoading.value = percentage * 100;
-
-                }
-                Addressables.Release(downloadHandle);
-            }
-            UpdateFinish();
-            
-            Addressables.Release(locators);
-
-            Addressables.Release(catalogs);
-        }
+        noticePanel = this.transform.Find("noticePanel").gameObject;
+        btn1 = noticePanel.transform.Find("btn1").GetComponent<Button>();
+        btn2 = noticePanel.transform.Find("btn2").GetComponent<Button>();
+        txtMsg = noticePanel.transform.Find("txtMsg").GetComponent<TMP_Text>();
+        txtTitle = noticePanel.transform.Find("txtTitle").GetComponent<TMP_Text>();
         
-
-        StartGame();
+        noticePanel.SetActive(false);
+        prgLoading.value = 0;
+        txtInfo.text = "检查更新";
     }
 
-    public async Task InitAsync()
+
+    private async Task InitAsync()
     {   
         string _catalogPath = Application.persistentDataPath +"/com.unity.addressables";
         if(Directory.Exists(_catalogPath))
@@ -96,7 +46,7 @@ public class HotUpdateView : MonoBehaviour {
             try
             {
                 Directory.Delete(_catalogPath,true);
-                Debug.Log("delete catalog cache done!");
+                Debug.Log("删除本地 catalog");
             }
             catch(Exception e)
             {
@@ -104,114 +54,88 @@ public class HotUpdateView : MonoBehaviour {
             }
         }
         await Addressables.InitializeAsync().Task;
-        Debug.Log("AssetManager init done");      
+        Debug.Log("Addressables 初始化结束");      
     }
 
-    IEnumerator DoUpdateAddressadble()
+    public async Task ChickUpdate(Action GameStart)
     {
-        string _catalogPath = Application.persistentDataPath +"/com.unity.addressables";
-        if(Directory.Exists(_catalogPath))
-        {
-            try
-            {
-                Directory.Delete(_catalogPath,true);
-                Debug.Log("delete catalog cache done!");
-            }
-            catch(Exception e)
-            {
-                Debug.LogError(e.ToString());
-            }
-        }
-
-        AsyncOperationHandle<IResourceLocator> initHandle = Addressables.InitializeAsync();
-        yield return initHandle;
+        this.GameStart = GameStart;
+        await InitAsync();
 
         // 检测更新
-        var checkHandle = Addressables.CheckForCatalogUpdates(false);
-        yield return checkHandle;
-        if (checkHandle.Status != AsyncOperationStatus.Succeeded)
+        try
         {
-            Debug.Log("CheckForCatalogUpdates Error\n" +  checkHandle.OperationException.ToString());
-            yield break;
+            var checkHandle = await Addressables.CheckForCatalogUpdates(false).Task;
+            if (checkHandle.Count > 0)
+            {
+                var updateHandle = await Addressables.UpdateCatalogs(checkHandle, false).Task;
+                // 更新列表迭代器
+                List<IResourceLocator> locators = updateHandle;
+                foreach (var locator in locators)
+                {
+                    // 获取待下载的文件总大小
+                    var sizeHandle = await Addressables.GetDownloadSizeAsync(locator.Keys).Task;
+                    long totalDownloadSize = sizeHandle;
+                    Debug.Log($"download size:{totalDownloadSize / Math.Pow(1024, 2)}MB");
+                    if (totalDownloadSize > 0)
+                    {
+                        noticePanel.SetActive(true);
+                        txtMsg.text =  string.Format("本次下载大小:{0:F2}MB,是否确定下载？",totalDownloadSize / Math.Pow(1024, 2));
+                        btn1.onClick.AddListener(()=>{
+                            noticePanel.SetActive(false);
+                            // 下载
+                            StartCoroutine(DownLoad(locator.Keys));
+                        });
+                        btn2.onClick.AddListener(()=>{
+                            Debug.Log("退出游戏");
+                        });
+                    }else{
+                        StartGame();
+                    }
+                }
+            }
+            else
+            {
+                txtInfo.text = "无需更新";
+                StartGame();
+            }
+        }
+        catch (OperationException ex)
+        {
+            Debug.Log("[ChickUpdate] Error\n" + ex.ToString());
         }
 
-        if (checkHandle.Result.Count > 0)
-        {
-            var updateHandle = Addressables.UpdateCatalogs(checkHandle.Result, false);
-            yield return updateHandle;
+    }
 
-            if (updateHandle.Status != AsyncOperationStatus.Succeeded)
+    IEnumerator DownLoad(IEnumerable keys)
+    {
+        var downloadHandle = Addressables.DownloadDependenciesAsync(keys, MergeMode.Union, false);
+        while (!downloadHandle.IsDone)
+        {
+            if (downloadHandle.Status == AsyncOperationStatus.Failed)
             {
-                Debug.Log("UpdateCatalogs Error\n" + updateHandle.OperationException.ToString());
+                Debug.Log("[DownloadDependenciesAsync] Error\n" + downloadHandle.OperationException.ToString());
                 yield break;
             }
-
-            // 更新列表迭代器
-            List<IResourceLocator> locators = updateHandle.Result;
-            foreach (var locator in locators)
-            {
-                List<object> keys = new List<object>();
-                keys.AddRange(locator.Keys);
-                // 获取待下载的文件总大小
-                var sizeHandle = Addressables.GetDownloadSizeAsync(keys);
-                yield return sizeHandle;
-                if (sizeHandle.Status != AsyncOperationStatus.Succeeded)
-                {
-                    Debug.Log("GetDownloadSizeAsync Error\n" + sizeHandle.OperationException.ToString());
-                    yield break;
-                }
-
-                long totalDownloadSize = sizeHandle.Result;
-                Debug.Log($"download size:{totalDownloadSize/Math.Pow(1024,2)}");
-                if (totalDownloadSize > 0)
-                {
-                    // 下载
-                    var downloadHandle = Addressables.DownloadDependenciesAsync(keys,MergeMode.Union,false);
-                    while (!downloadHandle.IsDone)
-                    {
-                        if (downloadHandle.Status == AsyncOperationStatus.Failed)
-                        {
-                            Debug.Log("DownloadDependenciesAsync Error\n"  + downloadHandle.OperationException.ToString());
-                            yield break;
-                        }
-                        // 下载进度
-                        float percentage = downloadHandle.PercentComplete;
-                        prgLoading.value = percentage * 100;
-                        Debug.Log($"已下载: {percentage}");
-                        txtInfo.text = $"\n已下载: {percentage}";
-                        yield return null;
-                    }
-                    if (downloadHandle.Status == AsyncOperationStatus.Succeeded)
-                    {
-                        Debug.Log("下载完毕!");
-                        txtInfo.text = "下载完毕";
-                        UpdateFinish();
-                    }
-                }
-            }
+            // 下载进度
+            float percentage = downloadHandle.PercentComplete;
+            prgLoading.value = percentage * 100;
+            txtInfo.text = $"已下载: {percentage}";
+            yield return null;
         }
-        else
+        if (downloadHandle.Status == AsyncOperationStatus.Succeeded)
         {
-            txtInfo.text = txtInfo.text + "\n没有检测到更新";
+            Debug.Log("下载完毕!");
+            txtInfo.text = "下载完毕";
+            StartGame();
         }
-
-        // 进入游戏
-        StartGame();
     }
 
     void StartGame()
     {
-        txtInfo.text = "正在进入游戏...";
-        Debug.Log("进入游戏");
-    }
-
-    void UpdateFinish()
-    {
         prgLoading.value = 100;
-        txtInfo.text = "正在准备资源...";
-        Debug.Log("更新结束");
-        // JsManager.Instance.Restart();
-
+        txtInfo.text = "正在进入游戏...";
+        GameStart?.Invoke();
     }
 
 }

@@ -7,11 +7,6 @@ namespace HFramework
         public void Init()
         {
             camera = GameObject.Find("UICamera").GetComponent<Camera>();
-        }
-
-        // Start is called before the first frame update
-        public void Start()
-        {
             float designWidth = 720f;//开发中分辨率的宽度
             float designHeight = 1280f;//开发中分辨率的高度 
             float designOrthographicSize = designWidth/designHeight;//开发时正交摄像机的大小，6.4*100*2=1280；×100是因为Unity中的pixels per unit是100，×2是因为想设置成屏幕的一半
@@ -30,6 +25,12 @@ namespace HFramework
             {
                 camera.orthographicSize = designOrthographicSize;
             }
+        }
+
+        // Start is called before the first frame update
+        public void Start()
+        {
+
         }
 
         // Update is called once per frame
