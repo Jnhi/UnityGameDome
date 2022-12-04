@@ -69,5 +69,29 @@ namespace HFramework
                 action(obj.Result);
             };
         }
+
+        /// <summary>
+        /// 加载JS代码
+        /// </summary>
+        /// <param name="jsLabel"></param>
+        /// <returns></returns>
+        public static async Task<bool> PreloadJS(string jsLabel)
+        {
+            var list = await Addressables.LoadAssetsAsync<TextAsset>(jsLabel, null).Task;
+            if (list != null)
+            {
+                JsManager.Instance.jscache.Clear();
+                foreach (var txt in list)
+                {
+                    JsManager.Instance.jscache.Add($"{txt.name}.js", txt.text);
+                }
+                return true;
+            }
+            else
+            {
+                Debug.Log("加载JS失败......");
+                return false;
+            }
+        }
     }
 }

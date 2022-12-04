@@ -116,6 +116,8 @@ public class CreateAddressable
             string address = path.Substring(path.IndexOf("/") + 1);
             address = address.Substring(address.IndexOf("/") + 1);
             address = address.Substring(address.IndexOf("/") + 1);
+            if (fileInfo.Extension == ".js")
+                entry.SetLabel("JS",true);
 
             entry.SetAddress(address);
         }
@@ -183,7 +185,7 @@ public class CreateAddressable
 
                             bundledAssetGroupSchema.UseAssetBundleCrc = bundleCrc;
                             bundledAssetGroupSchema.BundleNaming = UnityEditor.AddressableAssets.Settings.GroupSchemas.BundledAssetGroupSchema.BundleNamingStyle.NoHash;
-                            bundledAssetGroupSchema.BundleMode = UnityEditor.AddressableAssets.Settings.GroupSchemas.BundledAssetGroupSchema.BundlePackingMode.PackTogetherByLabel;
+                            bundledAssetGroupSchema.BundleMode = UnityEditor.AddressableAssets.Settings.GroupSchemas.BundledAssetGroupSchema.BundlePackingMode.PackTogether;
                             // bundledAssetGroupSchema.IncludeInBuild = isIncludeBuild;
                         }
                         else if (schema is UnityEditor.AddressableAssets.Settings.GroupSchemas.ContentUpdateGroupSchema)

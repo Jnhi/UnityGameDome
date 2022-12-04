@@ -92,7 +92,7 @@ MonoBehaviour:
   AutoPlay: 1
   defaultAnim: 0
   listAllAnims:
-  - name: 
+  - name: fly
     loopCycles: -1
     animTime: 0.5
     isRealTime: 0

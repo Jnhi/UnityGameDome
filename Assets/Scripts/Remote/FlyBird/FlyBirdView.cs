@@ -69,10 +69,8 @@ public class FlyBirdView : BasePanel
 
         BirdAndPipe = this.transform.Find("BirdAndPipe").GetComponent<Transform>();
         bird = BirdAndPipe.Find("Bird").GetComponent<Image>();
-        Addressables.LoadAssetAsync<GameObject>("FlyBird/Fabs/Pipe.prefab").Completed += (obj) =>
-        {
-            pipePerfab = obj.Result;
-        };
+
+        pipePerfab = ResManager.Instance.Load<GameObject>("FlyBird/Fabs/Pipe.prefab");
     }
     void Start()
     {
@@ -142,11 +140,9 @@ public class FlyBirdView : BasePanel
         }else{
             medalPath = "FlyBird/Image/medals_4.png";
         }
-        Addressables.LoadAssetAsync<Sprite>(medalPath).Completed += (obj) =>
-        {
-            imgMedal.sprite = obj.Result;
-            overPanel.gameObject.SetActive(true);
-        };
+
+        imgMedal.sprite = ResManager.Instance.Load<Sprite>(medalPath);
+        overPanel.gameObject.SetActive(true);
     }
 
     private void ReGame()
@@ -247,8 +243,6 @@ public class FlyBirdView : BasePanel
                 }
             }
 
-            
-            
             pipeTime += Time.deltaTime;
             // 水管定时创建
             if (pipeTime >= pipeIntervalTime)

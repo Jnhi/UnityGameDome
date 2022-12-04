@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Remote_Js
+  m_EditorClassIdentifier: 
+  m_GroupName: Remote_Js
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d657d2bef452db6448c909f81b6cfd7b
+  m_SerializeEntries:
+  - m_GUID: 77a6fe0ca8533144baf6bb132206d1cd
+    m_Address: Js/bundle.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: ba3ee7b2c9f630f459f92e4398605e51
+    m_Address: Js/puerts/cjsload.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: 7a935bb7fc2d8534eb4a469d154271ec
+    m_Address: Js/puerts/csharp.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: 95561575db577984b81cff6eb2df076a
+    m_Address: Js/puerts/dispose.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: fad182864dc37574591fc096be1d80e4
+    m_Address: Js/puerts/events.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: 3702eb07f065922478255b616444f9cd
+    m_Address: Js/puerts/init.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: 16e91553475ce6847936699144dab714
+    m_Address: Js/puerts/log.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: 4ca0310749bd7c04b9e95d7845e6b8ce
+    m_Address: Js/puerts/modular.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: 2d15aa45ac3a5044d98748e2c40470c8
+    m_Address: Js/puerts/nodepatch.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: 94da38d2ae858be41b2bb3ab47e5a760
+    m_Address: Js/puerts/polyfill.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: 953ad8fb9bb85194e88d647894583e72
+    m_Address: Js/puerts/promises.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  - m_GUID: 1819157cecd6d7b4da8bd8d66b403866
+    m_Address: Js/puerts/timer.mjs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - JS
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a0ce4609c3d5d894988a8a5a624b439f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f46535fe18bde694aa8623a47858880c, type: 2}
+    - {fileID: 11400000, guid: 5f3752de8e0fc1f49adc184d5a6d9211, type: 2}

@@ -27,6 +27,8 @@ public class GameRoot : MonoBehaviour {
 #endif    
         UIManager.Instance.PushPanel(UIPanelType.RootView);
         GameObject.Destroy(HotUpdateView.gameObject);
+
+        JsManager.Instance.StartGame();
     }
 
     // Start is called before the first frame update
@@ -37,9 +39,8 @@ public class GameRoot : MonoBehaviour {
     }
 
     // Update is called once per frame
-    // void Update()
-    // {
-    //     CameraManager.Instance.Update();
-    //     AudioManager.Instance.Update();  
-    // }
+    void Update()
+    {
+        JsManager.Instance.Update();
+    }
 }
