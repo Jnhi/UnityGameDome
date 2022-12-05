@@ -158,6 +158,7 @@ namespace HFramework
                 return panel;
             }
         }
+        
         private async Task<BasePanel> GetPanelAsync(UIPanelType panelType)
         {
             if (panelDict==null)

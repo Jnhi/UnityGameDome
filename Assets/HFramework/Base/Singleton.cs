@@ -1,8 +1,8 @@
 namespace HFramework
 {
-    public class Singleton<T> where T : new()
+    public abstract class Singleton<T> where T : class, new ()
     {
-        protected static T _instance;
+        private static T _instance = null;
         public static T Instance
         {
             get

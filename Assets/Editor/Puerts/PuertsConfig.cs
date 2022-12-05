@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 using UnityEngine;
+using HFramework;
 
 /// <summary>
 /// 如果你全ts/js编程，可以参考这份自动化配置
@@ -24,18 +25,18 @@ public class PuertsConfig
             };
         }
     }
-    [BlittableCopy]
-    static IEnumerable<Type> Blittables
-    {
-        get
-        {
-            return new List<Type>()
-            {
-                //打开这个可以优化Vector3的GC，但需要开启unsafe编译
-                //typeof(Vector3),
-            };
-        }
-    }
+    // [BlittableCopy]
+    // static IEnumerable<Type> Blittables
+    // {
+    //     get
+    //     {
+    //         return new List<Type>()
+    //         {
+    //             //打开这个可以优化Vector3的GC，但需要开启unsafe编译
+    //             //typeof(Vector3),
+    //         };
+    //     }
+    // }
     [Binding]
     static IEnumerable<Type> DynamicBindings
     {
@@ -43,6 +44,7 @@ public class PuertsConfig
         {
             var list =  new List<Type>()
             {
+
 
                 typeof(Debug),
                 typeof(Vector3),
@@ -56,7 +58,7 @@ public class PuertsConfig
                 typeof(UnityEngine.Object),
                 typeof(Delegate),
                 typeof(System.Object),
-                // typeof(Type),
+                typeof(Type),
                 typeof(ParticleSystem),
                 typeof(Canvas),
                 typeof(RenderMode),
@@ -80,12 +82,15 @@ public class PuertsConfig
                 typeof(UnityEngine.SceneManagement.LoadSceneMode),
                 typeof(UnityEngine.ResourceManagement.ResourceProviders.SceneInstance),
                 typeof(AsyncOperation),
-               
+
+                typeof(HFramework.ResManager),
+                typeof(HFramework.AudioManager),
+
             };
 
             List<string> namespaces = new List<string>()
             {
-                // "FairyGUI",
+                // "HFramework",
             };
 
             Assembly[] ass = AppDomain.CurrentDomain.GetAssemblies();

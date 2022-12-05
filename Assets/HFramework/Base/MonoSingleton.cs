@@ -5,7 +5,7 @@ namespace HFramework
     /// <summary>
     /// 依赖于Unity Mono的单例，其需要和Unity的一些物体做交互。例如对象池模块和音频管理模块。
     /// </summary>
-    public class MonoSingleton<T> : MonoBehaviour where T : Component
+    public abstract class MonoSingleton<T> : MonoBehaviour where T : Component
     {
         private static T _instance = null;
 
