@@ -1,5 +1,5 @@
 import { UnityEngine } from "csharp";
-import { BasePanel } from "../../hframework/ui/BasePanel";
+import { BasePanel } from "../../../../hframework/ui/BasePanel";
 
 export default class UI_RootView extends BasePanel {
 
