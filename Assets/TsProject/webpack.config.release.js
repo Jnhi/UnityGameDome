@@ -7,7 +7,7 @@ const externals = {
 };
 
 module.exports = {
-	entry: './src/GameMain.ts',
+	entry: path.resolve(__dirname,'./src/GameMain.ts'),
 	mode: 'production',
 	module: {
 		rules: [

@@ -7,7 +7,7 @@
 		"sourceMap": true,
 		"inlineSources": true,
 		"experimentalDecorators": true,
-		"baseUrl": "./src/",
+		// "baseUrl": "./src/",
 		"typeRoots": [
 			"../Puerts/Typing",
 			"../Gen/Typing",

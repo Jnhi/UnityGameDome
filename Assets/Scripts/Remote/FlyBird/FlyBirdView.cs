@@ -70,7 +70,7 @@ public class FlyBirdView : BasePanel
         BirdAndPipe = this.transform.Find("BirdAndPipe").GetComponent<Transform>();
         bird = BirdAndPipe.Find("Bird").GetComponent<Image>();
 
-        pipePerfab = ResManager.Instance.Load<GameObject>("FlyBird/Fabs/Pipe.prefab");
+        pipePerfab = ResManager.Load<GameObject>("FlyBird/Fabs/Pipe.prefab");
     }
     void Start()
     {
@@ -141,7 +141,7 @@ public class FlyBirdView : BasePanel
             medalPath = "FlyBird/Image/medals_4.png";
         }
 
-        imgMedal.sprite = ResManager.Instance.Load<Sprite>(medalPath);
+        imgMedal.sprite = ResManager.Load<Sprite>(medalPath);
         overPanel.gameObject.SetActive(true);
     }
 

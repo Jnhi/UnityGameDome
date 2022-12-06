@@ -1,24 +1,23 @@
-import { Singleton } from "HFramework/Common/Singleton";
 import { UnityEngine,HFramework } from "csharp";
 import { UIPanelType } from "./UIPanelType";
-import { BasePanel } from "./BasePanel";
+import { BasePanel, UIClass } from "./BasePanel";
+import { Singleton } from "../common/Singleton";
+
 
 export class UIManager extends Singleton<UIManager>{
     private CanvasTransform :UnityEngine.Transform
 
-    private panelDict:Map<string,BasePanel>;
-
     private panelStack:Array<BasePanel>;
 
     public init():void{
-
+        this.CanvasTransform = UnityEngine.GameObject.Find("Canvas").GetComponent(puer.$typeof(UnityEngine.Transform)) as UnityEngine.Transform
     }
 
     /**
      * 
      * @param panelType UI类型
      */
-    public PushPanel(panelType:string):void{
+    public PushPanel<T extends BasePanel>(uiClass: UIClass<T>){
         if (this.panelStack==null)
         {
             this.panelStack = new Array<BasePanel>();
@@ -30,44 +29,26 @@ export class UIManager extends Singleton<UIManager>{
             topPanel.OnPause();
         }
         //显示新面板
-        BasePanel panel = GetPanel(panelType);
+        let panel:BasePanel = this.GetPanel(uiClass);
         panel.OnEnter();
-        panelStack.Push(panel);
+        this.panelStack.push(panel);
     }
 
     /// <summary>
     /// 根据面板类型，得到实例化的面板
     /// </summary>
     /// <returns></returns>
-    public GetPanel(panelType:string):BasePanel
+    public GetPanel<T extends BasePanel>(uiClass: UIClass<T>):BasePanel
     {
-        if (this.panelDict==null)
-        {
-            this.panelDict = new Map<string,BasePanel>();
-        }
+        //实例化
+        let instansPanel:UnityEngine.GameObject = UnityEngine.GameObject.Instantiate( HFramework.ResManager.LoadPrefab(uiClass.getUrl())) as UnityEngine.GameObject;
 
-        //从字典中读取BasePanel类型储存到panel。如果还没有实例化则panel为Null。
-        let panel = this.panelDict.get(panelType)
-        //如果panel为空，那么就找这个面板的prefab的路径，然后去根据prefab去实例化面板
-        if (panel == null)
-        {
-            //先得到路径存入path
-            let path:string = UIPanelType[panelType];
-            HFramework.ResManager.Instance.Load
-            //实例化
-            let instansPanel:UnityEngine.GameObject = UnityEngine.GameObject.Instantiate( HFramework.ResManager.Instance.Load<GameObject>(path)) as UnityEngine.GameObject;
-
-            instansPanel.transform.SetParent(CanvasTransform,false);
-            instansPanel.name = panelType.ToString();
-            //存入字典
-            panelDict.Add(panelType, instansPanel.GetComponent<BasePanel>());
-
-            return instansPanel.GetComponent<BasePanel>();
-        }
-        else
-        {
-            return panel;
-        }
+        instansPanel.transform.SetParent(this.CanvasTransform,false);
+        
+        let _uiClass = new uiClass()
+        _uiClass.ui = instansPanel;
+        _uiClass.OnBinding()
+        return _uiClass;
     }
 
 }

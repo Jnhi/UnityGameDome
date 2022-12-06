@@ -6,9 +6,6 @@ namespace PuertsStaticWrap
     {
         public static void Register(Puerts.JsEnv jsEnv)
         {
-            jsEnv.AddLazyStaticWrapLoader(typeof(HFramework.ResManager), HFramework_ResManager_Wrap.GetRegisterInfo);
-                
-                
             jsEnv.AddLazyStaticWrapLoader(typeof(UnityEngine.Debug), UnityEngine_Debug_Wrap.GetRegisterInfo);
                 
                 
@@ -97,6 +94,12 @@ namespace PuertsStaticWrap
                 
                 
             jsEnv.AddLazyStaticWrapLoader(typeof(UnityEngine.AsyncOperation), UnityEngine_AsyncOperation_Wrap.GetRegisterInfo);
+                
+                
+            jsEnv.AddLazyStaticWrapLoader(typeof(HFramework.ResManager), HFramework_ResManager_Wrap.GetRegisterInfo);
+                
+                
+            jsEnv.AddLazyStaticWrapLoader(typeof(HFramework.AudioManager), HFramework_AudioManager_Wrap.GetRegisterInfo);
                 
                 
         }

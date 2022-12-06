@@ -58,7 +58,7 @@ public class PuertsConfig
                 typeof(UnityEngine.Object),
                 typeof(Delegate),
                 typeof(System.Object),
-                typeof(Type),
+                // typeof(Type),
                 typeof(ParticleSystem),
                 typeof(Canvas),
                 typeof(RenderMode),

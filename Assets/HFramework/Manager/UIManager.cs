@@ -145,7 +145,7 @@ namespace HFramework
                 panelPathDict.TryGetValue(panelType,out path);
 
                 //实例化
-                GameObject instansPanel = GameObject.Instantiate( ResManager.Instance.Load<GameObject>(path) );
+                GameObject instansPanel = GameObject.Instantiate( ResManager.Load<GameObject>(path) );
                 instansPanel.transform.SetParent(CanvasTransform,false);
                 instansPanel.name = panelType.ToString();
                 //存入字典
@@ -180,7 +180,7 @@ namespace HFramework
 
                 //实例化
                 // AsyncOperationHandle<GameObject> obj = ResManager.Instance.LoadAsync<GameObject>(path);
-                GameObject obj = await ResManager.Instance.LoadAssetAsync<GameObject>(path);
+                GameObject obj = await ResManager.LoadAssetAsync<GameObject>(path);
                 GameObject instansPanel = GameObject.Instantiate(obj);
                 instansPanel.transform.SetParent(CanvasTransform,false);
                 instansPanel.name = panelType.ToString();

@@ -16,16 +16,12 @@ public class GameRoot : MonoBehaviour {
     // 热更结束后调用
     public void GameStart()
     {
-        ResManager.Instance.Init();
-        CameraManager.Instance.Init();
-        AudioManager.Instance.Init();
-        UIManager.Instance.Init();
+
 #if UNITY_ANDROID  && !UNITY_EDITOR 
         Application.targetFrameRate = 60;
 #else
         Application.targetFrameRate = 60;
 #endif    
-        UIManager.Instance.PushPanel(UIPanelType.RootView);
         GameObject.Destroy(HotUpdateView.gameObject);
 
         JsManager.Instance.StartGame();

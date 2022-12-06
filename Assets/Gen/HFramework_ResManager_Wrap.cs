@@ -46,113 +46,11 @@ namespace PuertsStaticWrap
     // ==================== methods start ====================
 
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void M_Init(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        private static void F_LoadAsync(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as HFramework.ResManager;
-        
-        
-                {
-            
                 
-                
-                    
-                    {
-                    
-
-                        obj.Init ();
-
-                    
-                        
-                        
-                        
-                    }
-                
-                }
-            
-        
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-    
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void M_Start(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as HFramework.ResManager;
-        
-        
-                {
-            
-                
-                
-                    
-                    {
-                    
-
-                        obj.Start ();
-
-                    
-                        
-                        
-                        
-                    }
-                
-                }
-            
-        
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-    
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void M_Update(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as HFramework.ResManager;
-        
-        
-                {
-            
-                
-                
-                    
-                    {
-                    
-
-                        obj.Update ();
-
-                    
-                        
-                        
-                        
-                    }
-                
-                }
-            
-        
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-    
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void M_LoadAsync(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as HFramework.ResManager;
         
         
                 {
@@ -175,7 +73,7 @@ namespace PuertsStaticWrap
                         argobj1 = argobj1 != null ? argobj1 : StaticTranslate<UnityEngine.Events.UnityAction<UnityEngine.Object>>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value1, false); UnityEngine.Events.UnityAction<UnityEngine.Object> arg1 = (UnityEngine.Events.UnityAction<UnityEngine.Object>)argobj1;
                     
 
-                        obj.LoadAsync (arg0, arg1);
+                        HFramework.ResManager.LoadAsync (arg0, arg1);
 
                     
                         
@@ -183,6 +81,174 @@ namespace PuertsStaticWrap
                         
                     
                         
+                        
+                        
+                    }
+                
+                }
+            
+        
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+    
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void F_LoadPrefab(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+        
+        
+                {
+            
+                
+                    IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                    object argobj0 = null;
+                    JsValueType argType0 = JsValueType.Invalid;
+                
+                
+                    
+                    {
+                    
+                        string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
+                    
+
+                        var result = HFramework.ResManager.LoadPrefab (arg0);
+
+                    
+                        
+                    
+                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
+                        
+                        
+                    }
+                
+                }
+            
+        
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+    
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void F_LoadPrefabAsync(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+        
+        
+                {
+            
+                
+                    IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                    object argobj0 = null;
+                    JsValueType argType0 = JsValueType.Invalid;
+                
+                
+                    
+                    {
+                    
+                        string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
+                    
+
+                        var result = HFramework.ResManager.LoadPrefabAsync (arg0);
+
+                    
+                        
+                    
+                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
+                        
+                        
+                    }
+                
+                }
+            
+        
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+    
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void F_LoadTextAssetAsync(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+        
+        
+                {
+            
+                
+                    IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                    object argobj0 = null;
+                    JsValueType argType0 = JsValueType.Invalid;
+                
+                
+                    
+                    {
+                    
+                        string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
+                    
+
+                        var result = HFramework.ResManager.LoadTextAssetAsync (arg0);
+
+                    
+                        
+                    
+                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
+                        
+                        
+                    }
+                
+                }
+            
+        
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+    
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void F_LoadSpriteAsync(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                
+        
+        
+                {
+            
+                
+                    IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                    object argobj0 = null;
+                    JsValueType argType0 = JsValueType.Invalid;
+                
+                
+                    
+                    {
+                    
+                        string arg0 = (string)PuertsDLL.GetStringFromValue(isolate, v8Value0, false);
+                    
+
+                        var result = HFramework.ResManager.LoadSpriteAsync (arg0);
+
+                    
+                        
+                    
+                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
                         
                         
                     }
@@ -263,10 +329,11 @@ namespace PuertsStaticWrap
                 Constructor = Constructor,
                 Methods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
                 {   
-                    { new Puerts.MethodKey { Name = "Init", IsStatic = false}, M_Init },
-                    { new Puerts.MethodKey { Name = "Start", IsStatic = false}, M_Start },
-                    { new Puerts.MethodKey { Name = "Update", IsStatic = false}, M_Update },
-                    { new Puerts.MethodKey { Name = "LoadAsync", IsStatic = false}, M_LoadAsync },
+                    { new Puerts.MethodKey { Name = "LoadAsync", IsStatic = true}, F_LoadAsync },
+                    { new Puerts.MethodKey { Name = "LoadPrefab", IsStatic = true}, F_LoadPrefab },
+                    { new Puerts.MethodKey { Name = "LoadPrefabAsync", IsStatic = true}, F_LoadPrefabAsync },
+                    { new Puerts.MethodKey { Name = "LoadTextAssetAsync", IsStatic = true}, F_LoadTextAssetAsync },
+                    { new Puerts.MethodKey { Name = "LoadSpriteAsync", IsStatic = true}, F_LoadSpriteAsync },
                     { new Puerts.MethodKey { Name = "PreloadJS", IsStatic = true}, F_PreloadJS }
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()

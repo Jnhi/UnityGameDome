@@ -6,27 +6,14 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace HFramework
 {
-    public class ResManager:Singleton<ResManager>{
-        public void Init()
-        {
-        }
-
-        // Start is called before the first frame update
-        public void Start()
-        {
-        }
-
-        // Update is called once per frame
-        public void Update()
-        {
-        }
+    public class ResManager{
         /// <summary>
         /// 同步加载资源
         /// </summary>
         /// <typeparam name="T">加载资源类型</typeparam>
         /// <param name="resPath">资源路径</param>
         /// <returns></returns>
-        public T Load<T>(string resPath)where T:Object
+        public static T Load<T>(string resPath)where T:Object
         {
             var op = Addressables.LoadAssetAsync<T>(resPath);
             T obj = op.WaitForCompletion() as T;
@@ -40,12 +27,12 @@ namespace HFramework
         /// <typeparam name="T">加载资源类型</typeparam>
         /// <param name="resPath">资源路径</param>
         /// <returns></returns>
-        public AsyncOperationHandle<T> LoadAsync<T>(string resPath)where T:Object
+        public static AsyncOperationHandle<T> LoadAsync<T>(string resPath)where T:Object
         {
             return Addressables.LoadAssetAsync<T>(resPath);
         }
 
-        public async Task<T> LoadAssetAsync<T>(string resPath) where T : Object
+        public static async Task<T> LoadAssetAsync<T>(string resPath) where T : Object
         {
             var handle = Addressables.LoadAssetAsync<T>(resPath);
             await handle.Task;
@@ -62,12 +49,38 @@ namespace HFramework
         /// <typeparam name="T">加载资源类型</typeparam>
         /// <param name="resPath">资源路径</param>
         /// <returns></returns>
-        public void LoadAsync<T>(string resPath,UnityAction<T> action)where T:Object
+        public static void LoadAsync<T>(string resPath,UnityAction<T> action)where T:Object
         {
             Addressables.LoadAssetAsync<T>(resPath).Completed += (obj) =>
             {
                 action(obj.Result);
             };
+        }
+
+
+        public static GameObject LoadPrefab(string address)
+        {
+            var res = Addressables.LoadAssetAsync<GameObject>(address).WaitForCompletion();
+            return res;
+        }
+
+        public static async Task<GameObject> LoadPrefabAsync(string address)
+        {
+            var res = await Addressables.LoadAssetAsync<GameObject>(address).Task;
+            return res;
+        }
+
+        public static async Task<TextAsset> LoadTextAssetAsync(string address)
+        {
+            var res = await Addressables.LoadAssetAsync<TextAsset>(address).Task;
+            return res;
+        }
+
+
+        public static async Task<Sprite> LoadSpriteAsync(string address)
+        {
+            var res = await Addressables.LoadAssetAsync<Sprite>(address).Task;
+            return res;
         }
 
         /// <summary>

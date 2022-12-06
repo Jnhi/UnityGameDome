@@ -32,17 +32,11 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        interface IFormattable
-        {
-        }
-        interface IEquatable$1<T>
-        {
-        }
-        class Single extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        class Boolean extends System.ValueType implements System.IEquatable$1<boolean>, System.IComparable, System.IComparable$1<boolean>, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
-        interface ISpanFormattable
+        interface IEquatable$1<T>
         {
         }
         interface IComparable
@@ -54,26 +48,32 @@
         interface IConvertible
         {
         }
-        class Boolean extends System.ValueType implements System.IComparable, System.IComparable$1<boolean>, System.IConvertible, System.IEquatable$1<boolean>
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class Int32 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class String extends System.Object implements System.ICloneable, System.IComparable, System.IComparable$1<string>, System.IConvertible, System.Collections.Generic.IEnumerable$1<number>, System.Collections.IEnumerable, System.IEquatable$1<string>
+        class String extends System.Object implements System.IEquatable$1<string>, System.ICloneable, System.Collections.Generic.IEnumerable$1<number>, System.IComparable, System.IComparable$1<string>, System.Collections.IEnumerable, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
         interface ICloneable
         {
         }
-        class Char extends System.ValueType implements System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        class Char extends System.ValueType implements System.IEquatable$1<number>, System.IComparable, System.IComparable$1<number>, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
-        class Array extends System.Object implements System.Collections.IStructuralComparable, System.Collections.IStructuralEquatable, System.ICloneable, System.Collections.ICollection, System.Collections.IEnumerable, System.Collections.IList
+        class Array extends System.Object implements System.Collections.IStructuralComparable, System.Collections.IStructuralEquatable, System.Collections.ICollection, System.ICloneable, System.Collections.IEnumerable, System.Collections.IList
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface IFormattable
+        {
+        }
+        class Single extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface ISpanFormattable
+        {
+        }
+        class Int32 extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
@@ -81,14 +81,14 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        class Exception extends System.Object implements System.Runtime.Serialization.ISerializable, System.Runtime.InteropServices._Exception
+        class Exception extends System.Object implements System.Runtime.InteropServices._Exception, System.Runtime.Serialization.ISerializable
         {
             protected [__keep_incompatibility]: never;
         }
         interface IFormatProvider
         {
         }
-        class Delegate extends System.Object implements System.Runtime.Serialization.ISerializable, System.ICloneable
+        class Delegate extends System.Object implements System.ICloneable, System.Runtime.Serialization.ISerializable
         {
             protected [__keep_incompatibility]: never;
             public get Method(): System.Reflection.MethodInfo;
@@ -143,217 +143,19 @@
         (x: T, y: T) : number; 
         Invoke?: (x: T, y: T) => number;
         }
-        class Double extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        class Double extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
-        class Type extends System.Reflection.MemberInfo implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._Type, System.Reflection.ICustomAttributeProvider, System.Reflection.IReflect
-        {
-            protected [__keep_incompatibility]: never;
-            public static Delimiter : number
-            public static EmptyTypes : System.Array$1<System.Type>
-            public static Missing : any
-            public static FilterAttribute : System.Reflection.MemberFilter
-            public static FilterName : System.Reflection.MemberFilter
-            public static FilterNameIgnoreCase : System.Reflection.MemberFilter
-            public get IsSerializable(): boolean;
-            public get ContainsGenericParameters(): boolean;
-            public get IsVisible(): boolean;
-            public get MemberType(): System.Reflection.MemberTypes;
-            public get Namespace(): string;
-            public get AssemblyQualifiedName(): string;
-            public get FullName(): string;
-            public get Assembly(): System.Reflection.Assembly;
-            public get Module(): System.Reflection.Module;
-            public get IsNested(): boolean;
-            public get DeclaringType(): System.Type;
-            public get DeclaringMethod(): System.Reflection.MethodBase;
-            public get ReflectedType(): System.Type;
-            public get UnderlyingSystemType(): System.Type;
-            public get IsTypeDefinition(): boolean;
-            public get IsArray(): boolean;
-            public get IsByRef(): boolean;
-            public get IsPointer(): boolean;
-            public get IsConstructedGenericType(): boolean;
-            public get IsGenericParameter(): boolean;
-            public get IsGenericTypeParameter(): boolean;
-            public get IsGenericMethodParameter(): boolean;
-            public get IsGenericType(): boolean;
-            public get IsGenericTypeDefinition(): boolean;
-            public get IsVariableBoundArray(): boolean;
-            public get IsByRefLike(): boolean;
-            public get HasElementType(): boolean;
-            public get GenericTypeArguments(): System.Array$1<System.Type>;
-            public get GenericParameterPosition(): number;
-            public get GenericParameterAttributes(): System.Reflection.GenericParameterAttributes;
-            public get Attributes(): System.Reflection.TypeAttributes;
-            public get IsAbstract(): boolean;
-            public get IsImport(): boolean;
-            public get IsSealed(): boolean;
-            public get IsSpecialName(): boolean;
-            public get IsClass(): boolean;
-            public get IsNestedAssembly(): boolean;
-            public get IsNestedFamANDAssem(): boolean;
-            public get IsNestedFamily(): boolean;
-            public get IsNestedFamORAssem(): boolean;
-            public get IsNestedPrivate(): boolean;
-            public get IsNestedPublic(): boolean;
-            public get IsNotPublic(): boolean;
-            public get IsPublic(): boolean;
-            public get IsAutoLayout(): boolean;
-            public get IsExplicitLayout(): boolean;
-            public get IsLayoutSequential(): boolean;
-            public get IsAnsiClass(): boolean;
-            public get IsAutoClass(): boolean;
-            public get IsUnicodeClass(): boolean;
-            public get IsCOMObject(): boolean;
-            public get IsContextful(): boolean;
-            public get IsCollectible(): boolean;
-            public get IsEnum(): boolean;
-            public get IsMarshalByRef(): boolean;
-            public get IsPrimitive(): boolean;
-            public get IsValueType(): boolean;
-            public get IsSignatureType(): boolean;
-            public get IsSecurityCritical(): boolean;
-            public get IsSecuritySafeCritical(): boolean;
-            public get IsSecurityTransparent(): boolean;
-            public get StructLayoutAttribute(): System.Runtime.InteropServices.StructLayoutAttribute;
-            public get TypeInitializer(): System.Reflection.ConstructorInfo;
-            public get TypeHandle(): System.RuntimeTypeHandle;
-            public get GUID(): System.Guid;
-            public get BaseType(): System.Type;
-            public static get DefaultBinder(): System.Reflection.Binder;
-            public get IsInterface(): boolean;
-            public IsEnumDefined ($value: any) : boolean
-            public GetEnumName ($value: any) : string
-            public GetEnumNames () : System.Array$1<string>
-            public FindInterfaces ($filter: System.Reflection.TypeFilter, $filterCriteria: any) : System.Array$1<System.Type>
-            public FindMembers ($memberType: System.Reflection.MemberTypes, $bindingAttr: System.Reflection.BindingFlags, $filter: System.Reflection.MemberFilter, $filterCriteria: any) : System.Array$1<System.Reflection.MemberInfo>
-            public IsSubclassOf ($c: System.Type) : boolean
-            public IsAssignableFrom ($c: System.Type) : boolean
-            public GetType () : System.Type
-            public GetElementType () : System.Type
-            public GetArrayRank () : number
-            public GetGenericTypeDefinition () : System.Type
-            public GetGenericArguments () : System.Array$1<System.Type>
-            public GetGenericParameterConstraints () : System.Array$1<System.Type>
-            public GetConstructor ($types: System.Array$1<System.Type>) : System.Reflection.ConstructorInfo
-            public GetConstructor ($bindingAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.ConstructorInfo
-            public GetConstructor ($bindingAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $callConvention: System.Reflection.CallingConventions, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.ConstructorInfo
-            public GetConstructors () : System.Array$1<System.Reflection.ConstructorInfo>
-            public GetConstructors ($bindingAttr: System.Reflection.BindingFlags) : System.Array$1<System.Reflection.ConstructorInfo>
-            public GetEvent ($name: string) : System.Reflection.EventInfo
-            public GetEvent ($name: string, $bindingAttr: System.Reflection.BindingFlags) : System.Reflection.EventInfo
-            public GetEvents () : System.Array$1<System.Reflection.EventInfo>
-            public GetEvents ($bindingAttr: System.Reflection.BindingFlags) : System.Array$1<System.Reflection.EventInfo>
-            public GetField ($name: string) : System.Reflection.FieldInfo
-            public GetField ($name: string, $bindingAttr: System.Reflection.BindingFlags) : System.Reflection.FieldInfo
-            public GetFields () : System.Array$1<System.Reflection.FieldInfo>
-            public GetFields ($bindingAttr: System.Reflection.BindingFlags) : System.Array$1<System.Reflection.FieldInfo>
-            public GetMember ($name: string) : System.Array$1<System.Reflection.MemberInfo>
-            public GetMember ($name: string, $bindingAttr: System.Reflection.BindingFlags) : System.Array$1<System.Reflection.MemberInfo>
-            public GetMember ($name: string, $type: System.Reflection.MemberTypes, $bindingAttr: System.Reflection.BindingFlags) : System.Array$1<System.Reflection.MemberInfo>
-            public GetMembers () : System.Array$1<System.Reflection.MemberInfo>
-            public GetMembers ($bindingAttr: System.Reflection.BindingFlags) : System.Array$1<System.Reflection.MemberInfo>
-            public GetMethod ($name: string) : System.Reflection.MethodInfo
-            public GetMethod ($name: string, $bindingAttr: System.Reflection.BindingFlags) : System.Reflection.MethodInfo
-            public GetMethod ($name: string, $types: System.Array$1<System.Type>) : System.Reflection.MethodInfo
-            public GetMethod ($name: string, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.MethodInfo
-            public GetMethod ($name: string, $bindingAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.MethodInfo
-            public GetMethod ($name: string, $bindingAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $callConvention: System.Reflection.CallingConventions, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.MethodInfo
-            public GetMethod ($name: string, $genericParameterCount: number, $types: System.Array$1<System.Type>) : System.Reflection.MethodInfo
-            public GetMethod ($name: string, $genericParameterCount: number, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.MethodInfo
-            public GetMethod ($name: string, $genericParameterCount: number, $bindingAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.MethodInfo
-            public GetMethod ($name: string, $genericParameterCount: number, $bindingAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $callConvention: System.Reflection.CallingConventions, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.MethodInfo
-            public GetMethods () : System.Array$1<System.Reflection.MethodInfo>
-            public GetMethods ($bindingAttr: System.Reflection.BindingFlags) : System.Array$1<System.Reflection.MethodInfo>
-            public GetNestedType ($name: string) : System.Type
-            public GetNestedType ($name: string, $bindingAttr: System.Reflection.BindingFlags) : System.Type
-            public GetNestedTypes () : System.Array$1<System.Type>
-            public GetNestedTypes ($bindingAttr: System.Reflection.BindingFlags) : System.Array$1<System.Type>
-            public GetProperty ($name: string) : System.Reflection.PropertyInfo
-            public GetProperty ($name: string, $bindingAttr: System.Reflection.BindingFlags) : System.Reflection.PropertyInfo
-            public GetProperty ($name: string, $returnType: System.Type) : System.Reflection.PropertyInfo
-            public GetProperty ($name: string, $types: System.Array$1<System.Type>) : System.Reflection.PropertyInfo
-            public GetProperty ($name: string, $returnType: System.Type, $types: System.Array$1<System.Type>) : System.Reflection.PropertyInfo
-            public GetProperty ($name: string, $returnType: System.Type, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.PropertyInfo
-            public GetProperty ($name: string, $bindingAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $returnType: System.Type, $types: System.Array$1<System.Type>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>) : System.Reflection.PropertyInfo
-            public GetProperties () : System.Array$1<System.Reflection.PropertyInfo>
-            public GetProperties ($bindingAttr: System.Reflection.BindingFlags) : System.Array$1<System.Reflection.PropertyInfo>
-            public GetDefaultMembers () : System.Array$1<System.Reflection.MemberInfo>
-            public static GetTypeHandle ($o: any) : System.RuntimeTypeHandle
-            public static GetTypeArray ($args: System.Array$1<any>) : System.Array$1<System.Type>
-            public static GetTypeCode ($type: System.Type) : System.TypeCode
-            public static GetTypeFromCLSID ($clsid: System.Guid) : System.Type
-            public static GetTypeFromCLSID ($clsid: System.Guid, $throwOnError: boolean) : System.Type
-            public static GetTypeFromCLSID ($clsid: System.Guid, $server: string) : System.Type
-            public static GetTypeFromProgID ($progID: string) : System.Type
-            public static GetTypeFromProgID ($progID: string, $throwOnError: boolean) : System.Type
-            public static GetTypeFromProgID ($progID: string, $server: string) : System.Type
-            public InvokeMember ($name: string, $invokeAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $target: any, $args: System.Array$1<any>) : any
-            public InvokeMember ($name: string, $invokeAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $target: any, $args: System.Array$1<any>, $culture: System.Globalization.CultureInfo) : any
-            public InvokeMember ($name: string, $invokeAttr: System.Reflection.BindingFlags, $binder: System.Reflection.Binder, $target: any, $args: System.Array$1<any>, $modifiers: System.Array$1<System.Reflection.ParameterModifier>, $culture: System.Globalization.CultureInfo, $namedParameters: System.Array$1<string>) : any
-            public GetInterface ($name: string) : System.Type
-            public GetInterface ($name: string, $ignoreCase: boolean) : System.Type
-            public GetInterfaces () : System.Array$1<System.Type>
-            public GetInterfaceMap ($interfaceType: System.Type) : System.Reflection.InterfaceMapping
-            public IsInstanceOfType ($o: any) : boolean
-            public IsEquivalentTo ($other: System.Type) : boolean
-            public GetEnumUnderlyingType () : System.Type
-            public GetEnumValues () : System.Array
-            public MakeArrayType () : System.Type
-            public MakeArrayType ($rank: number) : System.Type
-            public MakeByRefType () : System.Type
-            public MakeGenericType (...typeArguments: System.Type[]) : System.Type
-            public MakePointerType () : System.Type
-            public static MakeGenericSignatureType ($genericTypeDefinition: System.Type, ...typeArguments: System.Type[]) : System.Type
-            public static MakeGenericMethodParameter ($position: number) : System.Type
-            public Equals ($o: any) : boolean
-            public Equals ($o: System.Type) : boolean
-            public static GetTypeFromHandle ($handle: System.RuntimeTypeHandle) : System.Type
-            public static GetType ($typeName: string, $throwOnError: boolean, $ignoreCase: boolean) : System.Type
-            public static GetType ($typeName: string, $throwOnError: boolean) : System.Type
-            public static GetType ($typeName: string) : System.Type
-            public static GetType ($typeName: string, $assemblyResolver: System.Func$2<System.Reflection.AssemblyName, System.Reflection.Assembly>, $typeResolver: System.Func$4<System.Reflection.Assembly, string, boolean, System.Type>) : System.Type
-            public static GetType ($typeName: string, $assemblyResolver: System.Func$2<System.Reflection.AssemblyName, System.Reflection.Assembly>, $typeResolver: System.Func$4<System.Reflection.Assembly, string, boolean, System.Type>, $throwOnError: boolean) : System.Type
-            public static GetType ($typeName: string, $assemblyResolver: System.Func$2<System.Reflection.AssemblyName, System.Reflection.Assembly>, $typeResolver: System.Func$4<System.Reflection.Assembly, string, boolean, System.Type>, $throwOnError: boolean, $ignoreCase: boolean) : System.Type
-            public static op_Equality ($left: System.Type, $right: System.Type) : boolean
-            public static op_Inequality ($left: System.Type, $right: System.Type) : boolean
-            public static ReflectionOnlyGetType ($typeName: string, $throwIfNotFound: boolean, $ignoreCase: boolean) : System.Type
-            public static GetTypeFromCLSID ($clsid: System.Guid, $server: string, $throwOnError: boolean) : System.Type
-            public static GetTypeFromProgID ($progID: string, $server: string, $throwOnError: boolean) : System.Type
-            public Equals ($obj: any) : boolean
-            public static Equals ($objA: any, $objB: any) : boolean
-        }
-        class UInt64 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<bigint>, System.IConvertible, System.IEquatable$1<bigint>
+        class Type extends System.Reflection.MemberInfo implements System.Reflection.ICustomAttributeProvider, System.Reflection.IReflect, System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._Type
         {
             protected [__keep_incompatibility]: never;
         }
-        class Attribute extends System.Object implements System.Runtime.InteropServices._Attribute
+        class UInt64 extends System.ValueType implements System.IEquatable$1<bigint>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<bigint>, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
-        class RuntimeTypeHandle extends System.ValueType implements System.Runtime.Serialization.ISerializable
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        enum TypeCode
-        { Empty = 0, Object = 1, DBNull = 2, Boolean = 3, Char = 4, SByte = 5, Byte = 6, Int16 = 7, UInt16 = 8, Int32 = 9, UInt32 = 10, Int64 = 11, UInt64 = 12, Single = 13, Double = 14, Decimal = 15, DateTime = 16, String = 18 }
-        class Guid extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<System.Guid>, System.IEquatable$1<System.Guid>
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface Func$2<T, TResult>
-        { 
-        (arg: T) : TResult; 
-        Invoke?: (arg: T) => TResult;
-        }
-        interface Func$4<T1, T2, T3, TResult>
-        { 
-        (arg1: T1, arg2: T2, arg3: T3) : TResult; 
-        Invoke?: (arg1: T1, arg2: T2, arg3: T3) => TResult;
-        }
-        class UInt32 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        class UInt32 extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
@@ -368,11 +170,11 @@
         Invoke?: () => void;
         }
         var Action: { new (func: () => void): Action; }
-        class Byte extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        class Byte extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
-        class Int64 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<bigint>, System.IConvertible, System.IEquatable$1<bigint>
+        class Int64 extends System.ValueType implements System.IEquatable$1<bigint>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<bigint>, System.IConvertible
         {
             protected [__keep_incompatibility]: never;
         }
@@ -623,7 +425,7 @@
         }
         /** Representation of 3D vectors and points.
         */
-        class Vector3 extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Vector3>
+        class Vector3 extends System.ValueType implements System.IEquatable$1<UnityEngine.Vector3>, System.IFormattable
         {
             protected [__keep_incompatibility]: never;
             public static kEpsilon : number
@@ -676,26 +478,6 @@
             /** Shorthand for writing Vector3(float.NegativeInfinity, float.NegativeInfinity, float.NegativeInfinity).
             */
             public static get negativeInfinity(): UnityEngine.Vector3;
-            /** Spherically interpolates between two vectors.
-            */
-            public static Slerp ($a: UnityEngine.Vector3, $b: UnityEngine.Vector3, $t: number) : UnityEngine.Vector3
-            /** Spherically interpolates between two vectors.
-            */
-            public static SlerpUnclamped ($a: UnityEngine.Vector3, $b: UnityEngine.Vector3, $t: number) : UnityEngine.Vector3
-            /** Makes vectors normalized and orthogonal to each other.
-            */
-            public static OrthoNormalize ($normal: $Ref<UnityEngine.Vector3>, $tangent: $Ref<UnityEngine.Vector3>) : void
-            /** Makes vectors normalized and orthogonal to each other.
-            */
-            public static OrthoNormalize ($normal: $Ref<UnityEngine.Vector3>, $tangent: $Ref<UnityEngine.Vector3>, $binormal: $Ref<UnityEngine.Vector3>) : void
-            /** Rotates a vector current towards target.
-            * @param current The vector being managed.
-            * @param target The vector.
-            * @param maxRadiansDelta The maximum angle in radians allowed for this rotation.
-            * @param maxMagnitudeDelta The maximum allowed change in vector magnitude for this rotation.
-            * @returns The location that RotateTowards generates. 
-            */
-            public static RotateTowards ($current: UnityEngine.Vector3, $target: UnityEngine.Vector3, $maxRadiansDelta: number, $maxMagnitudeDelta: number) : UnityEngine.Vector3
             /** Linearly interpolates between two points.
             * @param a Start value, returned when t = 0.
             * @param b End value, returned when t = 1.
@@ -823,6 +605,26 @@
             * @param formatProvider An object that specifies culture-specific formatting.
             */
             public ToString ($format: string, $formatProvider: System.IFormatProvider) : string
+            /** Spherically interpolates between two vectors.
+            */
+            public static Slerp ($a: UnityEngine.Vector3, $b: UnityEngine.Vector3, $t: number) : UnityEngine.Vector3
+            /** Spherically interpolates between two vectors.
+            */
+            public static SlerpUnclamped ($a: UnityEngine.Vector3, $b: UnityEngine.Vector3, $t: number) : UnityEngine.Vector3
+            /** Makes vectors normalized and orthogonal to each other.
+            */
+            public static OrthoNormalize ($normal: $Ref<UnityEngine.Vector3>, $tangent: $Ref<UnityEngine.Vector3>) : void
+            /** Makes vectors normalized and orthogonal to each other.
+            */
+            public static OrthoNormalize ($normal: $Ref<UnityEngine.Vector3>, $tangent: $Ref<UnityEngine.Vector3>, $binormal: $Ref<UnityEngine.Vector3>) : void
+            /** Rotates a vector current towards target.
+            * @param current The vector being managed.
+            * @param target The vector.
+            * @param maxRadiansDelta The maximum angle in radians allowed for this rotation.
+            * @param maxMagnitudeDelta The maximum allowed change in vector magnitude for this rotation.
+            * @returns The location that RotateTowards generates. 
+            */
+            public static RotateTowards ($current: UnityEngine.Vector3, $target: UnityEngine.Vector3, $maxRadiansDelta: number, $maxMagnitudeDelta: number) : UnityEngine.Vector3
             public constructor ($x: number, $y: number, $z: number)
             public constructor ($x: number, $y: number)
             public Equals ($obj: any) : boolean
@@ -831,7 +633,7 @@
         }
         /** Representation of RGBA colors.
         */
-        class Color extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Color>
+        class Color extends System.ValueType implements System.IEquatable$1<UnityEngine.Color>, System.IFormattable
         {
             protected [__keep_incompatibility]: never;
         }
@@ -956,7 +758,7 @@
         { None = 0, NoStacktrace = 1 }
         /** Representation of 2D vectors and points.
         */
-        class Vector2 extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Vector2>
+        class Vector2 extends System.ValueType implements System.IEquatable$1<UnityEngine.Vector2>, System.IFormattable
         {
             protected [__keep_incompatibility]: never;
             /** X component of the vector.
@@ -1580,13 +1382,13 @@
         }
         /** Quaternions are used to represent rotations.
         */
-        class Quaternion extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Quaternion>
+        class Quaternion extends System.ValueType implements System.IEquatable$1<UnityEngine.Quaternion>, System.IFormattable
         {
             protected [__keep_incompatibility]: never;
         }
         /** A standard 4x4 transformation matrix.
         */
-        class Matrix4x4 extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Matrix4x4>
+        class Matrix4x4 extends System.ValueType implements System.IEquatable$1<UnityEngine.Matrix4x4>, System.IFormattable
         {
             protected [__keep_incompatibility]: never;
         }
@@ -1997,7 +1799,7 @@
         { Hierarchy = 0, Local = 1, Shape = 2 }
         /** Representation of four-dimensional vectors.
         */
-        class Vector4 extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Vector4>
+        class Vector4 extends System.ValueType implements System.IEquatable$1<UnityEngine.Vector4>, System.IFormattable
         {
             protected [__keep_incompatibility]: never;
         }
@@ -2117,7 +1919,7 @@
         { ScreenSpaceOverlay = 0, ScreenSpaceCamera = 1, WorldSpace = 2 }
         /** A 2D Rectangle defined by X and Y position, width and height.
         */
-        class Rect extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Rect>
+        class Rect extends System.ValueType implements System.IEquatable$1<UnityEngine.Rect>, System.IFormattable
         {
             protected [__keep_incompatibility]: never;
         }
@@ -2206,10 +2008,10 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        interface ICanvasRaycastFilter
+        interface ISerializationCallbackReceiver
         {
         }
-        interface ISerializationCallbackReceiver
+        interface ICanvasRaycastFilter
         {
         }
         /** Interface to control the Mecanim animation system.
@@ -2460,6 +2262,12 @@
             public constructor ()
             public constructor ($text: string)
         }
+        /** Represents a Sprite object for use in 2D gameplay.
+        */
+        class Sprite extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
     }
     namespace System.Collections.Generic {
         interface IEnumerable$1<T> extends System.Collections.IEnumerable
@@ -2561,22 +2369,6 @@
         {
         }
     }
-    namespace System.Runtime.Serialization {
-        interface ISerializable
-        {
-        }
-        class SerializationInfo extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class StreamingContext extends System.ValueType
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface IDeserializationCallback
-        {
-        }
-    }
     namespace System.Runtime.InteropServices {
         interface _Exception
         {
@@ -2593,33 +2385,18 @@
         interface _MethodInfo
         {
         }
-        interface _Assembly
+    }
+    namespace System.Runtime.Serialization {
+        interface ISerializable
         {
         }
-        interface _Module
-        {
-        }
-        interface _Attribute
-        {
-        }
-        class StructLayoutAttribute extends System.Attribute implements System.Runtime.InteropServices._Attribute
+        class SerializationInfo extends System.Object
         {
             protected [__keep_incompatibility]: never;
         }
-        interface _ConstructorInfo
+        class StreamingContext extends System.ValueType
         {
-        }
-        interface _EventInfo
-        {
-        }
-        interface _FieldInfo
-        {
-        }
-        interface _PropertyInfo
-        {
-        }
-        interface _AssemblyName
-        {
+            protected [__keep_incompatibility]: never;
         }
     }
     namespace System.Collections.ObjectModel {
@@ -2635,7 +2412,7 @@
         }
     }
     namespace System.Reflection {
-        class MemberInfo extends System.Object implements System.Runtime.InteropServices._MemberInfo, System.Reflection.ICustomAttributeProvider
+        class MemberInfo extends System.Object implements System.Reflection.ICustomAttributeProvider, System.Runtime.InteropServices._MemberInfo
         {
             protected [__keep_incompatibility]: never;
         }
@@ -2645,73 +2422,11 @@
         interface IReflect
         {
         }
-        class MethodBase extends System.Reflection.MemberInfo implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._MethodBase, System.Reflection.ICustomAttributeProvider
+        class MethodBase extends System.Reflection.MemberInfo implements System.Reflection.ICustomAttributeProvider, System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._MethodBase
         {
             protected [__keep_incompatibility]: never;
         }
-        class MethodInfo extends System.Reflection.MethodBase implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._MethodBase, System.Runtime.InteropServices._MethodInfo, System.Reflection.ICustomAttributeProvider
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface MemberFilter
-        { 
-        (m: System.Reflection.MemberInfo, filterCriteria: any) : boolean; 
-        Invoke?: (m: System.Reflection.MemberInfo, filterCriteria: any) => boolean;
-        }
-        var MemberFilter: { new (func: (m: System.Reflection.MemberInfo, filterCriteria: any) => boolean): MemberFilter; }
-        interface TypeFilter
-        { 
-        (m: System.Type, filterCriteria: any) : boolean; 
-        Invoke?: (m: System.Type, filterCriteria: any) => boolean;
-        }
-        var TypeFilter: { new (func: (m: System.Type, filterCriteria: any) => boolean): TypeFilter; }
-        enum MemberTypes
-        { Constructor = 1, Event = 2, Field = 4, Method = 8, Property = 16, TypeInfo = 32, Custom = 64, NestedType = 128, All = 191 }
-        enum BindingFlags
-        { Default = 0, IgnoreCase = 1, DeclaredOnly = 2, Instance = 4, Static = 8, Public = 16, NonPublic = 32, FlattenHierarchy = 64, InvokeMethod = 256, CreateInstance = 512, GetField = 1024, SetField = 2048, GetProperty = 4096, SetProperty = 8192, PutDispProperty = 16384, PutRefDispProperty = 32768, ExactBinding = 65536, SuppressChangeType = 131072, OptionalParamBinding = 262144, IgnoreReturn = 16777216, DoNotWrapExceptions = 33554432 }
-        class Assembly extends System.Object implements System.Runtime.Serialization.ISerializable, System.Reflection.ICustomAttributeProvider, System.Security.IEvidenceFactory, System.Runtime.InteropServices._Assembly
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class Module extends System.Object implements System.Runtime.Serialization.ISerializable, System.Runtime.InteropServices._Module, System.Reflection.ICustomAttributeProvider
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        enum GenericParameterAttributes
-        { None = 0, VarianceMask = 3, Covariant = 1, Contravariant = 2, SpecialConstraintMask = 28, ReferenceTypeConstraint = 4, NotNullableValueTypeConstraint = 8, DefaultConstructorConstraint = 16 }
-        enum TypeAttributes
-        { VisibilityMask = 7, NotPublic = 0, Public = 1, NestedPublic = 2, NestedPrivate = 3, NestedFamily = 4, NestedAssembly = 5, NestedFamANDAssem = 6, NestedFamORAssem = 7, LayoutMask = 24, AutoLayout = 0, SequentialLayout = 8, ExplicitLayout = 16, ClassSemanticsMask = 32, Class = 0, Interface = 32, Abstract = 128, Sealed = 256, SpecialName = 1024, Import = 4096, Serializable = 8192, WindowsRuntime = 16384, StringFormatMask = 196608, AnsiClass = 0, UnicodeClass = 65536, AutoClass = 131072, CustomFormatClass = 196608, CustomFormatMask = 12582912, BeforeFieldInit = 1048576, RTSpecialName = 2048, HasSecurity = 262144, ReservedMask = 264192 }
-        class ConstructorInfo extends System.Reflection.MethodBase implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._MethodBase, System.Runtime.InteropServices._ConstructorInfo, System.Reflection.ICustomAttributeProvider
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class Binder extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class ParameterModifier extends System.ValueType
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        enum CallingConventions
-        { Standard = 1, VarArgs = 2, Any = 3, HasThis = 32, ExplicitThis = 64 }
-        class EventInfo extends System.Reflection.MemberInfo implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._EventInfo, System.Reflection.ICustomAttributeProvider
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class FieldInfo extends System.Reflection.MemberInfo implements System.Runtime.InteropServices._MemberInfo, System.Reflection.ICustomAttributeProvider, System.Runtime.InteropServices._FieldInfo
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class PropertyInfo extends System.Reflection.MemberInfo implements System.Runtime.InteropServices._PropertyInfo, System.Runtime.InteropServices._MemberInfo, System.Reflection.ICustomAttributeProvider
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class InterfaceMapping extends System.ValueType
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class AssemblyName extends System.Object implements System.Runtime.InteropServices._AssemblyName, System.Runtime.Serialization.IDeserializationCallback, System.Runtime.Serialization.ISerializable, System.ICloneable
+        class MethodInfo extends System.Reflection.MethodBase implements System.Runtime.InteropServices._MethodInfo, System.Reflection.ICustomAttributeProvider, System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._MethodBase
         {
             protected [__keep_incompatibility]: never;
         }
@@ -2948,17 +2663,6 @@
         enum UnloadSceneOptions
         { None = 0, UnloadAllEmbeddedSceneObjects = 1 }
     }
-    namespace System.Security {
-        interface IEvidenceFactory
-        {
-        }
-    }
-    namespace System.Globalization {
-        class CultureInfo extends System.Object implements System.ICloneable, System.IFormatProvider
-        {
-            protected [__keep_incompatibility]: never;
-        }
-    }
     namespace UnityEngine.ParticleSystem {
         class Particle extends System.ValueType
         {
@@ -3070,7 +2774,7 @@
         }
     }
     namespace Unity.Collections {
-        class NativeArray$1<T> extends System.ValueType implements System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable, System.IDisposable, System.IEquatable$1<Unity.Collections.NativeArray$1<T>>
+        class NativeArray$1<T> extends System.ValueType implements System.IEquatable$1<Unity.Collections.NativeArray$1<T>>, System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable, System.IDisposable
         {
             protected [__keep_incompatibility]: never;
         }
@@ -3224,7 +2928,7 @@
         interface IClippable
         {
         }
-        class Image extends UnityEngine.UI.MaskableGraphic implements UnityEngine.UI.IMaterialModifier, UnityEngine.UI.IMaskable, UnityEngine.ICanvasRaycastFilter, UnityEngine.ISerializationCallbackReceiver, UnityEngine.UI.ICanvasElement, UnityEngine.UI.ILayoutElement, UnityEngine.UI.IClippable
+        class Image extends UnityEngine.UI.MaskableGraphic implements UnityEngine.UI.IMaterialModifier, UnityEngine.UI.IMaskable, UnityEngine.ISerializationCallbackReceiver, UnityEngine.UI.ICanvasElement, UnityEngine.UI.ILayoutElement, UnityEngine.UI.IClippable, UnityEngine.ICanvasRaycastFilter
         {
             protected [__keep_incompatibility]: never;
         }
@@ -3477,18 +3181,14 @@
         }
     }
     namespace HFramework {
-        class Singleton$1<T> extends System.Object
+        class ResManager extends System.Object
         {
             protected [__keep_incompatibility]: never;
-            public static get Instance(): T;
-        }
-        class ResManager extends HFramework.Singleton$1<HFramework.ResManager>
-        {
-            protected [__keep_incompatibility]: never;
-            public Init () : void
-            public Start () : void
-            public Update () : void
-            public LoadAsync ($resPath: string, $action: UnityEngine.Events.UnityAction$1<UnityEngine.Object>) : void
+            public static LoadAsync ($resPath: string, $action: UnityEngine.Events.UnityAction$1<UnityEngine.Object>) : void
+            public static LoadPrefab ($address: string) : UnityEngine.GameObject
+            public static LoadPrefabAsync ($address: string) : System.Threading.Tasks.Task$1<UnityEngine.GameObject>
+            public static LoadTextAssetAsync ($address: string) : System.Threading.Tasks.Task$1<UnityEngine.TextAsset>
+            public static LoadSpriteAsync ($address: string) : System.Threading.Tasks.Task$1<UnityEngine.Sprite>
             public static PreloadJS ($jsLabel: string) : System.Threading.Tasks.Task$1<boolean>
             public constructor ()
         }
@@ -3520,7 +3220,7 @@
         }
     }
     namespace UnityEngine.ResourceManagement.AsyncOperations {
-        class AsyncOperationHandle$1<TObject> extends System.ValueType implements System.Collections.IEnumerator, System.IEquatable$1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle$1<TObject>>
+        class AsyncOperationHandle$1<TObject> extends System.ValueType implements System.IEquatable$1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle$1<TObject>>, System.Collections.IEnumerator
         {
             protected [__keep_incompatibility]: never;
         }
