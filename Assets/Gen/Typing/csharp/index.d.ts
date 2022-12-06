@@ -2020,6 +2020,12 @@
         {
             protected [__keep_incompatibility]: never;
         }
+        /** Base class for Texture handling.
+        */
+        class Texture extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
         /** Interface for on-screen keyboards. Only native iPhone, Android, and Windows Store Apps are supported.
         */
         class TouchScreenKeyboard extends System.Object
@@ -2934,6 +2940,15 @@
         }
         interface ILayoutElement
         {
+        }
+        class RawImage extends UnityEngine.UI.MaskableGraphic implements UnityEngine.UI.IMaterialModifier, UnityEngine.UI.IMaskable, UnityEngine.UI.ICanvasElement, UnityEngine.UI.IClippable
+        {
+            protected [__keep_incompatibility]: never;
+            public get mainTexture(): UnityEngine.Texture;
+            public get texture(): UnityEngine.Texture;
+            public set texture(value: UnityEngine.Texture);
+            public get uvRect(): UnityEngine.Rect;
+            public set uvRect(value: UnityEngine.Rect);
         }
         class Button extends UnityEngine.UI.Selectable implements UnityEngine.EventSystems.IEventSystemHandler, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.ISelectHandler, UnityEngine.EventSystems.IPointerExitHandler, UnityEngine.EventSystems.IDeselectHandler, UnityEngine.EventSystems.IPointerDownHandler, UnityEngine.EventSystems.IPointerUpHandler, UnityEngine.EventSystems.IMoveHandler, UnityEngine.EventSystems.ISubmitHandler, UnityEngine.EventSystems.IPointerClickHandler
         {

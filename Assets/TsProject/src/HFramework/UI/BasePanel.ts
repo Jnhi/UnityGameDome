@@ -11,6 +11,7 @@ export abstract class BasePanel {
     protected static perfabUrl
 
     protected static perfabName
+    private _timer: any;
 
     public static getUrl():string{
         return this.perfabUrl
@@ -20,12 +21,20 @@ export abstract class BasePanel {
         return this.perfabName
     }
 
+    public startTimer(){
+        if(!this._timer)
+            this._timer = setInterval(this.Update.bind(this))
+    }
+
+    public Update():void{
+
+    }
     /**
      * 绑定界面中的组件
      * @param arg 
      */
     public OnBinding(arg?:any):void{
-        
+
     }
 
     /**

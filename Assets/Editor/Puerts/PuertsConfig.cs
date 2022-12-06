@@ -67,6 +67,7 @@ public class PuertsConfig
 
                 typeof(UnityEngine.EventSystems.UIBehaviour),
                 typeof(UnityEngine.UI.Selectable),
+                typeof(UnityEngine.UI.RawImage),
                 typeof(UnityEngine.UI.Button),
                 typeof(UnityEngine.UI.Button.ButtonClickedEvent),
                 typeof(UnityEngine.Events.UnityEvent),

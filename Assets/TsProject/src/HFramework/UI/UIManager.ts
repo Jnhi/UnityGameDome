@@ -51,4 +51,7 @@ export class UIManager extends Singleton<UIManager>{
         return _uiClass;
     }
 
+    public Update():void{
+        
+    }
 }
