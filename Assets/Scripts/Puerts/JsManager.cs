@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class JsManager:Singleton<JsManager>
+public class JsManager:MonoSingleton<JsManager>
 {
     JsEnv jsEnv = null;
     public Dictionary<string, string> jscache = new Dictionary<string, string>();

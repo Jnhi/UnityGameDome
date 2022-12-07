@@ -4,6 +4,11 @@ namespace HFramework
     public class CameraManager:Singleton<CameraManager>
     {
         public Camera camera;
+
+        public override void Dispose()
+        {
+        }
+
         public void Init()
         {
             camera = GameObject.Find("UICamera").GetComponent<Camera>();

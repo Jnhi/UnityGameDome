@@ -85,13 +85,16 @@ public class PuertsConfig
                 typeof(AsyncOperation),
 
                 typeof(HFramework.ResManager),
-                typeof(HFramework.AudioManager),
+                typeof(HFramework.ResManager),
+                typeof(JsManager),
 
+                typeof(MonoSingleton<JsManager>),
             };
 
             List<string> namespaces = new List<string>()
             {
-                // "HFramework",
+                "FairyGUI",
+                "FairyGUI.Utils",
             };
 
             Assembly[] ass = AppDomain.CurrentDomain.GetAssemblies();

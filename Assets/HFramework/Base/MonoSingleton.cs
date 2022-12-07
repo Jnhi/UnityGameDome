@@ -1,45 +1,71 @@
 using UnityEngine;
 
-namespace HFramework
+public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
-    /// <summary>
-    /// 依赖于Unity Mono的单例，其需要和Unity的一些物体做交互。例如对象池模块和音频管理模块。
-    /// </summary>
-    public abstract class MonoSingleton<T> : MonoBehaviour where T : Component
-    {
-        private static T _instance = null;
+    private static T mInstance = null;
 
-        public static T Instance
+    public static T Instance
+    {
+        get
         {
-            get
+            if (mInstance == null)
             {
-                if (_instance == null)
+                mInstance = GameObject.FindObjectOfType(typeof(T)) as T;
+                if (mInstance == null)
                 {
-                    _instance = FindObjectOfType<T>();
-                    if (_instance == null)
+                    GameObject go = new GameObject(typeof(T).Name);
+                    mInstance = go.AddComponent<T>();
+                    GameObject parent = GameObject.Find("Boot");
+                    if (parent == null)
                     {
-                        GameObject obj = new GameObject(typeof(T).Name, new[] { typeof(T) });
-                        DontDestroyOnLoad(obj);
-                        _instance = obj.GetComponent<T>();
+                        parent = new GameObject("Boot");
+                        GameObject.DontDestroyOnLoad(parent);
                     }
-                    else
+                    if (parent != null)
                     {
-                        Debug.LogWarning("Instance is already exist!");
+                        go.transform.parent = parent.transform;
                     }
                 }
-
-                return _instance;
             }
-        }
 
-        /// <summary>
-        /// 继承Mono单例的类如果写了Awake方法，需要在Awake方法最开始的地方调用一次base.Awake()，来给_instance赋值
-        /// </summary>
-        public void Awake()
-        {
-            _instance = this as T;
-            DontDestroyOnLoad(this);
+            return mInstance;
         }
     }
-}
 
+    /*
+     * 没有任何实现的函数，用于保证MonoSingleton在使用前已创建
+     */
+    public void Startup()
+    {
+
+    }
+
+    private void Awake()
+    {
+        if (mInstance == null)
+        {
+            mInstance = this as T;
+        }
+
+        DontDestroyOnLoad(gameObject);
+        Init();
+    }
+
+    protected virtual void Init()
+    {
+
+    }
+
+    public void DestroySelf()
+    {
+        Dispose();
+        MonoSingleton<T>.mInstance = null;
+        UnityEngine.Object.Destroy(gameObject);
+    }
+
+    public virtual void Dispose()
+    {
+
+    }
+
+}

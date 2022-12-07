@@ -222,6 +222,10 @@ namespace HFramework
                 panelPathDict.Add(info.panelType, info.path);
             }
         }
+
+        public override void Dispose()
+        {
+        }
     }
 }
 
