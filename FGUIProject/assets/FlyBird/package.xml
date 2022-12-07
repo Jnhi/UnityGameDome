@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="ja011jod">
+  <resources>
+    <image id="eq5v0" name="bird0_0.png" path="/Image/"/>
+    <image id="eq5v1" name="bird0_1.png" path="/Image/"/>
+    <image id="eq5v2" name="bird0_2.png" path="/Image/"/>
+    <image id="eq5v3" name="bg_day.png" path="/Image/"/>
+    <image id="eq5v4" name="button_play.png" path="/Image/"/>
+    <image id="eq5v5" name="medals_3.png" path="/Image/"/>
+    <image id="eq5v6" name="medals_4.png" path="/Image/"/>
+    <image id="eq5v8" name="medals_1.png" path="/Image/"/>
+    <image id="eq5v9" name="medals_2.png" path="/Image/"/>
+    <image id="eq5va" name="score_panel.png" path="/Image/"/>
+    <image id="eq5vb" name="title.png" path="/Image/"/>
+    <image id="eq5vc" name="text_game_over.png" path="/Image/"/>
+    <image id="eq5vd" name="PipeHead.png" path="/Image/"/>
+    <image id="eq5ve" name="PipeBody.png" path="/Image/"/>
+    <component id="eq5vi" name="MainVIew.xml" path="/UI/" exported="true"/>
+    <movieclip id="eq5vk" name="Bird.jta" path="/Image/"/>
+    <component id="eq5vl" name="Pipe.xml" path="/UI/" exported="true"/>
+    <image id="eq5vm" name="Ground.png" path="/Image/"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

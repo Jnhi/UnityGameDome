@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="720,1280">
+  <displayList>
+    <image id="n4_eq5v" name="n4" src="eq5v3" fileName="Image/bg1.png" xy="8,9" size="704,1262"/>
+    <component id="n5_eq5v" name="loading_pregress" src="eq5v4" fileName="UI/ProgressBar1.xml" xy="29,574" size="661,27">
+      <ProgressBar value="50" max="100"/>
+    </component>
+  </displayList>
+</component>

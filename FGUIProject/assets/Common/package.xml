@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="jkr64e0b">
+  <resources>
+    <component id="eq5vn" name="LoadingView.xml" path="/UI/" exported="true"/>
+    <image id="eq5v1" name="prg1_bg.png" path="/Image/" scale="9grid" scale9grid="27,8,54,9"/>
+    <image id="eq5v2" name="prg1_fill.png" path="/Image/" scale="9grid" scale9grid="13,10,5,8"/>
+    <component id="eq5v4" name="ProgressBar1.xml" path="/UI/" exported="true"/>
+    <image id="eq5v3" name="bg1.png" path="/Image/" scale="9grid" scale9grid="24,24,48,48"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

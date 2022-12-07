@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="jqmftbc6">
+  <resources>
+    <component id="eq5v0" name="StartView.xml" path="/UI/" exported="true"/>
+    <image id="eq5v5" name="bg1.png" path="/Image/" scale="9grid" scale9grid="24,24,48,48"/>
+    <image id="eq5v1" name="btn1_default.png" path="/Image/"/>
+    <component id="eq5v2" name="Button1.xml" path="/UI/" exported="true"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>
