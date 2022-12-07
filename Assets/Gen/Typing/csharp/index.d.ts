@@ -32,11 +32,17 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        class Boolean extends System.ValueType implements System.IEquatable$1<boolean>, System.IComparable, System.IComparable$1<boolean>, System.IConvertible
+        interface IFormattable
+        {
+        }
+        interface IEquatable$1<T>
+        {
+        }
+        class Single extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
         {
             protected [__keep_incompatibility]: never;
         }
-        interface IEquatable$1<T>
+        interface ISpanFormattable
         {
         }
         interface IComparable
@@ -48,32 +54,26 @@
         interface IConvertible
         {
         }
-        class String extends System.Object implements System.IEquatable$1<string>, System.ICloneable, System.Collections.Generic.IEnumerable$1<number>, System.IComparable, System.IComparable$1<string>, System.Collections.IEnumerable, System.IConvertible
+        class Boolean extends System.ValueType implements System.IComparable, System.IComparable$1<boolean>, System.IConvertible, System.IEquatable$1<boolean>
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class Int32 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class String extends System.Object implements System.ICloneable, System.IComparable, System.IComparable$1<string>, System.IConvertible, System.Collections.Generic.IEnumerable$1<number>, System.Collections.IEnumerable, System.IEquatable$1<string>
         {
             protected [__keep_incompatibility]: never;
         }
         interface ICloneable
         {
         }
-        class Char extends System.ValueType implements System.IEquatable$1<number>, System.IComparable, System.IComparable$1<number>, System.IConvertible
+        class Char extends System.ValueType implements System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
         {
             protected [__keep_incompatibility]: never;
         }
-        class Array extends System.Object implements System.Collections.IStructuralComparable, System.Collections.IStructuralEquatable, System.Collections.ICollection, System.ICloneable, System.Collections.IEnumerable, System.Collections.IList
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface IFormattable
-        {
-        }
-        class Single extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface ISpanFormattable
-        {
-        }
-        class Int32 extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
+        class Array extends System.Object implements System.Collections.IStructuralComparable, System.Collections.IStructuralEquatable, System.ICloneable, System.Collections.ICollection, System.Collections.IEnumerable, System.Collections.IList
         {
             protected [__keep_incompatibility]: never;
         }
@@ -81,14 +81,14 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        class Exception extends System.Object implements System.Runtime.InteropServices._Exception, System.Runtime.Serialization.ISerializable
+        class Exception extends System.Object implements System.Runtime.Serialization.ISerializable, System.Runtime.InteropServices._Exception
         {
             protected [__keep_incompatibility]: never;
         }
         interface IFormatProvider
         {
         }
-        class Delegate extends System.Object implements System.ICloneable, System.Runtime.Serialization.ISerializable
+        class Delegate extends System.Object implements System.Runtime.Serialization.ISerializable, System.ICloneable
         {
             protected [__keep_incompatibility]: never;
             public get Method(): System.Reflection.MethodInfo;
@@ -143,19 +143,19 @@
         (x: T, y: T) : number; 
         Invoke?: (x: T, y: T) => number;
         }
-        class Double extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
+        class Double extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
         {
             protected [__keep_incompatibility]: never;
         }
-        class Type extends System.Reflection.MemberInfo implements System.Reflection.ICustomAttributeProvider, System.Reflection.IReflect, System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._Type
+        class Type extends System.Reflection.MemberInfo implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._Type, System.Reflection.ICustomAttributeProvider, System.Reflection.IReflect
         {
             protected [__keep_incompatibility]: never;
         }
-        class UInt64 extends System.ValueType implements System.IEquatable$1<bigint>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<bigint>, System.IConvertible
+        class UInt64 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<bigint>, System.IConvertible, System.IEquatable$1<bigint>
         {
             protected [__keep_incompatibility]: never;
         }
-        class UInt32 extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
+        class UInt32 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -170,18 +170,11 @@
         Invoke?: () => void;
         }
         var Action: { new (func: () => void): Action; }
-        class Byte extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
+        class Byte extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
         {
             protected [__keep_incompatibility]: never;
         }
-        class Int64 extends System.ValueType implements System.IEquatable$1<bigint>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<bigint>, System.IConvertible
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface IAsyncResult
-        {
-        }
-        class Nullable$1<T> extends System.ValueType
+        class Int64 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<bigint>, System.IConvertible, System.IEquatable$1<bigint>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -190,11 +183,18 @@
         (arg1: T1, arg2: T2) : void; 
         Invoke?: (arg1: T1, arg2: T2) => void;
         }
-        class Int16 extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
+        interface IAsyncResult
+        {
+        }
+        class Nullable$1<T> extends System.ValueType
         {
             protected [__keep_incompatibility]: never;
         }
-        class UInt16 extends System.ValueType implements System.IEquatable$1<number>, System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible
+        class Int16 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class UInt16 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -442,7 +442,7 @@
         }
         /** Representation of 3D vectors and points.
         */
-        class Vector3 extends System.ValueType implements System.IEquatable$1<UnityEngine.Vector3>, System.IFormattable
+        class Vector3 extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Vector3>
         {
             protected [__keep_incompatibility]: never;
             public static kEpsilon : number
@@ -495,6 +495,26 @@
             /** Shorthand for writing Vector3(float.NegativeInfinity, float.NegativeInfinity, float.NegativeInfinity).
             */
             public static get negativeInfinity(): UnityEngine.Vector3;
+            /** Spherically interpolates between two vectors.
+            */
+            public static Slerp ($a: UnityEngine.Vector3, $b: UnityEngine.Vector3, $t: number) : UnityEngine.Vector3
+            /** Spherically interpolates between two vectors.
+            */
+            public static SlerpUnclamped ($a: UnityEngine.Vector3, $b: UnityEngine.Vector3, $t: number) : UnityEngine.Vector3
+            /** Makes vectors normalized and orthogonal to each other.
+            */
+            public static OrthoNormalize ($normal: $Ref<UnityEngine.Vector3>, $tangent: $Ref<UnityEngine.Vector3>) : void
+            /** Makes vectors normalized and orthogonal to each other.
+            */
+            public static OrthoNormalize ($normal: $Ref<UnityEngine.Vector3>, $tangent: $Ref<UnityEngine.Vector3>, $binormal: $Ref<UnityEngine.Vector3>) : void
+            /** Rotates a vector current towards target.
+            * @param current The vector being managed.
+            * @param target The vector.
+            * @param maxRadiansDelta The maximum angle in radians allowed for this rotation.
+            * @param maxMagnitudeDelta The maximum allowed change in vector magnitude for this rotation.
+            * @returns The location that RotateTowards generates. 
+            */
+            public static RotateTowards ($current: UnityEngine.Vector3, $target: UnityEngine.Vector3, $maxRadiansDelta: number, $maxMagnitudeDelta: number) : UnityEngine.Vector3
             /** Linearly interpolates between two points.
             * @param a Start value, returned when t = 0.
             * @param b End value, returned when t = 1.
@@ -622,26 +642,6 @@
             * @param formatProvider An object that specifies culture-specific formatting.
             */
             public ToString ($format: string, $formatProvider: System.IFormatProvider) : string
-            /** Spherically interpolates between two vectors.
-            */
-            public static Slerp ($a: UnityEngine.Vector3, $b: UnityEngine.Vector3, $t: number) : UnityEngine.Vector3
-            /** Spherically interpolates between two vectors.
-            */
-            public static SlerpUnclamped ($a: UnityEngine.Vector3, $b: UnityEngine.Vector3, $t: number) : UnityEngine.Vector3
-            /** Makes vectors normalized and orthogonal to each other.
-            */
-            public static OrthoNormalize ($normal: $Ref<UnityEngine.Vector3>, $tangent: $Ref<UnityEngine.Vector3>) : void
-            /** Makes vectors normalized and orthogonal to each other.
-            */
-            public static OrthoNormalize ($normal: $Ref<UnityEngine.Vector3>, $tangent: $Ref<UnityEngine.Vector3>, $binormal: $Ref<UnityEngine.Vector3>) : void
-            /** Rotates a vector current towards target.
-            * @param current The vector being managed.
-            * @param target The vector.
-            * @param maxRadiansDelta The maximum angle in radians allowed for this rotation.
-            * @param maxMagnitudeDelta The maximum allowed change in vector magnitude for this rotation.
-            * @returns The location that RotateTowards generates. 
-            */
-            public static RotateTowards ($current: UnityEngine.Vector3, $target: UnityEngine.Vector3, $maxRadiansDelta: number, $maxMagnitudeDelta: number) : UnityEngine.Vector3
             public constructor ($x: number, $y: number, $z: number)
             public constructor ($x: number, $y: number)
             public Equals ($obj: any) : boolean
@@ -650,7 +650,7 @@
         }
         /** Representation of RGBA colors.
         */
-        class Color extends System.ValueType implements System.IEquatable$1<UnityEngine.Color>, System.IFormattable
+        class Color extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Color>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -775,7 +775,7 @@
         { None = 0, NoStacktrace = 1 }
         /** Representation of 2D vectors and points.
         */
-        class Vector2 extends System.ValueType implements System.IEquatable$1<UnityEngine.Vector2>, System.IFormattable
+        class Vector2 extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Vector2>
         {
             protected [__keep_incompatibility]: never;
             /** X component of the vector.
@@ -1399,13 +1399,13 @@
         }
         /** Quaternions are used to represent rotations.
         */
-        class Quaternion extends System.ValueType implements System.IEquatable$1<UnityEngine.Quaternion>, System.IFormattable
+        class Quaternion extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Quaternion>
         {
             protected [__keep_incompatibility]: never;
         }
         /** A standard 4x4 transformation matrix.
         */
-        class Matrix4x4 extends System.ValueType implements System.IEquatable$1<UnityEngine.Matrix4x4>, System.IFormattable
+        class Matrix4x4 extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Matrix4x4>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -1816,7 +1816,7 @@
         { Hierarchy = 0, Local = 1, Shape = 2 }
         /** Representation of four-dimensional vectors.
         */
-        class Vector4 extends System.ValueType implements System.IEquatable$1<UnityEngine.Vector4>, System.IFormattable
+        class Vector4 extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Vector4>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -1936,7 +1936,7 @@
         { ScreenSpaceOverlay = 0, ScreenSpaceCamera = 1, WorldSpace = 2 }
         /** A 2D Rectangle defined by X and Y position, width and height.
         */
-        class Rect extends System.ValueType implements System.IEquatable$1<UnityEngine.Rect>, System.IFormattable
+        class Rect extends System.ValueType implements System.IFormattable, System.IEquatable$1<UnityEngine.Rect>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -2025,10 +2025,10 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        interface ISerializationCallbackReceiver
+        interface ICanvasRaycastFilter
         {
         }
-        interface ICanvasRaycastFilter
+        interface ISerializationCallbackReceiver
         {
         }
         /** Interface to control the Mecanim animation system.
@@ -2475,7 +2475,7 @@
         interface IEnumerator$1<T> extends System.Collections.IEnumerator, System.IDisposable
         {
         }
-        class Dictionary$2<TKey, TValue> extends System.Object implements System.Collections.Generic.IReadOnlyDictionary$2<TKey, TValue>, System.Collections.Generic.IDictionary$2<TKey, TValue>, System.Collections.ICollection, System.Collections.IDictionary, System.Collections.Generic.IEnumerable$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Runtime.Serialization.IDeserializationCallback, System.Collections.IEnumerable, System.Runtime.Serialization.ISerializable, System.Collections.Generic.IReadOnlyCollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.Generic.ICollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
+        class Dictionary$2<TKey, TValue> extends System.Object implements System.Runtime.Serialization.IDeserializationCallback, System.Collections.Generic.IReadOnlyDictionary$2<TKey, TValue>, System.Collections.Generic.IDictionary$2<TKey, TValue>, System.Runtime.Serialization.ISerializable, System.Collections.ICollection, System.Collections.IDictionary, System.Collections.Generic.IEnumerable$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.IEnumerable, System.Collections.Generic.IReadOnlyCollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>, System.Collections.Generic.ICollection$1<System.Collections.Generic.KeyValuePair$2<TKey, TValue>>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -2512,9 +2512,25 @@
         interface IDictionary extends System.Collections.ICollection, System.Collections.IEnumerable
         {
         }
-        class Hashtable extends System.Object implements System.Collections.ICollection, System.ICloneable, System.Collections.IDictionary, System.Runtime.Serialization.IDeserializationCallback, System.Collections.IEnumerable, System.Runtime.Serialization.ISerializable
+        class Hashtable extends System.Object implements System.Runtime.Serialization.IDeserializationCallback, System.ICloneable, System.Runtime.Serialization.ISerializable, System.Collections.ICollection, System.Collections.IDictionary, System.Collections.IEnumerable
         {
             protected [__keep_incompatibility]: never;
+        }
+    }
+    namespace System.Runtime.Serialization {
+        interface ISerializable
+        {
+        }
+        class SerializationInfo extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class StreamingContext extends System.ValueType
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface IDeserializationCallback
+        {
         }
     }
     namespace System.Runtime.InteropServices {
@@ -2534,22 +2550,6 @@
         {
         }
     }
-    namespace System.Runtime.Serialization {
-        interface ISerializable
-        {
-        }
-        class SerializationInfo extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class StreamingContext extends System.ValueType
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface IDeserializationCallback
-        {
-        }
-    }
     namespace System.Collections.ObjectModel {
         class ReadOnlyCollection$1<T> extends System.Object implements System.Collections.Generic.IReadOnlyList$1<T>, System.Collections.ICollection, System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable, System.Collections.Generic.IList$1<T>, System.Collections.Generic.IReadOnlyCollection$1<T>, System.Collections.IList, System.Collections.Generic.ICollection$1<T>
         {
@@ -2563,7 +2563,7 @@
         }
     }
     namespace System.Reflection {
-        class MemberInfo extends System.Object implements System.Reflection.ICustomAttributeProvider, System.Runtime.InteropServices._MemberInfo
+        class MemberInfo extends System.Object implements System.Runtime.InteropServices._MemberInfo, System.Reflection.ICustomAttributeProvider
         {
             protected [__keep_incompatibility]: never;
         }
@@ -2573,11 +2573,11 @@
         interface IReflect
         {
         }
-        class MethodBase extends System.Reflection.MemberInfo implements System.Reflection.ICustomAttributeProvider, System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._MethodBase
+        class MethodBase extends System.Reflection.MemberInfo implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._MethodBase, System.Reflection.ICustomAttributeProvider
         {
             protected [__keep_incompatibility]: never;
         }
-        class MethodInfo extends System.Reflection.MethodBase implements System.Runtime.InteropServices._MethodInfo, System.Reflection.ICustomAttributeProvider, System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._MethodBase
+        class MethodInfo extends System.Reflection.MethodBase implements System.Runtime.InteropServices._MemberInfo, System.Runtime.InteropServices._MethodBase, System.Runtime.InteropServices._MethodInfo, System.Reflection.ICustomAttributeProvider
         {
             protected [__keep_incompatibility]: never;
         }
@@ -2925,7 +2925,7 @@
         }
     }
     namespace Unity.Collections {
-        class NativeArray$1<T> extends System.ValueType implements System.IEquatable$1<Unity.Collections.NativeArray$1<T>>, System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable, System.IDisposable
+        class NativeArray$1<T> extends System.ValueType implements System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable, System.IDisposable, System.IEquatable$1<Unity.Collections.NativeArray$1<T>>
         {
             protected [__keep_incompatibility]: never;
         }
@@ -3079,7 +3079,7 @@
         interface IClippable
         {
         }
-        class Image extends UnityEngine.UI.MaskableGraphic implements UnityEngine.UI.IMaterialModifier, UnityEngine.UI.IMaskable, UnityEngine.ISerializationCallbackReceiver, UnityEngine.UI.ICanvasElement, UnityEngine.UI.ILayoutElement, UnityEngine.UI.IClippable, UnityEngine.ICanvasRaycastFilter
+        class Image extends UnityEngine.UI.MaskableGraphic implements UnityEngine.UI.IMaterialModifier, UnityEngine.UI.IMaskable, UnityEngine.ICanvasRaycastFilter, UnityEngine.ISerializationCallbackReceiver, UnityEngine.UI.ICanvasElement, UnityEngine.UI.ILayoutElement, UnityEngine.UI.IClippable
         {
             protected [__keep_incompatibility]: never;
         }
@@ -3340,40 +3340,6 @@
             public ActivateAsync () : UnityEngine.AsyncOperation
         }
     }
-    namespace HFramework {
-        class ResManager extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            public static LoadAsync ($resPath: string, $action: UnityEngine.Events.UnityAction$1<UnityEngine.Object>) : void
-            public static LoadPrefab ($address: string) : UnityEngine.GameObject
-            public static LoadPrefabAsync ($address: string) : System.Threading.Tasks.Task$1<UnityEngine.GameObject>
-            public static LoadTextAssetAsync ($address: string) : System.Threading.Tasks.Task$1<UnityEngine.TextAsset>
-            public static LoadSpriteAsync ($address: string) : System.Threading.Tasks.Task$1<UnityEngine.Sprite>
-            public static PreloadJS ($jsLabel: string) : System.Threading.Tasks.Task$1<boolean>
-            public constructor ()
-        }
-    }
-    namespace UnityEngine.ResourceManagement.AsyncOperations {
-        class AsyncOperationHandle$1<TObject> extends System.ValueType implements System.IEquatable$1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle$1<TObject>>, System.Collections.IEnumerator
-        {
-            protected [__keep_incompatibility]: never;
-        }
-    }
-    namespace System.Threading.Tasks {
-        class Task extends System.Object implements System.IAsyncResult, System.Threading.IThreadPoolWorkItem, System.IDisposable
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class Task$1<TResult> extends System.Threading.Tasks.Task implements System.IAsyncResult, System.Threading.IThreadPoolWorkItem, System.IDisposable
-        {
-            protected [__keep_incompatibility]: never;
-        }
-    }
-    namespace System.Threading {
-        interface IThreadPoolWorkItem
-        {
-        }
-    }
         class MonoSingleton$1<T> extends UnityEngine.MonoBehaviour
         {
             protected [__keep_incompatibility]: never;
@@ -3392,13 +3358,111 @@
             public Update () : void
             public StartGame () : void
             public Restart () : void
-            public Dispose () : void
             public constructor ()
         }
         namespace Puerts {
         class JsEnv extends System.Object implements System.IDisposable
         {
             protected [__keep_incompatibility]: never;
+        }
+        class ArrayBuffer extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+    }
+    namespace NiceTS {
+        class TService extends MonoSingleton$1<NiceTS.TService>
+        {
+            protected [__keep_incompatibility]: never;
+            public MemoryStreamManager : Microsoft.IO.RecyclableMemoryStreamManager
+            public needStartSendChannel : System.Collections.Generic.List$1<bigint>
+            public GetChannel () : NiceTS.TChannel
+            public MarkNeedStartSend ($id: bigint) : void
+            public Remove ($id: bigint) : void
+            public Update () : void
+            public constructor ()
+        }
+        class TChannel extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public errorCallback : NiceTS.ErrorCallback
+            public readCallback : NiceTS.ReadCallback
+            public get Service(): NiceTS.TService;
+            public get Id(): bigint;
+            public set Id(value: bigint);
+            public get IsSending(): boolean;
+            public get Error(): number;
+            public set Error(value: number);
+            public get RemoteAddress(): string;
+            public Connect ($address: string) : void
+            public Send ($ab: ArrayBuffer) : void
+            public StartSend () : void
+            public SendAsync ($buffer: System.Array$1<number>, $offset: number, $count: number) : void
+            public StartRecv () : void
+            public RecvAsync ($buffer: System.Array$1<number>, $offset: number, $count: number) : void
+            public Dispose () : void
+            public constructor ($service: NiceTS.TService)
+            public constructor ()
+        }
+        interface ErrorCallback
+        { 
+        (channel: NiceTS.TChannel, code: number) : void; 
+        Invoke?: (channel: NiceTS.TChannel, code: number) => void;
+        }
+        var ErrorCallback: { new (func: (channel: NiceTS.TChannel, code: number) => void): ErrorCallback; }
+        interface ReadCallback
+        { 
+        (arrayBuffer: ArrayBuffer) : void; 
+        Invoke?: (arrayBuffer: ArrayBuffer) => void;
+        }
+        var ReadCallback: { new (func: (arrayBuffer: ArrayBuffer) => void): ReadCallback; }
+        class ResourceManager extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public static OnFBLoadedHandle : System.Action$2<string, System.Array$1<number>>
+            public static init () : void
+            public static ReleaseFGUIPackage ($packageName: string) : void
+            public static LoadFairyGUIPackage ($address: string, $packageName: string) : $Task<any>
+            public static PreadloadFB ($fbLabel: string) : System.Threading.Tasks.Task$1<boolean>
+            public static PreloadJS ($jsLabel: string) : System.Threading.Tasks.Task$1<boolean>
+            public static LoadScene ($sceneName: string, $mode: UnityEngine.SceneManagement.LoadSceneMode, $update: System.Action$1<number>, $isActiveOnLoaded?: boolean, $priority?: number) : System.Threading.Tasks.Task$1<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance>
+            public static UnloadScene ($sceneInstance: UnityEngine.ResourceManagement.ResourceProviders.SceneInstance, $autoReleaseHandler?: boolean) : System.Threading.Tasks.Task$1<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance>
+            public static UnloadSceneByName ($sceneName: string) : void
+            public static LoadPrefab ($address: string) : System.Threading.Tasks.Task$1<UnityEngine.GameObject>
+            public static LoadTextAsset ($address: string) : System.Threading.Tasks.Task$1<UnityEngine.TextAsset>
+            public static LoadTextBytes ($address: string) : System.Threading.Tasks.Task$1<ArrayBuffer>
+            public static LoadSprite ($address: string) : System.Threading.Tasks.Task$1<UnityEngine.Sprite>
+            public static ReleaseAddressGO ($go: UnityEngine.Object) : void
+            public static GetStatusSummary () : string
+            public constructor ()
+        }
+        class HttpManager extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public static Get ($url: string) : System.Threading.Tasks.Task$1<string>
+            public static Post ($url: string, $formdata: string) : System.Threading.Tasks.Task$1<string>
+            public constructor ()
+        }
+    }
+    namespace Microsoft.IO {
+        class RecyclableMemoryStreamManager extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+    }
+    namespace System.Threading.Tasks {
+        class Task extends System.Object implements System.IAsyncResult, System.Threading.IThreadPoolWorkItem, System.IDisposable
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class Task$1<TResult> extends System.Threading.Tasks.Task implements System.IAsyncResult, System.Threading.IThreadPoolWorkItem, System.IDisposable
+        {
+            protected [__keep_incompatibility]: never;
+        }
+    }
+    namespace System.Threading {
+        interface IThreadPoolWorkItem
+        {
         }
     }
     namespace FairyGUI {

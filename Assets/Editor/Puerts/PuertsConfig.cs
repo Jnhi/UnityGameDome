@@ -1,11 +1,9 @@
 using Puerts;
 using System;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 using UnityEngine;
-using HFramework;
 
 /// <summary>
 /// 如果你全ts/js编程，可以参考这份自动化配置
@@ -84,10 +82,11 @@ public class PuertsConfig
                 typeof(UnityEngine.ResourceManagement.ResourceProviders.SceneInstance),
                 typeof(AsyncOperation),
 
-                typeof(HFramework.ResManager),
-                typeof(HFramework.ResManager),
                 typeof(JsManager),
-
+                typeof(NiceTS.TService),
+                typeof(NiceTS.TChannel),
+                typeof(NiceTS.ResourceManager),
+                typeof(NiceTS.HttpManager),
                 typeof(MonoSingleton<JsManager>),
             };
 

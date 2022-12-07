@@ -17,8 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 3f2b528c7f82a8443804c41d04e1bf3e
   m_SerializeEntries:
-  - m_GUID: 40a99c7e7d9f763468bc9cabf2834d1f
-    m_Address: Common/Loading/LoadingView.prefab
+  - m_GUID: 83a8267218887af45aebe048b5015151
+    m_Address: Common/Common_atlas0.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4f73e097b15643147b6c443c39cfb2aa
+    m_Address: Common/Common_fui.bytes
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

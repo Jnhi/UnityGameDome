@@ -1,4 +1,4 @@
-﻿using HFramework;
+﻿using NiceTS;
 using Puerts;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ public class JsManager:MonoSingleton<JsManager>
     async Task InitJsEnv()
     {
         //预加载JS ，在JSEnv初始化前调用
-        await ResManager.PreloadJS("JS");
+        await ResourceManager.PreloadJS("JS");
 
         //调试端口：8080
         jsEnv = new JsEnv(new JsLoader(), 8080);
@@ -82,7 +82,7 @@ public class JsManager:MonoSingleton<JsManager>
         }
     }
 
-    public void Dispose()
+    public override void Dispose()
     {
         JsOnDispose?.Invoke();
 

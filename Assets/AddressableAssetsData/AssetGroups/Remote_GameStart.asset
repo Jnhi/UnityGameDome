@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Remote_GameStart
+  m_EditorClassIdentifier: 
+  m_GroupName: Remote_GameStart
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a16d98a2c04ba024786812205a460290
+  m_SerializeEntries:
+  - m_GUID: d0ec64f3ee0998543a7d82756772b630
+    m_Address: GameStart/GameStart_atlas0.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7384027eab10d7f4d8a464d971b4754a
+    m_Address: GameStart/GameStart_fui.bytes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a0ce4609c3d5d894988a8a5a624b439f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3d39683d935cee34b8cc649c4450bb00, type: 2}
+    - {fileID: 11400000, guid: fd4a635d6d38e984babcdef24d602578, type: 2}

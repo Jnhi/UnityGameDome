@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Remote_FlyBird2
+  m_EditorClassIdentifier: 
+  m_GroupName: Remote_FlyBird2
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1ed5bfeca406802448aa005f24008633
+  m_SerializeEntries:
+  - m_GUID: 9d54d4e88398af849bd78626aebfa693
+    m_Address: FlyBird2/Fabs/Bird.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b249779d682d4714ba81060c3b2183cd
+    m_Address: FlyBird2/Fabs/FlyBirdView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fc8752702221a534588af19ed53d4492
+    m_Address: FlyBird2/Fabs/Pipe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a22f6b9802b709540b61839507f85f48
+    m_Address: FlyBird2/Image/bg_day.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 64fbb9ff1a5312946bbdfe303aad2981
+    m_Address: FlyBird2/Image/bird0_0.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 36aec6f9f34ccb740b36c3396f9d62fb
+    m_Address: FlyBird2/Image/bird0_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3f5c12c63d55a1d40b1ec25acf999062
+    m_Address: FlyBird2/Image/bird0_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8b764533770044f4e89704df187f6f9d
+    m_Address: FlyBird2/Image/blink_00.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf303fe9a89ebdb4b876da3cb9709678
+    m_Address: FlyBird2/Image/blink_01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 55486dfca19d7ea4b9ae447222523f86
+    m_Address: FlyBird2/Image/blink_02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 32c76777950b3f248b9e9a8ca83787f7
+    m_Address: FlyBird2/Image/Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f5428590ac1c30b499fbc6280ac2453b
+    m_Address: FlyBird2/Image/button_menu.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: be2c22773cd58a24c8abe9a75aaeb625
+    m_Address: FlyBird2/Image/button_ok.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2e4300f66d8bb7c48ac6cb1e67f49638
+    m_Address: FlyBird2/Image/button_pause.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fbc3cd726ae910a499f430e8ddd6f4e3
+    m_Address: FlyBird2/Image/button_play.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 497b993387e394e4583339a1822ebae8
+    m_Address: FlyBird2/Image/button_rate.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8cfaed336dcf08e42845d18d3f4ea95a
+    m_Address: FlyBird2/Image/button_resume.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b9924a01d92dcec469a3abcf746ce090
+    m_Address: FlyBird2/Image/button_score.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 269744ba0f6a26f429b2db1fc81f57fa
+    m_Address: FlyBird2/Image/button_share.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d5500bdeff159e24fa1eb2cb1f2f8ad5
+    m_Address: FlyBird2/Image/Ground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c64421fd6fe0d394abd8e553a3296010
+    m_Address: FlyBird2/Image/medals_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 113e2a15cae3e6c43814218f5e0d7939
+    m_Address: FlyBird2/Image/medals_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 41ad232194b57314fb0a2d63d540764d
+    m_Address: FlyBird2/Image/medals_3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5c964d9cd9fae714eb85e1253fd9f4ed
+    m_Address: FlyBird2/Image/medals_4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 87c821d28acb0334eba2ee64e1248c61
+    m_Address: FlyBird2/Image/new.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 052eaf0c2a9dd7340a81547a1f287b60
+    m_Address: FlyBird2/Image/PipeBody.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 06a02ce0324bd694e80e0b0e1da4042c
+    m_Address: FlyBird2/Image/PipeHead.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b9c6adabb1af8a54f9d818fd24647a12
+    m_Address: FlyBird2/Image/score_panel.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 356b4d68bfa9bff45b378f474b139fa5
+    m_Address: FlyBird2/Image/start_0.PNG
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9113f125735513548a008ae5a12bb984
+    m_Address: FlyBird2/Image/start_6.PNG
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 68e11ef79a7b08741b92d45378f7c010
+    m_Address: FlyBird2/Image/text_game_over.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2dd23f01264465d4b9bd857381340938
+    m_Address: FlyBird2/Image/title.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3eb7d198934398e4d8fcd6d6a63fd5e2
+    m_Address: FlyBird2/Image/tutorial.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a872c8901bd4be9449c9c103a261f854
+    m_Address: FlyBird2/Music/crash.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6a8b9dc7300ed0444974b57eb00b8be9
+    m_Address: FlyBird2/Music/fly.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f6da98d4adfecd4449565bed70db51ec
+    m_Address: FlyBird2/Music/getScore.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a0ce4609c3d5d894988a8a5a624b439f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d5b3df67c5dbc164ba21c1b9412672b4, type: 2}
+    - {fileID: 11400000, guid: dffea374c50758e41a13a2e9574d1ac1, type: 2}

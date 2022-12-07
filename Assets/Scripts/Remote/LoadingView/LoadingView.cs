@@ -1,14 +1,14 @@
-using HFramework;
+// using HFramework;
 
-public class LoadingView : BasePanel
-{
-    void Awake() {
+// public class LoadingView : BasePanel
+// {
+//     void Awake() {
 
-    }
-    void Start(){
+//     }
+//     void Start(){
 
-    }
-    void Update(){
+//     }
+//     void Update(){
         
-    }
-}
+//     }
+// }

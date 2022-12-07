@@ -99,10 +99,19 @@ namespace PuertsStaticWrap
             jsEnv.AddLazyStaticWrapLoader(typeof(UnityEngine.AsyncOperation), UnityEngine_AsyncOperation_Wrap.GetRegisterInfo);
                 
                 
-            jsEnv.AddLazyStaticWrapLoader(typeof(HFramework.ResManager), HFramework_ResManager_Wrap.GetRegisterInfo);
-                
-                
             jsEnv.AddLazyStaticWrapLoader(typeof(JsManager), JsManager_Wrap.GetRegisterInfo);
+                
+                
+            jsEnv.AddLazyStaticWrapLoader(typeof(NiceTS.TService), NiceTS_TService_Wrap.GetRegisterInfo);
+                
+                
+            jsEnv.AddLazyStaticWrapLoader(typeof(NiceTS.TChannel), NiceTS_TChannel_Wrap.GetRegisterInfo);
+                
+                
+            jsEnv.AddLazyStaticWrapLoader(typeof(NiceTS.ResourceManager), NiceTS_ResourceManager_Wrap.GetRegisterInfo);
+                
+                
+            jsEnv.AddLazyStaticWrapLoader(typeof(NiceTS.HttpManager), NiceTS_HttpManager_Wrap.GetRegisterInfo);
                 
                 
             jsEnv.AddLazyStaticWrapLoader(typeof(MonoSingleton<JsManager>), MonoSingleton_1_JsManager__Wrap.GetRegisterInfo);
