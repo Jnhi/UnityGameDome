@@ -20,12 +20,12 @@ public class JsManager:MonoSingleton<JsManager>
         return jsEnv;
     }
 
-    public void Update(float delta)
+    void Update()
     {
         if (jsEnv != null)
         {
             jsEnv.Tick();
-            JsUpdate?.Invoke(delta);
+            JsUpdate?.Invoke(Time.deltaTime);
         }
 
     }

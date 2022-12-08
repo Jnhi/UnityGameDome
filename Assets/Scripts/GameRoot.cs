@@ -42,8 +42,5 @@ public class GameRoot : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        JsManager.Instance.Update(Time.deltaTime);
-    }
+
 }

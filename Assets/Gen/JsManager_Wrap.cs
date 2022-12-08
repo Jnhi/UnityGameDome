@@ -80,48 +80,6 @@ namespace PuertsStaticWrap
         }
     
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void M_Update(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as JsManager;
-        
-        
-                {
-            
-                
-                    IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
-                    object argobj0 = null;
-                    JsValueType argType0 = JsValueType.Invalid;
-                
-                
-                    
-                    {
-                    
-                        float arg0 = (float)PuertsDLL.GetNumberFromValue(isolate, v8Value0, false);
-                    
-
-                        obj.Update (arg0);
-
-                    
-                        
-                    
-                        
-                        
-                        
-                    }
-                
-                }
-            
-        
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-    
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_StartGame(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -380,7 +338,6 @@ namespace PuertsStaticWrap
                 Methods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
                 {   
                     { new Puerts.MethodKey { Name = "GetJsEnv", IsStatic = false}, M_GetJsEnv },
-                    { new Puerts.MethodKey { Name = "Update", IsStatic = false}, M_Update },
                     { new Puerts.MethodKey { Name = "StartGame", IsStatic = false}, M_StartGame },
                     { new Puerts.MethodKey { Name = "Restart", IsStatic = false}, M_Restart },
                     { new Puerts.MethodKey { Name = "Dispose", IsStatic = false}, M_Dispose }
