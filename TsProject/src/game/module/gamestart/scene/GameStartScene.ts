@@ -1,10 +1,10 @@
 import { GameStartUI } from "../../../../data/ui/GameStart";
 import { BaseScene } from "../../../../framework/scene/BaseScene";
 import { S } from "../../../../global/GameConfig";
-import { VoHome } from "../vo/VoHome";
+import { VoGameStart } from "../vo/VoGameStart";
 
 
-export class GameStart extends BaseScene{
+export class GameStartScene extends BaseScene{
 
     constructor(){
         super();
@@ -13,16 +13,14 @@ export class GameStart extends BaseScene{
     }
 
     public onEnter() {
-
+        console.log("进入开始场景")
     }
 
     public onComplete() {
 
-        let vo:VoHome = new VoHome();
-        vo.name = "Justin";
-        vo.hp = 1200;
-        vo.mp = 3300;
-        vo.money = 666;
+        let vo:VoGameStart = new VoGameStart();
+
+        console.log("进入开始场景结束")
 
         S.UIManager.openPageInScene(
             GameStartUI.PackageName,

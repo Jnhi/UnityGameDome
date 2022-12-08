@@ -3,7 +3,8 @@ import { PveScene } from "../../game/module/pve/scene/PveScene";
 import { HomeScene } from "../../game/module/home/scene/HomeScene";
 // import { LoginScene } from "../../game/module/login/scene/LoginScene";
 import { SceneDef } from "./SceneDef";
-import { GameStart } from "../../game/module/gamestart/scene/GameStartScene";
+import { GameStartScene } from "../../game/module/gamestart/scene/GameStartScene";
+import { FlyBirdScene } from "../../game/module/flybird/scene/GameStartScene";
 
 
 
@@ -16,11 +17,11 @@ export class SceneFactory{
 
         switch (sceneName){
             case SceneDef.GameStart:
-                scene = new GameStart();
+                scene = new GameStartScene();
                 break;
-            // case SceneDef.LoginScene:
-            //     scene = new LoginScene();
-            //     break;
+            case SceneDef.FlyBird:
+                scene = new FlyBirdScene();
+                break;
             case SceneDef.HomeScene:
                 scene = new HomeScene();
                 break;

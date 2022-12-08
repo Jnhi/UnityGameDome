@@ -13,18 +13,21 @@ public class JsManager:MonoSingleton<JsManager>
 
     public Action JsOnApplicationQuit;
     public Action JsOnDispose;
+    public Action<float> JsUpdate;
 
     public JsEnv GetJsEnv()
     {
         return jsEnv;
     }
 
-    public void Update()
+    public void Update(float delta)
     {
         if (jsEnv != null)
         {
             jsEnv.Tick();
+            JsUpdate?.Invoke(delta);
         }
+
     }
 
     async Task InitJsEnv()

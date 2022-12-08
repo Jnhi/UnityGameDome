@@ -6,6 +6,7 @@ import { CommonUI } from "../../data/ui/common";
 import { FlyBirdUI } from "../../data/ui/FlyBird";
 import { GameStartUI } from "../../data/ui/GameStart";
 import { UIStartView } from "../../game/module/gamestart/ui/UIStartView";
+import { UIFlyBirdMainView } from "../../game/module/flybird/ui/UIFlyBirdMainView";
 
 
 
@@ -36,7 +37,7 @@ export class UIFactory{
                 case FlyBirdUI.PackageName:
                     switch (name){
                         case FlyBirdUI.UIMainVIew:
-                            // ui = new UILoginPage();
+                            ui = new UIFlyBirdMainView();
                             break;
                     }
                     break

@@ -2,8 +2,8 @@
 <component size="720,1280">
   <displayList>
     <image id="n0_eq5v" name="n0" src="eq5v5" fileName="Image/bg1.png" xy="31,31" size="665,1225"/>
-    <component id="n1_eq5v" name="btn_start" src="eq5v2" fileName="UI/Button1.xml" xy="222,550">
-      <Button title="测试啊" titleFontSize="54"/>
+    <component id="n1_eq5v" name="btn_start" src="eq5v2" fileName="UI/Button1.xml" xy="220,590">
+      <Button title="FlyBird" titleFontSize="54"/>
     </component>
   </displayList>
 </component>

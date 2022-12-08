@@ -47,9 +47,16 @@ export abstract class UIPanel extends UIBase {
     public abstract onAwake():void;
     public abstract onShow(vo?:any):void;
     public abstract onClose(arg?:any):void;
-    public onDispose(){};
 
-    public onUpdate():void{}
+    /**
+     * Unity中的Update方法
+     * @param delta 每帧花的时间
+     */
+    protected onUpdate(delta?:number):void{
+
+    }
+
+    public onDispose(){};
 
     public awake():void{
         this.onAwake();
@@ -63,8 +70,11 @@ export abstract class UIPanel extends UIBase {
     }
 
 
-    public update():void{
-        this.onUpdate();
+    public update(delta:number):void{
+        if (this) {
+            
+        }
+        this.onUpdate(delta);
     }
 
     /**

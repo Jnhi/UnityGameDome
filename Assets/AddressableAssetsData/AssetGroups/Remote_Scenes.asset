@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 538d06cf549f4b548ab0d357ab5ee8a8
   m_SerializeEntries:
   - m_GUID: 886e60368ea74874795a140604ca66f5
-    m_Address: Scenes/GameStart.unity
+    m_Address: Scenes/GameStartScene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

@@ -11,7 +11,7 @@ local function genCode(handler)
 
     writer:writeln('export class %sUI',codePkgName)
     writer:startBlock()
-    writer:writeln('public static PackageName:string = "%s";', codePkgName)
+    writer:writeln('public static PackageName:string = "%s";',codePkgName)
     writer:writeln('public static PackageBytes:string = "%s_fui.bytes";', codePkgName)
 
     for i=0,classCnt-1 do

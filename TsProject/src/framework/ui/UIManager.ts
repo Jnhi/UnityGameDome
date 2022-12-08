@@ -37,6 +37,14 @@ export class UIManager extends Singleton<UIManager>{
 
     }
 
+    public update(delta:number){
+        for (let i = 0; i < this.m_listLoadedPanel.length; ++i) {
+            this.m_listLoadedPanel[i].update(delta);            
+        }
+        this.m_currentPage?.ui?.update(delta)
+        this.m_lastScensePage?.ui?.update(delta)
+    }
+
     private distroyPanel(panel:UIPanel){
         if(panel.isOpen){
             panel.close();

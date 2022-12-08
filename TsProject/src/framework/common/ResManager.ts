@@ -13,15 +13,14 @@ export class ResManager extends Singleton<ResManager>{
     }
 
     async loadFairyGUIPackage(packageName:string){
-
         try{
             let count = this._pkgMap.get(packageName);
             if(count == null || count < 1){
                 //没有缓存，加载
                 let address = packageName+"_fui.bytes";
+                console.log(address)
                 let task = NiceTS.ResourceManager.LoadFairyGUIPackage(address,packageName);
                 await $promise(task);
-                
                 this._pkgMap.set(packageName, 1);
             }
             else{

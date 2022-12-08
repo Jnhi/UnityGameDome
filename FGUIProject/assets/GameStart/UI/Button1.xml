@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="279,99" extention="Button">
-  <Button/>
-  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver"/>
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <image id="n0_eq5v" src="eq5v1" name="n0" xy="0,0">
-      <relation target="" sidePair="width,height"/>
+    <image id="n0_eq5v" name="n0" src="eq5v1" fileName="Image/btn1_default.png" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <text id="n1_eq5v" name="title" xy="0,0" size="279,99" fontSize="12" autoSize="none" align="center" vAlign="middle" singleLine="true">
-      <relation target="" sidePair="width,height"/>
+    <text id="n1_eq5v" name="title" xy="0,0" size="279,99" fontSize="12" align="center" vAlign="middle" autoSize="none" singleLine="true" text="">
+      <relation target="" sidePair="width-width,height-height"/>
     </text>
   </displayList>
+  <Button downEffect="dark" downEffectValue=".8"/>
 </component>

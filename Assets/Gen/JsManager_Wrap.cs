@@ -90,13 +90,21 @@ namespace PuertsStaticWrap
                 {
             
                 
+                    IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                    object argobj0 = null;
+                    JsValueType argType0 = JsValueType.Invalid;
+                
                 
                     
                     {
                     
+                        float arg0 = (float)PuertsDLL.GetNumberFromValue(isolate, v8Value0, false);
+                    
 
-                        obj.Update ();
+                        obj.Update (arg0);
 
+                    
+                        
                     
                         
                         
@@ -318,6 +326,39 @@ namespace PuertsStaticWrap
             }
         }
             
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_JsUpdate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as JsManager;
+                var result = obj.JsUpdate;
+                Puerts.ResultHelper.Set((int)data, isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S_JsUpdate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as JsManager;
+                IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                object argobj0 = null;
+                argobj0 = argobj0 != null ? argobj0 : StaticTranslate<System.Action<float>>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); System.Action<float> arg0 = (System.Action<float>)argobj0;
+                obj.JsUpdate = arg0;
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
     // ==================== properties end ====================
     // ==================== array item get/set start ====================
     
@@ -351,7 +392,9 @@ namespace PuertsStaticWrap
 
                     {"JsOnApplicationQuit", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_JsOnApplicationQuit, Setter = S_JsOnApplicationQuit} },
 
-                    {"JsOnDispose", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_JsOnDispose, Setter = S_JsOnDispose} }
+                    {"JsOnDispose", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_JsOnDispose, Setter = S_JsOnDispose} },
+
+                    {"JsUpdate", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_JsUpdate, Setter = S_JsUpdate} }
                 },
                 LazyMembers = new System.Collections.Generic.List<Puerts.LazyMemberRegisterInfo>()
                 {   

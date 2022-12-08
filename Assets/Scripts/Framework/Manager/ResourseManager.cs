@@ -33,17 +33,17 @@ namespace NiceTS
         public static async Task LoadFairyGUIPackage(string address, string packageName)
         {
 
-            var pkgAsset = await Addressables.LoadAssetAsync<TextAsset>(address).Task;
+            var pkgAsset = await Addressables.LoadAssetAsync<TextAsset>(packageName + "/" + address).Task;
 
             UIPackage.AddPackage(
                 pkgAsset.bytes,
                 packageName,
                 async (string name, string extension, Type type, PackageItem ite) => {
-                    Log.Debug(LogGroups.Engine, $"{name}, {extension}, {type.ToString()}, {ite.ToString()}");
+                    Log.Debug(LogGroups.Engine, $"{packageName + "/" + name}, {extension}, {type.ToString()}, {ite.ToString()}");
 
                     if (type == typeof(Texture))
                     {
-                        Texture t = await Addressables.LoadAssetAsync<Texture>(name + extension).Task;
+                        Texture t = await Addressables.LoadAssetAsync<Texture>(packageName + "/" + name + extension).Task;
                         ite.owner.SetItemAsset(ite, t, DestroyMethod.Custom);
 
                     }
@@ -97,7 +97,7 @@ namespace NiceTS
 
         public static async Task<SceneInstance> LoadScene(string sceneName, LoadSceneMode mode, Action<float> update, bool isActiveOnLoaded = true, int priority = 100)
         {
-            var handle = Addressables.LoadSceneAsync(sceneName, mode, isActiveOnLoaded, priority);
+            var handle = Addressables.LoadSceneAsync("Scenes/" + sceneName + ".unity", mode, isActiveOnLoaded, priority);
 
             var _update = GlobalMonoBehavior.Instance.AddUpdate(e: () =>
             {

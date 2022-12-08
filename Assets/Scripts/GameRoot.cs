@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using FairyGUI;
+using NiceTS;
 using UnityEngine;
 
 /// <summary>
@@ -24,6 +26,12 @@ public class GameRoot : MonoBehaviour {
         GameObject.Destroy(HotUpdateView.gameObject);
 
         JsManager.Instance.StartGame();
+
+        GRoot.inst.SetContentScaleFactor(720, 1280, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
+        UIPackage.unloadBundleByFGUI = false;
+
+        //加载FairyGUI Package
+        ResourceManager.init();
     }
 
     // Start is called before the first frame update
@@ -36,6 +44,6 @@ public class GameRoot : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        JsManager.Instance.Update();
+        JsManager.Instance.Update(Time.deltaTime);
     }
 }
