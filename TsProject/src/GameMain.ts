@@ -1,4 +1,4 @@
-import { JsManager, UnityEngine } from "csharp";
+import { GameLaunch, JsManager, UnityEngine } from "csharp";
 import { CommonUI } from "./data/ui/common";
 import { Logger } from "./framework/logger/Logger";
 import { SceneDef } from "./framework/scene/SceneDef";
@@ -24,6 +24,9 @@ class GameMain{
 
         //进入登录模块
         await S.SceneManager.loadScene(SceneDef.GameStart);
+
+        //JS启动完成，通知C#层
+        GameLaunch.Instance.JsLuanchFinish();
     };
 
     public onApplicationQuit():void {

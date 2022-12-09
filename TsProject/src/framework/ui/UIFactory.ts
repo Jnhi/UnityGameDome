@@ -26,7 +26,6 @@ export class UIFactory{
         if(!ui){
 
             switch(pkg){
-
                 case CommonUI.PackageName:
                     switch (name){
                         case CommonUI.UILoadingView:
@@ -48,24 +47,6 @@ export class UIFactory{
                             break;
                     }
                     break
-                // case homeUI.PackageName:
-                //     switch (name){
-                //         case homeUI.UIHomePage:
-                //             ui = new UIHomePage();
-                //             break;
-                //         case homeUI.UIShopPage:
-                //             ui = new UIShopPage();
-                //             break;
-                //     }
-                //     break
-                // case storyUI.PackageName:
-                //     switch (name){
-                //         case storyUI.UIStoryWin:
-                //             ui = new UIStoryWin();
-                //             break;
-                //     }
-                    break
-
             }
 
             this.uiCache.set(name, ui);

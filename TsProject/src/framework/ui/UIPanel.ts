@@ -71,9 +71,6 @@ export abstract class UIPanel extends UIBase {
 
 
     public update(delta:number):void{
-        if (this) {
-            
-        }
         this.onUpdate(delta);
     }
 

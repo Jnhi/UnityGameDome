@@ -4,7 +4,7 @@ import { HomeScene } from "../../game/module/home/scene/HomeScene";
 // import { LoginScene } from "../../game/module/login/scene/LoginScene";
 import { SceneDef } from "./SceneDef";
 import { GameStartScene } from "../../game/module/gamestart/scene/GameStartScene";
-import { FlyBirdScene } from "../../game/module/flybird/scene/GameStartScene";
+import { FlyBirdScene } from "../../game/module/flybird/scene/FlyBirdScene";
 
 
 
