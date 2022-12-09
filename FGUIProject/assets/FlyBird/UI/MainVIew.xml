@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="720,1280">
   <displayList>
-    <image id="n0_eq5v" name="img_sky" src="eq5v3" fileName="Image/bg_day.png" xy="-5,-8" size="730,1297" aspect="true"/>
     <image id="n3_eq5v" name="img_gouund" src="eq5vm" fileName="Image/Ground.png" xy="-40,1116" size="800,160"/>
+    <list id="n4_fjxi" name="list_bg" xy="-49,-40" size="818,1361" touchable="false" layout="row" overflow="scroll" scroll="horizontal" defaultItem="ui://ja011jodfjxin" autoItemSize="false" autoClearItems="true" scrollItemToViewOnClick="false">
+      <item/>
+      <item/>
+      <item/>
+    </list>
   </displayList>
 </component>

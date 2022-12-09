@@ -4,7 +4,7 @@
     <image id="eq5v0" name="bird0_0.png" path="/Image/"/>
     <image id="eq5v1" name="bird0_1.png" path="/Image/"/>
     <image id="eq5v2" name="bird0_2.png" path="/Image/"/>
-    <image id="eq5v3" name="bg_day.png" path="/Image/"/>
+    <image id="eq5v3" name="bg_day.png" path="/Image/" scale9grid="72,128,144,256"/>
     <image id="eq5v4" name="button_play.png" path="/Image/"/>
     <image id="eq5v5" name="medals_3.png" path="/Image/"/>
     <image id="eq5v6" name="medals_4.png" path="/Image/"/>
@@ -19,6 +19,7 @@
     <movieclip id="eq5vk" name="Bird.jta" path="/Image/"/>
     <component id="eq5vl" name="Pipe.xml" path="/UI/" exported="true"/>
     <image id="eq5vm" name="Ground.png" path="/Image/"/>
+    <component id="fjxin" name="sky.xml" path="/UI/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>
