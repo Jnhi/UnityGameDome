@@ -99,6 +99,9 @@ namespace PuertsStaticWrap
             jsEnv.AddLazyStaticWrapLoader(typeof(UnityEngine.AsyncOperation), UnityEngine_AsyncOperation_Wrap.GetRegisterInfo);
                 
                 
+            jsEnv.AddLazyStaticWrapLoader(typeof(GameLaunch), GameLaunch_Wrap.GetRegisterInfo);
+                
+                
             jsEnv.AddLazyStaticWrapLoader(typeof(JsManager), JsManager_Wrap.GetRegisterInfo);
                 
                 

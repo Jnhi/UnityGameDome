@@ -1,4 +1,5 @@
-﻿using NiceTS;
+﻿using FairyGUI;
+using NiceTS;
 using Puerts;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ public class JsManager:MonoSingleton<JsManager>
         jsEnv.UsingAction<float, float>();
         jsEnv.UsingAction<string, byte[]>();
         jsEnv.UsingAction<Scene, LoadSceneMode>();
-
+        jsEnv.UsingAction<int, GObject>();
     }
 
     public async void StartGame()

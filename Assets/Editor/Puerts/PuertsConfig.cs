@@ -82,6 +82,7 @@ public class PuertsConfig
                 typeof(UnityEngine.ResourceManagement.ResourceProviders.SceneInstance),
                 typeof(AsyncOperation),
 
+                typeof(GameLaunch),
                 typeof(JsManager),
                 typeof(NiceTS.TService),
                 typeof(NiceTS.TChannel),

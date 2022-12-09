@@ -3348,6 +3348,18 @@
             public DestroySelf () : void
             public Dispose () : void
         }
+        class GameLaunch extends MonoSingleton$1<GameLaunch>
+        {
+            protected [__keep_incompatibility]: never;
+            public HotUpdateView : HotUpdateView
+            public GameStart () : void
+            public JsLuanchFinish () : void
+            public constructor ()
+        }
+        class HotUpdateView extends UnityEngine.MonoBehaviour
+        {
+            protected [__keep_incompatibility]: never;
+        }
         class JsManager extends MonoSingleton$1<JsManager>
         {
             protected [__keep_incompatibility]: never;
