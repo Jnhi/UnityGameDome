@@ -27,5 +27,5 @@ module.exports = {
 		filename: 'bundle.mjs',
 		path: path.resolve(__dirname, '../Assets/AddressableAssets/Remote/Js')
 	},
-	externals
+	externals,
 };

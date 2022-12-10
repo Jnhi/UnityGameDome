@@ -5,6 +5,7 @@ import { SceneDef } from "./framework/scene/SceneDef";
 import { S } from "./global/GameConfig";
 import { UnitTest } from "./unittest/UnitTest";
 
+
 class GameMain{
 
     constructor() {
@@ -18,7 +19,7 @@ class GameMain{
         //加载通用FairyGUI资源
         console.log(CommonUI.PackageName)
         await S.ResManager.loadFairyGUIPackage(CommonUI.PackageName);
-
+        // JSON.parse('aa');
         //do Unit Test
         // UnitTest.doTest();
 

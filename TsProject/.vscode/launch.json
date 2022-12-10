@@ -8,10 +8,10 @@
             "type": "node",
             "request": "attach",
             "name": "Attach",
-            "port": 8080,
+            "port": 8082,
             "skipFiles": [
                 "<node_internals>/**"
-            ]
+            ],
         },
     ]
 }

@@ -2025,6 +2025,48 @@
         {
             protected [__keep_incompatibility]: never;
         }
+        /** `PlayerPrefs` is a class that stores Player preferences between game sessions. It can store string, float and integer values into the user’s platform registry.
+        */
+        class PlayerPrefs extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            /** Sets a single integer value for the preference identified by the given key. You can use PlayerPrefs.GetInt to retrieve this value.
+            */
+            public static SetInt ($key: string, $value: number) : void
+            /** Returns the value corresponding to key in the preference file if it exists.
+            */
+            public static GetInt ($key: string, $defaultValue: number) : number
+            /** Returns the value corresponding to key in the preference file if it exists.
+            */
+            public static GetInt ($key: string) : number
+            /** Sets the float value of the preference identified by the given key. You can use PlayerPrefs.GetFloat to retrieve this value.
+            */
+            public static SetFloat ($key: string, $value: number) : void
+            /** Returns the value corresponding to key in the preference file if it exists.
+            */
+            public static GetFloat ($key: string, $defaultValue: number) : number
+            /** Returns the value corresponding to key in the preference file if it exists.
+            */
+            public static GetFloat ($key: string) : number
+            /** Sets a single string value for the preference identified by the given key. You can use PlayerPrefs.GetString to retrieve this value.
+            */
+            public static SetString ($key: string, $value: string) : void
+            /** Returns the value corresponding to key in the preference file if it exists.
+            */
+            public static GetString ($key: string, $defaultValue: string) : string
+            /** Returns the value corresponding to key in the preference file if it exists.
+            */
+            public static GetString ($key: string) : string
+            /** Returns true if the given key exists in PlayerPrefs, otherwise returns false.
+            */
+            public static HasKey ($key: string) : boolean
+            /** Removes the given key from the PlayerPrefs. If the key does not exist, DeleteKey has no impact.
+            */
+            public static DeleteKey ($key: string) : void
+            public static DeleteAll () : void
+            public static Save () : void
+            public constructor ()
+        }
         interface ICanvasRaycastFilter
         {
         }

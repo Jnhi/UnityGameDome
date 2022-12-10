@@ -18,8 +18,10 @@
     <component id="eq5vi" name="MainVIew.xml" path="/UI/" exported="true"/>
     <movieclip id="eq5vk" name="Bird.jta" path="/Image/"/>
     <component id="eq5vl" name="Pipe.xml" path="/UI/" exported="true"/>
-    <image id="eq5vm" name="Ground.png" path="/Image/"/>
+    <image id="eq5vm" name="Ground.png" path="/Image/" scale9grid="200,36,400,72"/>
     <component id="fjxin" name="sky.xml" path="/UI/" exported="true"/>
+    <component id="qhugp" name="Button1.xml" path="/UI/"/>
+    <component id="qhugr" name="OverWindow.xml" path="/UI/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

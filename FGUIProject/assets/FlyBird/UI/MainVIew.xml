@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="720,1280">
   <displayList>
-    <image id="n3_eq5v" name="img_gouund" src="eq5vm" fileName="Image/Ground.png" xy="-40,1116" size="800,160"/>
     <list id="n4_fjxi" name="list_bg" xy="-49,-40" size="818,1361" touchable="false" layout="row" overflow="scroll" scroll="horizontal" defaultItem="ui://ja011jodfjxin" autoItemSize="false" autoClearItems="true" scrollItemToViewOnClick="false">
       <item/>
       <item/>
       <item/>
     </list>
+    <list id="n8_qhug" name="list_ground" xy="-49,1078" size="818,143" aspect="true" scale="1,1.721" touchable="false" layout="row" overflow="scroll" scroll="horizontal" defaultItem="ui://ja011jodeq5vm" autoItemSize="false" autoClearItems="true" scrollItemToViewOnClick="false">
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <movieclip id="n9_qhug" name="anim_bird" src="eq5vk" fileName="Image/Bird.jta" xy="291,499" size="136,136"/>
+    <component id="n12_qhug" name="btn_start" src="qhugp" fileName="UI/Button1.xml" xy="264,830" size="191,116" group="n13_qhug"/>
+    <image id="n10_qhug" name="n10" src="eq5vb" fileName="Image/title.png" xy="147,182" size="425,114" group="n13_qhug"/>
+    <group id="n13_qhug" name="startPanel" xy="147,182" size="425,764" advanced="true"/>
+    <text id="n16_qhug" name="txt_Score" xy="268,71" size="184,95" font="ui://jkr64e0bqhugq" fontSize="73" align="center" vAlign="middle" autoSize="shrink" text="999"/>
   </displayList>
 </component>

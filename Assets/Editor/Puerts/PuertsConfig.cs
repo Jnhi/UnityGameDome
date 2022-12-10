@@ -43,7 +43,6 @@ public class PuertsConfig
             var list =  new List<Type>()
             {
 
-
                 typeof(Debug),
                 typeof(Vector3),
                 typeof(Vector2),
@@ -63,6 +62,7 @@ public class PuertsConfig
                 typeof(Behaviour),
                 typeof(MonoBehaviour),
 
+                typeof(UnityEngine.PlayerPrefs),
                 typeof(UnityEngine.EventSystems.UIBehaviour),
                 typeof(UnityEngine.UI.Selectable),
                 typeof(UnityEngine.UI.RawImage),
@@ -94,6 +94,7 @@ public class PuertsConfig
             List<string> namespaces = new List<string>()
             {
                 "FairyGUI",
+                "DG",
                 "FairyGUI.Utils",
             };
 

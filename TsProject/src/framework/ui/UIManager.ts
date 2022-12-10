@@ -234,7 +234,7 @@ export class UIManager extends Singleton<UIManager>{
 
     //==========================================================UIWindow
     //打开窗口
-    public async openWindow(pkg:string, name:string, arg:any){
+    public async openWindow(pkg:string, name:string, arg?:any){
 
         let ui:UIWindow = await this.open(pkg, name, arg);
 

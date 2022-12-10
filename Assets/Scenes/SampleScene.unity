@@ -142,6 +142,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2286136607482575218, guid: 18882ef4984b86c4a946641075dcd5d0, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 71e40aca5ae35154ca0c6fa4267c1448, type: 2}
+    - target: {fileID: 2286136607482575218, guid: 18882ef4984b86c4a946641075dcd5d0, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 893465803929585810, guid: 71e40aca5ae35154ca0c6fa4267c1448, type: 2}
     - target: {fileID: 2286136607635920283, guid: 18882ef4984b86c4a946641075dcd5d0, type: 3}
       propertyPath: m_Name
       value: HotUpdateView

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="720,1280">
+  <displayList>
+    <image id="n1_qhug" name="n1" src="eq5vc" fileName="Image/text_game_over.png" xy="176,274" size="367,97" aspect="true"/>
+    <component id="n6_qhug" name="btn_reStart" src="qhugp" fileName="UI/Button1.xml" xy="264,918" size="191,116"/>
+    <image id="n0_qhug" name="n0" src="eq5va" fileName="Image/score_panel.png" xy="94,492" size="531,281" group="n8_qhug" aspect="true"/>
+    <loader id="n2_qhug" name="load_medal" xy="167,593" size="94,94" group="n8_qhug" url="ui://ja011jodeq5v8" fill="scaleFree" clearOnPublish="true"/>
+    <text id="n3_qhug" name="txt_Score" xy="562,575" pivot="1,0" anchor="true" size="128,36" group="n8_qhug" fontSize="26" align="right" text="99999999"/>
+    <text id="n4_qhug" name="txt_BestScore" xy="562,658" pivot="1,0" anchor="true" size="128,36" group="n8_qhug" fontSize="26" align="right" text="99999999"/>
+    <group id="n8_qhug" name="n8" xy="94,492" size="531,281"/>
+  </displayList>
+</component>

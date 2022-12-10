@@ -12,9 +12,8 @@
 			"../Assets/Puerts/Typing",
 			"../Assets/Gen/Typing",
 			"./node_modules/@types"
-		],
-    "outDir": "output"
-  },
-  "include": ["src","test"],
+		]
+  	},
+	"include": ["src","test"],
 	"exclude": ["node_modules", "dist"]
 }

@@ -7,6 +7,7 @@ import { FlyBirdUI } from "../../data/ui/FlyBird";
 import { GameStartUI } from "../../data/ui/GameStart";
 import { UIStartView } from "../../game/module/gamestart/ui/UIStartView";
 import { UIFlyBirdMainView } from "../../game/module/flybird/ui/UIFlyBirdMainView";
+import { UIFlyBirdOverWindow } from "../../game/module/flyBird/ui/UIFlyBirdOverWindow";
 
 
 
@@ -37,6 +38,9 @@ export class UIFactory{
                     switch (name){
                         case FlyBirdUI.UIMainVIew:
                             ui = new UIFlyBirdMainView();
+                            break;
+                        case FlyBirdUI.UIOverWindow:
+                            ui = new UIFlyBirdOverWindow();
                             break;
                     }
                     break
