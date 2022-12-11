@@ -1,4 +1,4 @@
-import { JsManager } from "csharp";
+import { AudioManager } from "csharp";
 import { GameObjectPool } from "../framework/common/GameObjectPool";
 import { ResManager } from "../framework/common/ResManager";
 // import { StoryManager } from "../framework/ink/StoryManager";
@@ -25,9 +25,8 @@ export class S{
     public static SceneManager = SceneManager.Instance(SceneManager);
     public static GameObjectPool = GameObjectPool.Instance(GameObjectPool);
     public static ResManager = ResManager.Instance(ResManager);
-    // public static StoryManager = StoryManager.Instance(StoryManager);
     public static SessionManager = SessionManager.Instance(SessionManager);
     public static GameSession = GameSession.Instance(GameSession);
-    // public static StoryMessageManager = StoryMessageManager.Instance(StoryMessageManager);
     public static HttpManager = HttpManager.Instance(HttpManager);
+    public static AudioManager = AudioManager.Instance;
 }

@@ -39,8 +39,8 @@ public class JsManager:MonoSingleton<JsManager>
 
         //调试端口：8082
         jsEnv = new JsEnv(
-            new JsLoader("E:/UnityGame/UnityGameDome/Assets/AddressableAssets/Remote/Js/"),
-            8082
+            new JsLoader(),
+            8083
         );
         // jsEnv.ExecuteFile("puerts/flatbuffers.js");
         if (jsEnv == null)
@@ -54,6 +54,7 @@ public class JsManager:MonoSingleton<JsManager>
         jsEnv.UsingAction<string, byte[]>();
         jsEnv.UsingAction<Scene, LoadSceneMode>();
         jsEnv.UsingAction<int, GObject>();
+        jsEnv.UsingAction<GTweener>();
     }
 
     public async void StartGame()

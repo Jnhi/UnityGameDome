@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="720,1280">
   <displayList>
-    <list id="n4_fjxi" name="list_bg" xy="-49,-40" size="818,1361" touchable="false" layout="row" overflow="scroll" scroll="horizontal" defaultItem="ui://ja011jodfjxin" autoItemSize="false" autoClearItems="true" scrollItemToViewOnClick="false">
+    <list id="n4_fjxi" name="list_bg" xy="0,0" size="720,1280" layout="row" overflow="scroll" scroll="horizontal" scrollBarFlags="32" defaultItem="ui://ja011jodfjxin" autoItemSize="false" autoClearItems="true" scrollItemToViewOnClick="false">
+      <relation target="" sidePair="width-width,height-height"/>
       <item/>
       <item/>
       <item/>
     </list>
-    <list id="n8_qhug" name="list_ground" xy="-49,1078" size="818,143" aspect="true" scale="1,1.721" touchable="false" layout="row" overflow="scroll" scroll="horizontal" defaultItem="ui://ja011jodeq5vm" autoItemSize="false" autoClearItems="true" scrollItemToViewOnClick="false">
+    <component id="n12_qhug" name="btn_start" src="qhugp" fileName="UI/Button1.xml" xy="264,795" size="191,116" group="n13_qhug"/>
+    <image id="n10_qhug" name="n10" src="eq5vb" fileName="Image/title.png" xy="147,216" size="425,114" group="n13_qhug"/>
+    <group id="n13_qhug" name="startPanel" xy="147,216" size="425,695" advanced="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </group>
+    <component id="n32_qkko" name="gBirdAndPipe" src="qkkor" fileName="UI/gCommonGroup.xml" pkg="jkr64e0b" xy="360,586">
+      <relation target="" sidePair="center-center,top-middle,bottom-middle"/>
+    </component>
+    <list id="n8_qhug" name="list_ground" xy="0,1280" pivot="0,1" anchor="true" size="720,125" aspect="true" scale="1,1.721" touchable="false" layout="row" overflow="scroll" scroll="horizontal" scrollBarFlags="32" defaultItem="ui://ja011jodeq5vm" autoItemSize="false" autoClearItems="true" scrollItemToViewOnClick="false">
+      <relation target="" sidePair="bottom-bottom"/>
       <item/>
       <item/>
       <item/>
     </list>
-    <movieclip id="n9_qhug" name="anim_bird" src="eq5vk" fileName="Image/Bird.jta" xy="291,499" size="136,136"/>
-    <component id="n12_qhug" name="btn_start" src="qhugp" fileName="UI/Button1.xml" xy="264,830" size="191,116" group="n13_qhug"/>
-    <image id="n10_qhug" name="n10" src="eq5vb" fileName="Image/title.png" xy="147,182" size="425,114" group="n13_qhug"/>
-    <group id="n13_qhug" name="startPanel" xy="147,182" size="425,764" advanced="true"/>
-    <text id="n16_qhug" name="txt_Score" xy="268,71" size="184,95" font="ui://jkr64e0bqhugq" fontSize="73" align="center" vAlign="middle" autoSize="shrink" text="999"/>
+    <text id="n16_qhug" name="txt_Score" xy="268,71" size="184,95" font="ui://jkr64e0bqhugq" fontSize="73" align="center" vAlign="middle" autoSize="shrink" text="999">
+      <relation target="" sidePair="center-center,top-top"/>
+    </text>
   </displayList>
 </component>

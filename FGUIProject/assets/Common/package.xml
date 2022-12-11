@@ -7,6 +7,7 @@
     <component id="eq5v4" name="ProgressBar1.xml" path="/UI/" exported="true"/>
     <image id="eq5v3" name="bg1.png" path="/Image/" scale="9grid" scale9grid="24,24,48,48"/>
     <font id="qhugq" name="XiaolaiSC-Regular.ttf" path="/Font/" exported="true" renderMode="sdfaa" samplePointSize="90"/>
+    <component id="qkkor" name="gCommonGroup.xml" path="/UI/" exported="true"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

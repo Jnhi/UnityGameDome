@@ -43,6 +43,7 @@ public class PuertsConfig
             var list =  new List<Type>()
             {
 
+                typeof(AudioManager),
                 typeof(Debug),
                 typeof(Vector3),
                 typeof(Vector2),

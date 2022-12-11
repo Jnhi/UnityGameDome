@@ -443,6 +443,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1868892348}
   - component: {fileID: 1868892349}
+  - component: {fileID: 1868892350}
+  - component: {fileID: 1868892351}
   m_Layer: 0
   m_Name: GameLaunch
   m_TagString: Untagged
@@ -478,6 +480,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HotUpdateView: {fileID: 373154005}
+--- !u!81 &1868892350
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868892346}
+  m_Enabled: 1
+--- !u!114 &1868892351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868892346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d216b29285b54644c87443b15ec2c948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1984350956
 GameObject:
   m_ObjectHideFlags: 0

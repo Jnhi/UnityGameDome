@@ -7,4 +7,5 @@ export class FlyBirdUI
     public static UIMainVIew:string = "MainVIew";
     public static UIPipe:string = "Pipe";
     public static UIOverWindow:string = "OverWindow";
+    public static UIBird:string = "Bird";
 }

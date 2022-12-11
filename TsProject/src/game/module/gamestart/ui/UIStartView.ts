@@ -34,9 +34,10 @@ export class UIStartView extends UIPage{
 
     public onAwake():void{
         super.onAwake();
-        console.log("开始界面")
+        console.log("开始界面333")
+        this.fui.MakeFullScreen();
+
         this.btn_start.onClick.Add(()=>{
-            console.log("2333");
             this.click_btn_start();
         });
     }

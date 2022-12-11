@@ -28,19 +28,12 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        class Void extends System.ValueType
+        class Single extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
         {
             protected [__keep_incompatibility]: never;
         }
         interface IFormattable
         {
-        }
-        interface IEquatable$1<T>
-        {
-        }
-        class Single extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
-        {
-            protected [__keep_incompatibility]: never;
         }
         interface ISpanFormattable
         {
@@ -54,11 +47,10 @@
         interface IConvertible
         {
         }
-        class Boolean extends System.ValueType implements System.IComparable, System.IComparable$1<boolean>, System.IConvertible, System.IEquatable$1<boolean>
+        interface IEquatable$1<T>
         {
-            protected [__keep_incompatibility]: never;
         }
-        class Int32 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        class Void extends System.ValueType
         {
             protected [__keep_incompatibility]: never;
         }
@@ -73,20 +65,9 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        class Array extends System.Object implements System.Collections.IStructuralComparable, System.Collections.IStructuralEquatable, System.ICloneable, System.Collections.ICollection, System.Collections.IEnumerable, System.Collections.IList
+        class Boolean extends System.ValueType implements System.IComparable, System.IComparable$1<boolean>, System.IConvertible, System.IEquatable$1<boolean>
         {
             protected [__keep_incompatibility]: never;
-        }
-        class Enum extends System.ValueType implements System.IFormattable, System.IComparable, System.IConvertible
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class Exception extends System.Object implements System.Runtime.Serialization.ISerializable, System.Runtime.InteropServices._Exception
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        interface IFormatProvider
-        {
         }
         class Delegate extends System.Object implements System.Runtime.Serialization.ISerializable, System.ICloneable
         {
@@ -120,6 +101,31 @@
         Invoke?: (...args:any[]) => any;
         }
         var MulticastDelegate: { new (func: (...args:any[]) => any): MulticastDelegate; }
+        interface Action
+        { 
+        () : void; 
+        Invoke?: () => void;
+        }
+        var Action: { new (func: () => void): Action; }
+        class Int32 extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class Array extends System.Object implements System.Collections.IStructuralComparable, System.Collections.IStructuralEquatable, System.ICloneable, System.Collections.ICollection, System.Collections.IEnumerable, System.Collections.IList
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class Enum extends System.ValueType implements System.IFormattable, System.IComparable, System.IConvertible
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class Exception extends System.Object implements System.Runtime.Serialization.ISerializable, System.Runtime.InteropServices._Exception
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        interface IFormatProvider
+        {
+        }
         interface Converter$2<TInput, TOutput>
         { 
         (input: TInput) : TOutput; 
@@ -164,12 +170,6 @@
         () : TResult; 
         Invoke?: () => TResult;
         }
-        interface Action
-        { 
-        () : void; 
-        Invoke?: () => void;
-        }
-        var Action: { new (func: () => void): Action; }
         class Byte extends System.ValueType implements System.IFormattable, System.ISpanFormattable, System.IComparable, System.IComparable$1<number>, System.IConvertible, System.IEquatable$1<number>
         {
             protected [__keep_incompatibility]: never;
@@ -200,6 +200,339 @@
         }
     }
     namespace UnityEngine {
+        /** Base class for all objects Unity can reference.
+        */
+        class Object extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            /** The name of the object.
+            */
+            public get name(): string;
+            public set name(value: string);
+            /** Should the object be hidden, saved with the Scene or modifiable by the user?
+            */
+            public get hideFlags(): UnityEngine.HideFlags;
+            public set hideFlags(value: UnityEngine.HideFlags);
+            public GetInstanceID () : number
+            public static op_Implicit ($exists: UnityEngine.Object) : boolean
+            /** Clones the object original and returns the clone.
+            * @param original An existing object that you want to make a copy of.
+            * @param position Position for the new object.
+            * @param rotation Orientation of the new object.
+            * @param parent Parent that will be assigned to the new object.
+            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
+            * @returns The instantiated clone. 
+            */
+            public static Instantiate ($original: UnityEngine.Object, $position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion) : UnityEngine.Object
+            /** Clones the object original and returns the clone.
+            * @param original An existing object that you want to make a copy of.
+            * @param position Position for the new object.
+            * @param rotation Orientation of the new object.
+            * @param parent Parent that will be assigned to the new object.
+            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
+            * @returns The instantiated clone. 
+            */
+            public static Instantiate ($original: UnityEngine.Object, $position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion, $parent: UnityEngine.Transform) : UnityEngine.Object
+            /** Clones the object original and returns the clone.
+            * @param original An existing object that you want to make a copy of.
+            * @param position Position for the new object.
+            * @param rotation Orientation of the new object.
+            * @param parent Parent that will be assigned to the new object.
+            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
+            * @returns The instantiated clone. 
+            */
+            public static Instantiate ($original: UnityEngine.Object) : UnityEngine.Object
+            /** Clones the object original and returns the clone.
+            * @param original An existing object that you want to make a copy of.
+            * @param position Position for the new object.
+            * @param rotation Orientation of the new object.
+            * @param parent Parent that will be assigned to the new object.
+            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
+            * @returns The instantiated clone. 
+            */
+            public static Instantiate ($original: UnityEngine.Object, $parent: UnityEngine.Transform) : UnityEngine.Object
+            /** Clones the object original and returns the clone.
+            * @param original An existing object that you want to make a copy of.
+            * @param position Position for the new object.
+            * @param rotation Orientation of the new object.
+            * @param parent Parent that will be assigned to the new object.
+            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
+            * @returns The instantiated clone. 
+            */
+            public static Instantiate ($original: UnityEngine.Object, $parent: UnityEngine.Transform, $instantiateInWorldSpace: boolean) : UnityEngine.Object
+            public static Instantiate ($original: UnityEngine.Object, $parent: UnityEngine.Transform, $worldPositionStays: boolean) : UnityEngine.Object
+            /** Removes a GameObject, component or asset.
+            * @param obj The object to destroy.
+            * @param t The optional amount of time to delay before destroying the object.
+            */
+            public static Destroy ($obj: UnityEngine.Object, $t: number) : void
+            /** Removes a GameObject, component or asset.
+            * @param obj The object to destroy.
+            * @param t The optional amount of time to delay before destroying the object.
+            */
+            public static Destroy ($obj: UnityEngine.Object) : void
+            /** Destroys the object obj immediately. You are strongly recommended to use Destroy instead.
+            * @param obj Object to be destroyed.
+            * @param allowDestroyingAssets Set to true to allow assets to be destroyed.
+            */
+            public static DestroyImmediate ($obj: UnityEngine.Object, $allowDestroyingAssets: boolean) : void
+            /** Destroys the object obj immediately. You are strongly recommended to use Destroy instead.
+            * @param obj Object to be destroyed.
+            * @param allowDestroyingAssets Set to true to allow assets to be destroyed.
+            */
+            public static DestroyImmediate ($obj: UnityEngine.Object) : void
+            /** Gets a list of all loaded objects of Type type.
+            * @param type The type of object to find.
+            * @param includeInactive If true, components attached to inactive GameObjects are also included.
+            * @returns The array of objects found matching the type specified. 
+            */
+            public static FindObjectsOfType ($type: System.Type) : System.Array$1<UnityEngine.Object>
+            /** Gets a list of all loaded objects of Type type.
+            * @param type The type of object to find.
+            * @param includeInactive If true, components attached to inactive GameObjects are also included.
+            * @returns The array of objects found matching the type specified. 
+            */
+            public static FindObjectsOfType ($type: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Object>
+            /** Do not destroy the target Object when loading a new Scene.
+            * @param target An Object not destroyed on Scene change.
+            */
+            public static DontDestroyOnLoad ($target: UnityEngine.Object) : void
+            /** Returns the first active loaded object of Type type.
+            * @param type The type of object to find.
+            * @returns Object The first active loaded object that matches the specified type. It returns null if no Object matches the type. 
+            */
+            public static FindObjectOfType ($type: System.Type) : UnityEngine.Object
+            /** Returns the first active loaded object of Type type.
+            * @param type The type of object to find.
+            * @returns Object The first active loaded object that matches the specified type. It returns null if no Object matches the type. 
+            */
+            public static FindObjectOfType ($type: System.Type, $includeInactive: boolean) : UnityEngine.Object
+            public static op_Equality ($x: UnityEngine.Object, $y: UnityEngine.Object) : boolean
+            public static op_Inequality ($x: UnityEngine.Object, $y: UnityEngine.Object) : boolean
+            public constructor ()
+        }
+        /** Base class for everything attached to GameObjects.
+        */
+        class Component extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+            /** The Transform attached to this GameObject.
+            */
+            public get transform(): UnityEngine.Transform;
+            /** The game object this component is attached to. A component is always attached to a game object.
+            */
+            public get gameObject(): UnityEngine.GameObject;
+            /** The tag of this game object.
+            */
+            public get tag(): string;
+            public set tag(value: string);
+            /** Returns the component of type if the GameObject has one attached.
+            * @param type The type of Component to retrieve.
+            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            */
+            public GetComponent ($type: System.Type) : UnityEngine.Component
+            /** Gets the component of the specified type, if it exists.
+            * @param type The type of the component to retrieve.
+            * @param component The output argument that will contain the component or null.
+            * @returns Returns true if the component is found, false otherwise. 
+            */
+            public TryGetComponent ($type: System.Type, $component: $Ref<UnityEngine.Component>) : boolean
+            /** To improve the performance of your code, consider using GetComponent with a type instead of a string.
+            * @param type The name of the type of Component to get.
+            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            */
+            public GetComponent ($type: string) : UnityEngine.Component
+            /** Returns the Component of type in the GameObject or any of its children using depth first search.
+            * @param t The type of Component to retrieve.
+            * @param includeInactive Should Components on inactive GameObjects be included in the found set?
+            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            */
+            public GetComponentInChildren ($t: System.Type, $includeInactive: boolean) : UnityEngine.Component
+            /** Returns the Component of type in the GameObject or any of its children using depth first search.
+            * @param t The type of Component to retrieve.
+            * @param includeInactive Should Components on inactive GameObjects be included in the found set?
+            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            */
+            public GetComponentInChildren ($t: System.Type) : UnityEngine.Component
+            /** Returns all components of Type type in the GameObject or any of its children using depth first search. Works recursively.
+            * @param t The type of Component to retrieve.
+            * @param includeInactive Should Components on inactive GameObjects be included in the found set. includeInactive decides which children of the GameObject will be searched.  The GameObject that you call GetComponentsInChildren on is always searched regardless. Default is false.
+            */
+            public GetComponentsInChildren ($t: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Component>
+            public GetComponentsInChildren ($t: System.Type) : System.Array$1<UnityEngine.Component>
+            /** Returns the Component of type in the GameObject or any of its parents.
+            * @param t The type of Component to retrieve.
+            * @param includeInactive Should Components on inactive GameObjects be included in the found set?
+            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            */
+            public GetComponentInParent ($t: System.Type, $includeInactive: boolean) : UnityEngine.Component
+            /** Returns the Component of type in the GameObject or any of its parents.
+            * @param t The type of Component to retrieve.
+            * @param includeInactive Should Components on inactive GameObjects be included in the found set?
+            * @returns A Component of the matching type, otherwise null if no Component is found. 
+            */
+            public GetComponentInParent ($t: System.Type) : UnityEngine.Component
+            /** Returns all components of Type type in the GameObject or any of its parents.
+            * @param t The type of Component to retrieve.
+            * @param includeInactive Should inactive Components be included in the found set?
+            */
+            public GetComponentsInParent ($t: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Component>
+            public GetComponentsInParent ($t: System.Type) : System.Array$1<UnityEngine.Component>
+            /** Returns all components of Type type in the GameObject.
+            * @param type The type of Component to retrieve.
+            */
+            public GetComponents ($type: System.Type) : System.Array$1<UnityEngine.Component>
+            public GetComponents ($type: System.Type, $results: System.Collections.Generic.List$1<UnityEngine.Component>) : void
+            /** Checks the GameObject's tag against the defined tag.
+            * @param tag The tag to compare.
+            * @returns Returns true if GameObject has same tag. Returns false otherwise. 
+            */
+            public CompareTag ($tag: string) : boolean
+            /** Calls the method named methodName on every MonoBehaviour in this game object and on every ancestor of the behaviour.
+            * @param methodName Name of method to call.
+            * @param value Optional parameter value for the method.
+            * @param options Should an error be raised if the method does not exist on the target object?
+            */
+            public SendMessageUpwards ($methodName: string, $value: any, $options: UnityEngine.SendMessageOptions) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object and on every ancestor of the behaviour.
+            * @param methodName Name of method to call.
+            * @param value Optional parameter value for the method.
+            * @param options Should an error be raised if the method does not exist on the target object?
+            */
+            public SendMessageUpwards ($methodName: string, $value: any) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object and on every ancestor of the behaviour.
+            * @param methodName Name of method to call.
+            * @param value Optional parameter value for the method.
+            * @param options Should an error be raised if the method does not exist on the target object?
+            */
+            public SendMessageUpwards ($methodName: string) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object and on every ancestor of the behaviour.
+            * @param methodName Name of method to call.
+            * @param value Optional parameter value for the method.
+            * @param options Should an error be raised if the method does not exist on the target object?
+            */
+            public SendMessageUpwards ($methodName: string, $options: UnityEngine.SendMessageOptions) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object.
+            * @param methodName Name of the method to call.
+            * @param value Optional parameter for the method.
+            * @param options Should an error be raised if the target object doesn't implement the method for the message?
+            */
+            public SendMessage ($methodName: string, $value: any) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object.
+            * @param methodName Name of the method to call.
+            * @param value Optional parameter for the method.
+            * @param options Should an error be raised if the target object doesn't implement the method for the message?
+            */
+            public SendMessage ($methodName: string) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object.
+            * @param methodName Name of the method to call.
+            * @param value Optional parameter for the method.
+            * @param options Should an error be raised if the target object doesn't implement the method for the message?
+            */
+            public SendMessage ($methodName: string, $value: any, $options: UnityEngine.SendMessageOptions) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object.
+            * @param methodName Name of the method to call.
+            * @param value Optional parameter for the method.
+            * @param options Should an error be raised if the target object doesn't implement the method for the message?
+            */
+            public SendMessage ($methodName: string, $options: UnityEngine.SendMessageOptions) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object or any of its children.
+            * @param methodName Name of the method to call.
+            * @param parameter Optional parameter to pass to the method (can be any value).
+            * @param options Should an error be raised if the method does not exist for a given target object?
+            */
+            public BroadcastMessage ($methodName: string, $parameter: any, $options: UnityEngine.SendMessageOptions) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object or any of its children.
+            * @param methodName Name of the method to call.
+            * @param parameter Optional parameter to pass to the method (can be any value).
+            * @param options Should an error be raised if the method does not exist for a given target object?
+            */
+            public BroadcastMessage ($methodName: string, $parameter: any) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object or any of its children.
+            * @param methodName Name of the method to call.
+            * @param parameter Optional parameter to pass to the method (can be any value).
+            * @param options Should an error be raised if the method does not exist for a given target object?
+            */
+            public BroadcastMessage ($methodName: string) : void
+            /** Calls the method named methodName on every MonoBehaviour in this game object or any of its children.
+            * @param methodName Name of the method to call.
+            * @param parameter Optional parameter to pass to the method (can be any value).
+            * @param options Should an error be raised if the method does not exist for a given target object?
+            */
+            public BroadcastMessage ($methodName: string, $options: UnityEngine.SendMessageOptions) : void
+            public constructor ()
+        }
+        /** Behaviours are Components that can be enabled or disabled.
+        */
+        class Behaviour extends UnityEngine.Component
+        {
+            protected [__keep_incompatibility]: never;
+            /** Enabled Behaviours are Updated, disabled Behaviours are not.
+            */
+            public get enabled(): boolean;
+            public set enabled(value: boolean);
+            /** Reports whether a GameObject and its associated Behaviour is active and enabled.
+            */
+            public get isActiveAndEnabled(): boolean;
+            public constructor ()
+        }
+        /** MonoBehaviour is the base class from which every Unity script derives.
+        */
+        class MonoBehaviour extends UnityEngine.Behaviour
+        {
+            protected [__keep_incompatibility]: never;
+            /** Disabling this lets you skip the GUI layout phase.
+            */
+            public get useGUILayout(): boolean;
+            public set useGUILayout(value: boolean);
+            /** Allow a specific instance of a MonoBehaviour to run in edit mode (only available in the editor).
+            */
+            public get runInEditMode(): boolean;
+            public set runInEditMode(value: boolean);
+            public IsInvoking () : boolean
+            public CancelInvoke () : void
+            /** Invokes the method methodName in time seconds.
+            */
+            public Invoke ($methodName: string, $time: number) : void
+            /** Invokes the method methodName in time seconds, then repeatedly every repeatRate seconds.
+            */
+            public InvokeRepeating ($methodName: string, $time: number, $repeatRate: number) : void
+            /** Cancels all Invoke calls with name methodName on this behaviour.
+            */
+            public CancelInvoke ($methodName: string) : void
+            /** Is any invoke on methodName pending?
+            */
+            public IsInvoking ($methodName: string) : boolean
+            /** Starts a coroutine named methodName.
+            */
+            public StartCoroutine ($methodName: string) : UnityEngine.Coroutine
+            /** Starts a coroutine named methodName.
+            */
+            public StartCoroutine ($methodName: string, $value: any) : UnityEngine.Coroutine
+            /** Starts a Coroutine.
+            */
+            public StartCoroutine ($routine: System.Collections.IEnumerator) : UnityEngine.Coroutine
+            /** Stops the first coroutine named methodName, or the coroutine stored in routine running on this behaviour.
+            * @param methodName Name of coroutine.
+            * @param routine Name of the function in code, including coroutines.
+            */
+            public StopCoroutine ($routine: System.Collections.IEnumerator) : void
+            /** Stops the first coroutine named methodName, or the coroutine stored in routine running on this behaviour.
+            * @param methodName Name of coroutine.
+            * @param routine Name of the function in code, including coroutines.
+            */
+            public StopCoroutine ($routine: UnityEngine.Coroutine) : void
+            /** Stops the first coroutine named methodName, or the coroutine stored in routine running on this behaviour.
+            * @param methodName Name of coroutine.
+            * @param routine Name of the function in code, including coroutines.
+            */
+            public StopCoroutine ($methodName: string) : void
+            public StopAllCoroutines () : void
+            /** Logs message to the Unity Console (identical to Debug.Log).
+            */
+            public static print ($message: any) : void
+            public constructor ()
+        }
         /** Class containing methods to ease debugging while developing a game.
         */
         class Debug extends System.Object
@@ -654,117 +987,6 @@
         {
             protected [__keep_incompatibility]: never;
         }
-        /** Base class for all objects Unity can reference.
-        */
-        class Object extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            /** The name of the object.
-            */
-            public get name(): string;
-            public set name(value: string);
-            /** Should the object be hidden, saved with the Scene or modifiable by the user?
-            */
-            public get hideFlags(): UnityEngine.HideFlags;
-            public set hideFlags(value: UnityEngine.HideFlags);
-            public GetInstanceID () : number
-            public static op_Implicit ($exists: UnityEngine.Object) : boolean
-            /** Clones the object original and returns the clone.
-            * @param original An existing object that you want to make a copy of.
-            * @param position Position for the new object.
-            * @param rotation Orientation of the new object.
-            * @param parent Parent that will be assigned to the new object.
-            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
-            */
-            public static Instantiate ($original: UnityEngine.Object, $position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion) : UnityEngine.Object
-            /** Clones the object original and returns the clone.
-            * @param original An existing object that you want to make a copy of.
-            * @param position Position for the new object.
-            * @param rotation Orientation of the new object.
-            * @param parent Parent that will be assigned to the new object.
-            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
-            */
-            public static Instantiate ($original: UnityEngine.Object, $position: UnityEngine.Vector3, $rotation: UnityEngine.Quaternion, $parent: UnityEngine.Transform) : UnityEngine.Object
-            /** Clones the object original and returns the clone.
-            * @param original An existing object that you want to make a copy of.
-            * @param position Position for the new object.
-            * @param rotation Orientation of the new object.
-            * @param parent Parent that will be assigned to the new object.
-            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
-            */
-            public static Instantiate ($original: UnityEngine.Object) : UnityEngine.Object
-            /** Clones the object original and returns the clone.
-            * @param original An existing object that you want to make a copy of.
-            * @param position Position for the new object.
-            * @param rotation Orientation of the new object.
-            * @param parent Parent that will be assigned to the new object.
-            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
-            */
-            public static Instantiate ($original: UnityEngine.Object, $parent: UnityEngine.Transform) : UnityEngine.Object
-            /** Clones the object original and returns the clone.
-            * @param original An existing object that you want to make a copy of.
-            * @param position Position for the new object.
-            * @param rotation Orientation of the new object.
-            * @param parent Parent that will be assigned to the new object.
-            * @param instantiateInWorldSpace When you assign a parent Object, pass true to position the new object directly in world space. Pass false to set the Object’s position relative to its new parent.
-            * @returns The instantiated clone. 
-            */
-            public static Instantiate ($original: UnityEngine.Object, $parent: UnityEngine.Transform, $instantiateInWorldSpace: boolean) : UnityEngine.Object
-            public static Instantiate ($original: UnityEngine.Object, $parent: UnityEngine.Transform, $worldPositionStays: boolean) : UnityEngine.Object
-            /** Removes a GameObject, component or asset.
-            * @param obj The object to destroy.
-            * @param t The optional amount of time to delay before destroying the object.
-            */
-            public static Destroy ($obj: UnityEngine.Object, $t: number) : void
-            /** Removes a GameObject, component or asset.
-            * @param obj The object to destroy.
-            * @param t The optional amount of time to delay before destroying the object.
-            */
-            public static Destroy ($obj: UnityEngine.Object) : void
-            /** Destroys the object obj immediately. You are strongly recommended to use Destroy instead.
-            * @param obj Object to be destroyed.
-            * @param allowDestroyingAssets Set to true to allow assets to be destroyed.
-            */
-            public static DestroyImmediate ($obj: UnityEngine.Object, $allowDestroyingAssets: boolean) : void
-            /** Destroys the object obj immediately. You are strongly recommended to use Destroy instead.
-            * @param obj Object to be destroyed.
-            * @param allowDestroyingAssets Set to true to allow assets to be destroyed.
-            */
-            public static DestroyImmediate ($obj: UnityEngine.Object) : void
-            /** Gets a list of all loaded objects of Type type.
-            * @param type The type of object to find.
-            * @param includeInactive If true, components attached to inactive GameObjects are also included.
-            * @returns The array of objects found matching the type specified. 
-            */
-            public static FindObjectsOfType ($type: System.Type) : System.Array$1<UnityEngine.Object>
-            /** Gets a list of all loaded objects of Type type.
-            * @param type The type of object to find.
-            * @param includeInactive If true, components attached to inactive GameObjects are also included.
-            * @returns The array of objects found matching the type specified. 
-            */
-            public static FindObjectsOfType ($type: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Object>
-            /** Do not destroy the target Object when loading a new Scene.
-            * @param target An Object not destroyed on Scene change.
-            */
-            public static DontDestroyOnLoad ($target: UnityEngine.Object) : void
-            /** Returns the first active loaded object of Type type.
-            * @param type The type of object to find.
-            * @returns Object The first active loaded object that matches the specified type. It returns null if no Object matches the type. 
-            */
-            public static FindObjectOfType ($type: System.Type) : UnityEngine.Object
-            /** Returns the first active loaded object of Type type.
-            * @param type The type of object to find.
-            * @returns Object The first active loaded object that matches the specified type. It returns null if no Object matches the type. 
-            */
-            public static FindObjectOfType ($type: System.Type, $includeInactive: boolean) : UnityEngine.Object
-            public static op_Equality ($x: UnityEngine.Object, $y: UnityEngine.Object) : boolean
-            public static op_Inequality ($x: UnityEngine.Object, $y: UnityEngine.Object) : boolean
-            public constructor ()
-        }
         /** The type of the log message in Debug.unityLogger.Log or delegate registered with Application.RegisterLogCallback.
         */
         enum LogType
@@ -1020,157 +1242,6 @@
             /** Returns true if called inside a fixed time step callback (like MonoBehaviour's MonoBehaviour.FixedUpdate), otherwise returns false.
             */
             public static get inFixedTimeStep(): boolean;
-            public constructor ()
-        }
-        /** Base class for everything attached to GameObjects.
-        */
-        class Component extends UnityEngine.Object
-        {
-            protected [__keep_incompatibility]: never;
-            /** The Transform attached to this GameObject.
-            */
-            public get transform(): UnityEngine.Transform;
-            /** The game object this component is attached to. A component is always attached to a game object.
-            */
-            public get gameObject(): UnityEngine.GameObject;
-            /** The tag of this game object.
-            */
-            public get tag(): string;
-            public set tag(value: string);
-            /** Returns the component of type if the GameObject has one attached.
-            * @param type The type of Component to retrieve.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
-            */
-            public GetComponent ($type: System.Type) : UnityEngine.Component
-            /** Gets the component of the specified type, if it exists.
-            * @param type The type of the component to retrieve.
-            * @param component The output argument that will contain the component or null.
-            * @returns Returns true if the component is found, false otherwise. 
-            */
-            public TryGetComponent ($type: System.Type, $component: $Ref<UnityEngine.Component>) : boolean
-            /** To improve the performance of your code, consider using GetComponent with a type instead of a string.
-            * @param type The name of the type of Component to get.
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
-            */
-            public GetComponent ($type: string) : UnityEngine.Component
-            /** Returns the Component of type in the GameObject or any of its children using depth first search.
-            * @param t The type of Component to retrieve.
-            * @param includeInactive Should Components on inactive GameObjects be included in the found set?
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
-            */
-            public GetComponentInChildren ($t: System.Type, $includeInactive: boolean) : UnityEngine.Component
-            /** Returns the Component of type in the GameObject or any of its children using depth first search.
-            * @param t The type of Component to retrieve.
-            * @param includeInactive Should Components on inactive GameObjects be included in the found set?
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
-            */
-            public GetComponentInChildren ($t: System.Type) : UnityEngine.Component
-            /** Returns all components of Type type in the GameObject or any of its children using depth first search. Works recursively.
-            * @param t The type of Component to retrieve.
-            * @param includeInactive Should Components on inactive GameObjects be included in the found set. includeInactive decides which children of the GameObject will be searched.  The GameObject that you call GetComponentsInChildren on is always searched regardless. Default is false.
-            */
-            public GetComponentsInChildren ($t: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Component>
-            public GetComponentsInChildren ($t: System.Type) : System.Array$1<UnityEngine.Component>
-            /** Returns the Component of type in the GameObject or any of its parents.
-            * @param t The type of Component to retrieve.
-            * @param includeInactive Should Components on inactive GameObjects be included in the found set?
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
-            */
-            public GetComponentInParent ($t: System.Type, $includeInactive: boolean) : UnityEngine.Component
-            /** Returns the Component of type in the GameObject or any of its parents.
-            * @param t The type of Component to retrieve.
-            * @param includeInactive Should Components on inactive GameObjects be included in the found set?
-            * @returns A Component of the matching type, otherwise null if no Component is found. 
-            */
-            public GetComponentInParent ($t: System.Type) : UnityEngine.Component
-            /** Returns all components of Type type in the GameObject or any of its parents.
-            * @param t The type of Component to retrieve.
-            * @param includeInactive Should inactive Components be included in the found set?
-            */
-            public GetComponentsInParent ($t: System.Type, $includeInactive: boolean) : System.Array$1<UnityEngine.Component>
-            public GetComponentsInParent ($t: System.Type) : System.Array$1<UnityEngine.Component>
-            /** Returns all components of Type type in the GameObject.
-            * @param type The type of Component to retrieve.
-            */
-            public GetComponents ($type: System.Type) : System.Array$1<UnityEngine.Component>
-            public GetComponents ($type: System.Type, $results: System.Collections.Generic.List$1<UnityEngine.Component>) : void
-            /** Checks the GameObject's tag against the defined tag.
-            * @param tag The tag to compare.
-            * @returns Returns true if GameObject has same tag. Returns false otherwise. 
-            */
-            public CompareTag ($tag: string) : boolean
-            /** Calls the method named methodName on every MonoBehaviour in this game object and on every ancestor of the behaviour.
-            * @param methodName Name of method to call.
-            * @param value Optional parameter value for the method.
-            * @param options Should an error be raised if the method does not exist on the target object?
-            */
-            public SendMessageUpwards ($methodName: string, $value: any, $options: UnityEngine.SendMessageOptions) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object and on every ancestor of the behaviour.
-            * @param methodName Name of method to call.
-            * @param value Optional parameter value for the method.
-            * @param options Should an error be raised if the method does not exist on the target object?
-            */
-            public SendMessageUpwards ($methodName: string, $value: any) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object and on every ancestor of the behaviour.
-            * @param methodName Name of method to call.
-            * @param value Optional parameter value for the method.
-            * @param options Should an error be raised if the method does not exist on the target object?
-            */
-            public SendMessageUpwards ($methodName: string) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object and on every ancestor of the behaviour.
-            * @param methodName Name of method to call.
-            * @param value Optional parameter value for the method.
-            * @param options Should an error be raised if the method does not exist on the target object?
-            */
-            public SendMessageUpwards ($methodName: string, $options: UnityEngine.SendMessageOptions) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object.
-            * @param methodName Name of the method to call.
-            * @param value Optional parameter for the method.
-            * @param options Should an error be raised if the target object doesn't implement the method for the message?
-            */
-            public SendMessage ($methodName: string, $value: any) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object.
-            * @param methodName Name of the method to call.
-            * @param value Optional parameter for the method.
-            * @param options Should an error be raised if the target object doesn't implement the method for the message?
-            */
-            public SendMessage ($methodName: string) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object.
-            * @param methodName Name of the method to call.
-            * @param value Optional parameter for the method.
-            * @param options Should an error be raised if the target object doesn't implement the method for the message?
-            */
-            public SendMessage ($methodName: string, $value: any, $options: UnityEngine.SendMessageOptions) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object.
-            * @param methodName Name of the method to call.
-            * @param value Optional parameter for the method.
-            * @param options Should an error be raised if the target object doesn't implement the method for the message?
-            */
-            public SendMessage ($methodName: string, $options: UnityEngine.SendMessageOptions) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object or any of its children.
-            * @param methodName Name of the method to call.
-            * @param parameter Optional parameter to pass to the method (can be any value).
-            * @param options Should an error be raised if the method does not exist for a given target object?
-            */
-            public BroadcastMessage ($methodName: string, $parameter: any, $options: UnityEngine.SendMessageOptions) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object or any of its children.
-            * @param methodName Name of the method to call.
-            * @param parameter Optional parameter to pass to the method (can be any value).
-            * @param options Should an error be raised if the method does not exist for a given target object?
-            */
-            public BroadcastMessage ($methodName: string, $parameter: any) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object or any of its children.
-            * @param methodName Name of the method to call.
-            * @param parameter Optional parameter to pass to the method (can be any value).
-            * @param options Should an error be raised if the method does not exist for a given target object?
-            */
-            public BroadcastMessage ($methodName: string) : void
-            /** Calls the method named methodName on every MonoBehaviour in this game object or any of its children.
-            * @param methodName Name of the method to call.
-            * @param parameter Optional parameter to pass to the method (can be any value).
-            * @param options Should an error be raised if the method does not exist for a given target object?
-            */
-            public BroadcastMessage ($methodName: string, $options: UnityEngine.SendMessageOptions) : void
             public constructor ()
         }
         /** Position, rotation and scale of an object.
@@ -1828,20 +1899,6 @@
         */
         enum ParticleSystemStopBehavior
         { StopEmittingAndClear = 0, StopEmitting = 1 }
-        /** Behaviours are Components that can be enabled or disabled.
-        */
-        class Behaviour extends UnityEngine.Component
-        {
-            protected [__keep_incompatibility]: never;
-            /** Enabled Behaviours are Updated, disabled Behaviours are not.
-            */
-            public get enabled(): boolean;
-            public set enabled(value: boolean);
-            /** Reports whether a GameObject and its associated Behaviour is active and enabled.
-            */
-            public get isActiveAndEnabled(): boolean;
-            public constructor ()
-        }
         /** Element that can be used for screen rendering.
         */
         class Canvas extends UnityEngine.Behaviour
@@ -1955,63 +2012,6 @@
         class Material extends UnityEngine.Object
         {
             protected [__keep_incompatibility]: never;
-        }
-        /** MonoBehaviour is the base class from which every Unity script derives.
-        */
-        class MonoBehaviour extends UnityEngine.Behaviour
-        {
-            protected [__keep_incompatibility]: never;
-            /** Disabling this lets you skip the GUI layout phase.
-            */
-            public get useGUILayout(): boolean;
-            public set useGUILayout(value: boolean);
-            /** Allow a specific instance of a MonoBehaviour to run in edit mode (only available in the editor).
-            */
-            public get runInEditMode(): boolean;
-            public set runInEditMode(value: boolean);
-            public IsInvoking () : boolean
-            public CancelInvoke () : void
-            /** Invokes the method methodName in time seconds.
-            */
-            public Invoke ($methodName: string, $time: number) : void
-            /** Invokes the method methodName in time seconds, then repeatedly every repeatRate seconds.
-            */
-            public InvokeRepeating ($methodName: string, $time: number, $repeatRate: number) : void
-            /** Cancels all Invoke calls with name methodName on this behaviour.
-            */
-            public CancelInvoke ($methodName: string) : void
-            /** Is any invoke on methodName pending?
-            */
-            public IsInvoking ($methodName: string) : boolean
-            /** Starts a coroutine named methodName.
-            */
-            public StartCoroutine ($methodName: string) : UnityEngine.Coroutine
-            /** Starts a coroutine named methodName.
-            */
-            public StartCoroutine ($methodName: string, $value: any) : UnityEngine.Coroutine
-            /** Starts a Coroutine.
-            */
-            public StartCoroutine ($routine: System.Collections.IEnumerator) : UnityEngine.Coroutine
-            /** Stops the first coroutine named methodName, or the coroutine stored in routine running on this behaviour.
-            * @param methodName Name of coroutine.
-            * @param routine Name of the function in code, including coroutines.
-            */
-            public StopCoroutine ($routine: System.Collections.IEnumerator) : void
-            /** Stops the first coroutine named methodName, or the coroutine stored in routine running on this behaviour.
-            * @param methodName Name of coroutine.
-            * @param routine Name of the function in code, including coroutines.
-            */
-            public StopCoroutine ($routine: UnityEngine.Coroutine) : void
-            /** Stops the first coroutine named methodName, or the coroutine stored in routine running on this behaviour.
-            * @param methodName Name of coroutine.
-            * @param routine Name of the function in code, including coroutines.
-            */
-            public StopCoroutine ($methodName: string) : void
-            public StopAllCoroutines () : void
-            /** Logs message to the Unity Console (identical to Debug.Log).
-            */
-            public static print ($message: any) : void
-            public constructor ()
         }
         /** Base class for all yield instructions.
         */
@@ -2438,10 +2438,61 @@
             protected [__keep_incompatibility]: never;
         }
     }
-    namespace System.Collections.Generic {
-        interface IEnumerable$1<T> extends System.Collections.IEnumerable
+        class MonoSingleton$1<T> extends UnityEngine.MonoBehaviour
         {
+            protected [__keep_incompatibility]: never;
+            public static get Instance(): any;
+            public Startup () : void
+            public DestroySelf () : void
+            public Dispose () : void
         }
+        class AudioManager extends MonoSingleton$1<AudioManager>
+        {
+            protected [__keep_incompatibility]: never;
+            public bgmVol : number
+            public musicVol : number
+            public soundList : System.Collections.Generic.List$1<AudioPoolData>
+            public Init () : void
+            public Start () : void
+            public Update () : void
+            public Play ($musicPath: string, $isLoop?: boolean, $cb?: System.Action) : AudioPoolData
+            public Pause ($apData: AudioPoolData) : AudioPoolData
+            public Resume ($apData: AudioPoolData) : AudioPoolData
+            public StopMusic ($apData: AudioPoolData) : void
+            public PlayBGM ($musicPath: string, $isLoop?: boolean) : void
+            public PauseBGM () : void
+            public StopBGM () : void
+            public constructor ()
+        }
+        class AudioPoolData extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class GameLaunch extends MonoSingleton$1<GameLaunch>
+        {
+            protected [__keep_incompatibility]: never;
+            public HotUpdateView : HotUpdateView
+            public GameStart () : void
+            public JsLuanchFinish () : void
+            public constructor ()
+        }
+        class HotUpdateView extends UnityEngine.MonoBehaviour
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class JsManager extends MonoSingleton$1<JsManager>
+        {
+            protected [__keep_incompatibility]: never;
+            public jscache : System.Collections.Generic.Dictionary$2<string, string>
+            public JsOnApplicationQuit : System.Action
+            public JsOnDispose : System.Action
+            public JsUpdate : System.Action$1<number>
+            public GetJsEnv () : Puerts.JsEnv
+            public StartGame () : void
+            public Restart () : void
+            public constructor ()
+        }
+        namespace System.Collections.Generic {
         class List$1<T> extends System.Object implements System.Collections.Generic.IReadOnlyList$1<T>, System.Collections.ICollection, System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable, System.Collections.Generic.IList$1<T>, System.Collections.Generic.IReadOnlyCollection$1<T>, System.Collections.IList, System.Collections.Generic.ICollection$1<T>
         {
             protected [__keep_incompatibility]: never;
@@ -2502,6 +2553,9 @@
         interface IReadOnlyList$1<T> extends System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable, System.Collections.Generic.IReadOnlyCollection$1<T>
         {
         }
+        interface IEnumerable$1<T> extends System.Collections.IEnumerable
+        {
+        }
         interface IReadOnlyCollection$1<T> extends System.Collections.Generic.IEnumerable$1<T>, System.Collections.IEnumerable
         {
         }
@@ -2536,16 +2590,16 @@
         interface IEnumerable
         {
         }
-        interface IStructuralComparable
-        {
-        }
-        interface IStructuralEquatable
-        {
-        }
         interface ICollection extends System.Collections.IEnumerable
         {
         }
         interface IList extends System.Collections.ICollection, System.Collections.IEnumerable
+        {
+        }
+        interface IStructuralComparable
+        {
+        }
+        interface IStructuralEquatable
         {
         }
         interface IEnumerator
@@ -3382,39 +3436,7 @@
             public ActivateAsync () : UnityEngine.AsyncOperation
         }
     }
-        class MonoSingleton$1<T> extends UnityEngine.MonoBehaviour
-        {
-            protected [__keep_incompatibility]: never;
-            public static get Instance(): any;
-            public Startup () : void
-            public DestroySelf () : void
-            public Dispose () : void
-        }
-        class GameLaunch extends MonoSingleton$1<GameLaunch>
-        {
-            protected [__keep_incompatibility]: never;
-            public HotUpdateView : HotUpdateView
-            public GameStart () : void
-            public JsLuanchFinish () : void
-            public constructor ()
-        }
-        class HotUpdateView extends UnityEngine.MonoBehaviour
-        {
-            protected [__keep_incompatibility]: never;
-        }
-        class JsManager extends MonoSingleton$1<JsManager>
-        {
-            protected [__keep_incompatibility]: never;
-            public jscache : System.Collections.Generic.Dictionary$2<string, string>
-            public JsOnApplicationQuit : System.Action
-            public JsOnDispose : System.Action
-            public JsUpdate : System.Action$1<number>
-            public GetJsEnv () : Puerts.JsEnv
-            public StartGame () : void
-            public Restart () : void
-            public constructor ()
-        }
-        namespace Puerts {
+    namespace Puerts {
         class JsEnv extends System.Object implements System.IDisposable
         {
             protected [__keep_incompatibility]: never;

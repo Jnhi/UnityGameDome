@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="720,1280">
   <displayList>
-    <image id="n0_eq5v" name="n0" src="eq5v5" fileName="Image/bg1.png" xy="31,31" size="665,1225"/>
+    <image id="n0_eq5v" name="n0" src="eq5v5" fileName="Image/bg1.png" xy="0,0" size="720,1280">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
     <component id="n1_eq5v" name="btn_start" src="eq5v2" fileName="UI/Button1.xml" xy="220,590">
+      <relation target="" sidePair="center-center,middle-middle"/>
       <Button title="FlyBird" titleFontSize="54"/>
     </component>
   </displayList>

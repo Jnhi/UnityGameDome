@@ -25,6 +25,18 @@ MonoBehaviour:
     m_Address: FlyBird/FlyBird_fui.bytes
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 1016ff3d50f4f6f468abafbafa89906f
+    m_Address: FlyBird/Music/crash.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0714281b24791c145b16422de78f9272
+    m_Address: FlyBird/Music/fly.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d30ec4ec577b3b3458b5f4fe0b2dfc88
+    m_Address: FlyBird/Music/getScore.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a0ce4609c3d5d894988a8a5a624b439f, type: 2}
   m_SchemaSet:

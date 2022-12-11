@@ -6,6 +6,9 @@ namespace PuertsStaticWrap
     {
         public static void Register(Puerts.JsEnv jsEnv)
         {
+            jsEnv.AddLazyStaticWrapLoader(typeof(AudioManager), AudioManager_Wrap.GetRegisterInfo);
+                
+                
             jsEnv.AddLazyStaticWrapLoader(typeof(UnityEngine.Debug), UnityEngine_Debug_Wrap.GetRegisterInfo);
                 
                 

@@ -6,6 +6,9 @@ import { S } from "../../../../global/GameConfig";
 import { FlyBirdUI } from "../../../../data/ui/FlyBird";
 import { VoOverWindow } from "../../gamestart/vo/VoOverWindow";
 import { List } from "../../../../framework/common/List";
+import { Pipe } from "../item/pipe";
+import { Random } from "../../../../framework/common/Random";
+import { Bird } from "../item/Bird";
 
 
 
@@ -26,63 +29,43 @@ export class UIFlyBirdMainView extends UIPage{
     @binder("startPanel")
     public startPanel:FairyGUI.GComponent;
     
-    @binder("anim_bird")
-    public bird:FairyGUI.GMovieClip;
+    public bird:Bird;
 
-    private curPipes:List<FairyGUI.GComponent> = new List<FairyGUI.GComponent>()
-    private needDestory:List<FairyGUI.GComponent> = new List<FairyGUI.GComponent>()
+    @binder("gBirdAndPipe")
+    public gBirdAndPipe:FairyGUI.GComponent;
+    
+    private curPipes:List<Pipe> = new List<Pipe>()
+    private needDestory:List<Pipe> = new List<Pipe>()
 
     /**地板速度 */
-    private groundSpeed:number = 23;
+    private groundSpeed:number = 46;
     
     /**背景速度速度 */
-    private skySpeed:number = 18;
+    private skySpeed:number = 36;
 
     /**游戏是否开始 */
     private isStart:boolean = false;
 
-    /**点击后弹起时间 */
-    private upTime:number = 0.3;
-
-    /**点击后弹起速度 */
-    private upSpeed:number = -1000;
-
-    /**下落速度 */
-    private downSpeed:number = 70;
-
-    /**鸟的碰撞距离 */
-    private carshDis:number = 30;
 
     /**得分 */
-    private score:number = 30;
+    private score:number = 0;
 
     /**水管创建间隔 */
-    private pipeIntervalTime:number = 3;
+    private pipeIntervalTime:number = 4;
 
     /**水管时间 */
     private pipeTime:number = 0;
 
-    /**水管速度 */
-    private pipeSpeed:number = 300;
 
-    /**小鸟状态 */
-    private isUp:boolean = false;
-    
     public onUpdate(dt:number):void{
-        // console.log(dt)
 
         if (this.bird && this.isStart)
         {
             this.list_ground.scrollPane.posX = this.list_ground.scrollPane.posX + dt*this.groundSpeed
             this.list_bg.scrollPane.posX = this.list_bg.scrollPane.posX + dt*this.skySpeed
-            this.bird.y = Math.min(930,this.bird.y+(this.isUp?this.upSpeed:this.downSpeed)*dt)
             
-            // 小鸟碰撞地面
-            if (this.bird.y < -600)
-            {
-                this.GameOver();
-            }
-            
+            this.bird.fly(dt)
+
             // 删除屏幕外的水管
             for (let i = 0; i < this.needDestory.count; i++) {
                 this.curPipes.remove(this.needDestory[i]);
@@ -93,15 +76,22 @@ export class UIFlyBirdMainView extends UIPage{
             // 水管的移动
             for (let i = 0; i < this.curPipes.count; i++) {
                 const element = this.curPipes[i];
-                element.x = element.x - dt*this.pipeSpeed
-                if (element.x <= -700) {
+                element.move(dt)
+                if (element.objPipe.x <= -700) {
                     this.needDestory.add(this.curPipes[i]);
                 }
-                // // 检测小鸟是否碰撞水管
-                // if (isCrash(bird,curPipes[i]))
-                // {
-                //     GameOver();
-                // }
+                if (element.objPipe.x <= 0 && element.canAddScore) {
+                    S.AudioManager.Play("FlyBird/Music/getScore.wav")
+                    this.score ++
+                    element.canAddScore = false
+                    this.upDataScore(this.score)
+                }
+            }
+
+            // 检测小鸟是否碰撞水管以及地面
+            if (this.bird.isCrashGround() || this.isCrash())
+            {
+                this.GameOver();
             }
 
             this.pipeTime += dt;
@@ -114,9 +104,22 @@ export class UIFlyBirdMainView extends UIPage{
         }
     }
 
+    private isCrash():boolean
+    {
+
+        for (const iterator of this.curPipes) {
+            if (iterator.isCrashBird(this.bird.objBird)) {
+                return true
+            }
+        }
+
+        return false;
+    }
+
     public onAwake():void{
         super.onAwake();
-        console.log("开始界面3")
+        this.fui.MakeFullScreen();
+
         this.list_bg.SetVirtualAndLoop();
         this.list_bg.itemRenderer = (index:number, obj:FairyGUI.GObject)=>{
         };
@@ -127,38 +130,61 @@ export class UIFlyBirdMainView extends UIPage{
         };
         this.list_ground.numItems = 3;
 
-
         this.txt_Score.visible = false;
+
+        this.bird = new Bird()
+        this.gBirdAndPipe.AddChild(this.bird.objBird)
+        
         this.btn_start.onClick.Set(()=>{
             this.onClickStart()
         })
+
         this.list_bg.onClick.Set(()=>{
-            this.isUp = true;
-            let timerr = 0;
-            this.bird.TweenRotate(30,0.2)
-            // this.bird.transform.DORotate(new Vector3(0,0,30),0.2f);
-            // t.Kill();
-            // t = DOTween.To(() => timerr, x => timerr = x, 1, this.upTime).OnStepComplete(()=>{
-            //     this.isUp = false;
-            //     this.bird.transform.DORotate(new Vector3(0,0,-30),0.2f);
-            // }).SetLoops(1);
+            this.bird.flyUp()
         })
     }
-
 
     /**游戏开始 */
     private GameStart():void
     {
         this.isStart = true;
-        this.isUp = false;
         this.txt_Score.visible = true;
         this.startPanel.visible = false;
+        this.upDataScore(0);
+    }
+
+    /**重新开始 */
+    private reGameStart():void{
+        this.bird.reGameStart();
+        this.bird.objBird.y = 0;
+        // bird.GetComponent<SpriteAnimation>().Play("fly");
+        // 删除屏幕外的水管
+        for (const iterator of this.needDestory) {
+            iterator.Dispose()
+        }
+        this.needDestory.clear();
+        for (const iterator of this.curPipes) {
+            iterator.Dispose()
+        }
+        this.curPipes.clear();
+
+        this.score = 0;
+
+        this.GameStart();
+    }
+
+    /**更新分数 */
+    public upDataScore(score:number):void
+    {
+        this.txt_Score.text = score.toString();
     }
 
     /**游戏结束 */
     private GameOver():void
     {
+        S.AudioManager.Play("FlyBird/Music/crash.wav")
         this.isStart = false;
+        this.bird.GameOver()
         
         if (UnityEngine.PlayerPrefs.HasKey("Bird_BestScore"))
         {
@@ -175,7 +201,9 @@ export class UIFlyBirdMainView extends UIPage{
         let vo = new VoOverWindow() 
         vo.bestScore = UnityEngine.PlayerPrefs.GetInt("Bird_BestScore");
         vo.score = this.score;
-
+        vo.reStartFunc = ()=>{
+            this.reGameStart()
+        }
         S.UIManager.openWindow(
             FlyBirdUI.PackageName,
             FlyBirdUI.UIOverWindow,
@@ -184,10 +212,11 @@ export class UIFlyBirdMainView extends UIPage{
     }
 
     /**创建水管 */
-    private createPipe():FairyGUI.GComponent{
-        let objPipe:FairyGUI.GComponent = FairyGUI.UIPackage.CreateObject(FlyBirdUI.PackageName,FlyBirdUI.UIPipe).asCom;
-        this.curPipes.add(objPipe);
-        return objPipe;
+    private createPipe():void{
+        let pipe = new Pipe(Random.random(150,200),Random.random(-300,200))
+        this.curPipes.add(pipe);
+        this.gBirdAndPipe.AddChild(pipe.objPipe)
+        pipe.objPipe.x = 1000
     }
 
     private onClickStart():void{
@@ -195,15 +224,6 @@ export class UIFlyBirdMainView extends UIPage{
     }
     public onShow(vo):void{
         super.onShow(vo);
-
-        // this.m_nameLbl.text = vo.name;
-        // this.m_mpLbl.text = vo.mp.toString();
-        // this.m_hpLbl.text = vo.hp.toString();
-        // this.m_moneyLbl.text = vo.money.toString();
-
-        // S.GameSession.listen(Opcode.MSG_GS2C_Test,function(msg:nice_ts.GS2C_Test){
-        //     Logger.log("收到服务器下发的消息。。。。"+msg.testResponse)
-        // })
     }
     public onClose(arg:any):void{
         super.onClose(arg);

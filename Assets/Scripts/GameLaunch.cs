@@ -8,12 +8,14 @@ using UnityEngine;
 /// </summary>
 public class GameLaunch : MonoSingleton<GameLaunch> {
 
+
     public HotUpdateView HotUpdateView;
+
 
     void Awake() {
         DontDestroyOnLoad(this);
-    }
 
+    }
     // 热更结束后调用
     public void GameStart()
     {
@@ -29,7 +31,6 @@ public class GameLaunch : MonoSingleton<GameLaunch> {
 
         GRoot.inst.SetContentScaleFactor(720, 1280, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
         UIPackage.unloadBundleByFGUI = false;
-
         //加载FairyGUI Package
         ResourceManager.init();
     }

@@ -22,6 +22,7 @@ public class JsLoader : ILoader
 
     public string ReadFile(string filepath, out string debugpath)
     {
+        Debug.Log(filepath);
 #if UNITY_EDITOR
         var puertsDir = Path.Combine(Application.dataPath, "AddressableAssets/Remote/Js");
         var jsPath = Path.Combine(puertsDir, filepath);
