@@ -25,12 +25,12 @@ export abstract class UIPage extends UIPanel{
     }
 
 
-    public onShow(vo:any):void{
+    public onShow(vo?:any):void{
 
     
     }
 
-    public onClose(arg:any):void{
+    public onClose(arg?:any):void{
    
     }
 

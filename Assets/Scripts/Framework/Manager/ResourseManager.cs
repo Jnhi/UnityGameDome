@@ -84,7 +84,6 @@ namespace NiceTS
                 JsManager.Instance.jscache.Clear();
                 foreach (var txt in list)
                 {
-                    UnityEngine.Debug.Log(txt.name);
                     JsManager.Instance.jscache.Add($"{txt.name}.mjs", txt.text);
                 }
                 return true;

@@ -1,4 +1,3 @@
-import { UIPage } from "../../../../framework/ui/UIPage";
 import { binder } from "../../../../framework/common/NiceDecorator";
 import { FairyGUI, UnityEngine } from "csharp";
 import { VoOverWindow } from "../../gamestart/vo/VoOverWindow";
@@ -42,12 +41,6 @@ export class UIFlyBirdOverWindow extends UIWindow{
             medalPath = "ui://FlyBird/medals_4";
         }
         this.load_medal.url = medalPath
-        
-        // this.load_medal.rotationY = v;
-        
-        // FairyGUI.GTween.To(0, 180, 0.8).SetTarget(this.load_medal).SetEase(FairyGUI.EaseType.QuadOut).OnUpdate((tweener)=>{
-        //     this.TurnInTween(tweener)
-        // });
     }
     public onClose(arg:any):void{
     }

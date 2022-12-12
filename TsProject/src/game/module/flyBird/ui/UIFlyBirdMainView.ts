@@ -9,6 +9,7 @@ import { List } from "../../../../framework/common/List";
 import { Pipe } from "../item/pipe";
 import { Random } from "../../../../framework/common/Random";
 import { Bird } from "../item/Bird";
+import { TimeUtil } from "../../../../framework/util/TimeUtil";
 
 
 
@@ -139,7 +140,7 @@ export class UIFlyBirdMainView extends UIPage{
             this.onClickStart()
         })
 
-        this.list_bg.onClick.Set(()=>{
+        this.list_bg.onTouchBegin.Set(()=>{
             this.bird.flyUp()
         })
     }
@@ -213,7 +214,7 @@ export class UIFlyBirdMainView extends UIPage{
 
     /**创建水管 */
     private createPipe():void{
-        let pipe = new Pipe(Random.random(150,200),Random.random(-300,200))
+        let pipe = new Pipe(Random.random(170,220),Random.random(-300,200))
         this.curPipes.add(pipe);
         this.gBirdAndPipe.AddChild(pipe.objPipe)
         pipe.objPipe.x = 1000

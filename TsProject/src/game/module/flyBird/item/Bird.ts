@@ -24,6 +24,7 @@ export class Bird{
 
     constructor(){
         this.objBird = FairyGUI.UIPackage.CreateObject(FlyBirdUI.PackageName,FlyBirdUI.UIBird).asCom;
+        this.objBird.touchable = false
     }
 
     public Dispose():void{

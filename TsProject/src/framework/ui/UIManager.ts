@@ -104,7 +104,7 @@ export class UIManager extends Singleton<UIManager>{
     }
 
 
-    private async openPageWorker(pkg:string, page:string, arg:any){
+    private async openPageWorker(pkg:string, page:string, arg?:any){
 
         //设置 m_currentPage
         this.m_currentPage = new UIPageTrack();
@@ -129,7 +129,7 @@ export class UIManager extends Singleton<UIManager>{
     
      //==========================================================UIPage
     //打开场景页面,此页面不计入页面栈,无返回上一面按钮
-    public async openPageInScene(pkg:string, page:string, arg:any){
+    public async openPageInScene(pkg:string, page:string, arg?:any){
         
         let _openPage = await this.openPageWorker(pkg, page, arg);
 
