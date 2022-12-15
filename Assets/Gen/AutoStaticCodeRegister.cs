@@ -126,6 +126,12 @@ namespace PuertsStaticWrap
             jsEnv.AddLazyStaticWrapLoader(typeof(MonoSingleton<JsManager>), MonoSingleton_1_JsManager__Wrap.GetRegisterInfo);
                 
                 
+            jsEnv.AddLazyStaticWrapLoader(typeof(FairyGUI.TMPFont), FairyGUI_TMPFont_Wrap.GetRegisterInfo);
+                
+                
+            jsEnv.AddLazyStaticWrapLoader(typeof(FairyGUI.TextFormat), FairyGUI_TextFormat_Wrap.GetRegisterInfo);
+                
+                
             jsEnv.AddLazyStaticWrapLoader(typeof(FairyGUI.BlendModeUtils), FairyGUI_BlendModeUtils_Wrap.GetRegisterInfo);
                 
                 
@@ -271,9 +277,6 @@ namespace PuertsStaticWrap
                 
                 
             jsEnv.AddLazyStaticWrapLoader(typeof(FairyGUI.TextField), FairyGUI_TextField_Wrap.GetRegisterInfo);
-                
-                
-            jsEnv.AddLazyStaticWrapLoader(typeof(FairyGUI.TextFormat), FairyGUI_TextFormat_Wrap.GetRegisterInfo);
                 
                 
             jsEnv.AddLazyStaticWrapLoader(typeof(FairyGUI.TouchScreenKeyboard), FairyGUI_TouchScreenKeyboard_Wrap.GetRegisterInfo);

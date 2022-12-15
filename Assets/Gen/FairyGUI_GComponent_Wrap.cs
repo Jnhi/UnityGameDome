@@ -2248,6 +2248,72 @@ namespace PuertsStaticWrap
             }
         }
             
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G___onConstruct(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.GComponent;
+                var result = obj.__onConstruct;
+                Puerts.ResultHelper.Set((int)data, isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S___onConstruct(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.GComponent;
+                IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                object argobj0 = null;
+                argobj0 = argobj0 != null ? argobj0 : StaticTranslate<System.Action>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); System.Action arg0 = (System.Action)argobj0;
+                obj.__onConstruct = arg0;
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G___onDispose(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.GComponent;
+                var result = obj.__onDispose;
+                Puerts.ResultHelper.Set((int)data, isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S___onDispose(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.GComponent;
+                IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                object argobj0 = null;
+                argobj0 = argobj0 != null ? argobj0 : StaticTranslate<System.Action>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); System.Action arg0 = (System.Action)argobj0;
+                obj.__onDispose = arg0;
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
     // ==================== properties end ====================
     // ==================== array item get/set start ====================
     
@@ -2344,7 +2410,11 @@ namespace PuertsStaticWrap
 
                     {"viewWidth", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_viewWidth, Setter = S_viewWidth} },
 
-                    {"viewHeight", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_viewHeight, Setter = S_viewHeight} }
+                    {"viewHeight", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_viewHeight, Setter = S_viewHeight} },
+
+                    {"__onConstruct", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G___onConstruct, Setter = S___onConstruct} },
+
+                    {"__onDispose", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G___onDispose, Setter = S___onDispose} }
                 },
                 LazyMembers = new System.Collections.Generic.List<Puerts.LazyMemberRegisterInfo>()
                 {   

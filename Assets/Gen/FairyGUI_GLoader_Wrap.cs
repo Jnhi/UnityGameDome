@@ -1022,6 +1022,72 @@ namespace PuertsStaticWrap
             }
         }
             
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G___loadExternal(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.GLoader;
+                var result = obj.__loadExternal;
+                Puerts.ResultHelper.Set((int)data, isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S___loadExternal(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.GLoader;
+                IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                object argobj0 = null;
+                argobj0 = argobj0 != null ? argobj0 : StaticTranslate<System.Action>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); System.Action arg0 = (System.Action)argobj0;
+                obj.__loadExternal = arg0;
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G___freeExternal(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.GLoader;
+                var result = obj.__freeExternal;
+                Puerts.ResultHelper.Set((int)data, isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S___freeExternal(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.GLoader;
+                IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                object argobj0 = null;
+                argobj0 = argobj0 != null ? argobj0 : StaticTranslate<System.Action<FairyGUI.NTexture>>.Get((int)data, isolate, NativeValueApi.GetValueFromArgument, v8Value0, false); System.Action<FairyGUI.NTexture> arg0 = (System.Action<FairyGUI.NTexture>)argobj0;
+                obj.__freeExternal = arg0;
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
     // ==================== properties end ====================
     // ==================== array item get/set start ====================
     
@@ -1099,7 +1165,11 @@ namespace PuertsStaticWrap
 
                     {"blendMode", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_blendMode, Setter = S_blendMode} },
 
-                    {"showErrorSign", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_showErrorSign, Setter = S_showErrorSign} }
+                    {"showErrorSign", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_showErrorSign, Setter = S_showErrorSign} },
+
+                    {"__loadExternal", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G___loadExternal, Setter = S___loadExternal} },
+
+                    {"__freeExternal", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G___freeExternal, Setter = S___freeExternal} }
                 },
                 LazyMembers = new System.Collections.Generic.List<Puerts.LazyMemberRegisterInfo>()
                 {   

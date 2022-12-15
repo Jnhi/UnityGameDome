@@ -218,6 +218,105 @@ namespace PuertsStaticWrap
     // ==================== properties start ====================
     
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_faceDilate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.TextFormat;
+                var result = obj.faceDilate;
+                Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S_faceDilate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.TextFormat;
+                IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                object argobj0 = null;
+                float arg0 = (float)PuertsDLL.GetNumberFromValue(isolate, v8Value0, false);
+                obj.faceDilate = arg0;
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_outlineSoftness(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.TextFormat;
+                var result = obj.outlineSoftness;
+                Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S_outlineSoftness(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.TextFormat;
+                IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                object argobj0 = null;
+                float arg0 = (float)PuertsDLL.GetNumberFromValue(isolate, v8Value0, false);
+                obj.outlineSoftness = arg0;
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void G_underlaySoftness(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.TextFormat;
+                var result = obj.underlaySoftness;
+                Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void S_underlaySoftness(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as FairyGUI.TextFormat;
+                IntPtr v8Value0 = PuertsDLL.GetArgumentValue(info, 0);
+                object argobj0 = null;
+                float arg0 = (float)PuertsDLL.GetNumberFromValue(isolate, v8Value0, false);
+                obj.underlaySoftness = arg0;
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+            
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_size(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
@@ -773,6 +872,12 @@ namespace PuertsStaticWrap
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
                     
+                    {"faceDilate", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_faceDilate, Setter = S_faceDilate} },
+
+                    {"outlineSoftness", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_outlineSoftness, Setter = S_outlineSoftness} },
+
+                    {"underlaySoftness", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_underlaySoftness, Setter = S_underlaySoftness} },
+
                     {"size", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_size, Setter = S_size} },
 
                     {"font", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_font, Setter = S_font} },

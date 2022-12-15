@@ -2333,6 +2333,12 @@
         {
             protected [__keep_incompatibility]: never;
         }
+        /** A class you can derive from if you want to create objects that don't need to be attached to game objects.
+        */
+        class ScriptableObject extends UnityEngine.Object
+        {
+            protected [__keep_incompatibility]: never;
+        }
         /** Render textures are textures that can be rendered to.
         */
         class RenderTexture extends UnityEngine.Texture
@@ -3542,6 +3548,118 @@
         }
     }
     namespace FairyGUI {
+        class BaseFont extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public name : string
+            public mainTexture : FairyGUI.NTexture
+            public canTint : boolean
+            public customBold : boolean
+            public customBoldAndItalic : boolean
+            public customOutline : boolean
+            public shader : string
+            public keepCrisp : boolean
+            public version : number
+            public UpdateGraphics ($graphics: FairyGUI.NGraphics) : void
+            public SetFormat ($format: FairyGUI.TextFormat, $fontSizeScale: number) : void
+            public PrepareCharacters ($text: string) : void
+            public GetGlyph ($ch: number, $width: $Ref<number>, $height: $Ref<number>, $baseline: $Ref<number>) : boolean
+            public DrawGlyph ($x: number, $y: number, $vertList: System.Collections.Generic.List$1<UnityEngine.Vector3>, $uvList: System.Collections.Generic.List$1<UnityEngine.Vector2>, $uv2List: System.Collections.Generic.List$1<UnityEngine.Vector2>, $colList: System.Collections.Generic.List$1<UnityEngine.Color32>) : number
+            public DrawLine ($x: number, $y: number, $width: number, $fontSize: number, $type: number, $vertList: System.Collections.Generic.List$1<UnityEngine.Vector3>, $uvList: System.Collections.Generic.List$1<UnityEngine.Vector2>, $uv2List: System.Collections.Generic.List$1<UnityEngine.Vector2>, $colList: System.Collections.Generic.List$1<UnityEngine.Color32>) : number
+            public HasCharacter ($ch: number) : boolean
+            public GetLineHeight ($size: number) : number
+            public Dispose () : void
+            public constructor ()
+        }
+        class TMPFont extends FairyGUI.BaseFont
+        {
+            protected [__keep_incompatibility]: never;
+            public get fontAsset(): TMPro.TMP_FontAsset;
+            public set fontAsset(value: TMPro.TMP_FontAsset);
+            public get fontWeight(): TMPro.FontWeight;
+            public set fontWeight(value: TMPro.FontWeight);
+            public constructor ()
+        }
+        class NGraphics extends System.Object implements FairyGUI.IMeshFactory
+        {
+            protected [__keep_incompatibility]: never;
+            public blendMode : FairyGUI.BlendMode
+            public dontClip : boolean
+            public get gameObject(): UnityEngine.GameObject;
+            public get meshFilter(): UnityEngine.MeshFilter;
+            public get meshRenderer(): UnityEngine.MeshRenderer;
+            public get mesh(): UnityEngine.Mesh;
+            public get meshFactory(): FairyGUI.IMeshFactory;
+            public set meshFactory(value: FairyGUI.IMeshFactory);
+            public get contentRect(): UnityEngine.Rect;
+            public set contentRect(value: UnityEngine.Rect);
+            public get flip(): FairyGUI.FlipType;
+            public set flip(value: FairyGUI.FlipType);
+            public get texture(): FairyGUI.NTexture;
+            public set texture(value: FairyGUI.NTexture);
+            public get shader(): string;
+            public set shader(value: string);
+            public get material(): UnityEngine.Material;
+            public set material(value: UnityEngine.Material);
+            public get materialKeywords(): System.Array$1<string>;
+            public set materialKeywords(value: System.Array$1<string>);
+            public get enabled(): boolean;
+            public set enabled(value: boolean);
+            public get sortingOrder(): number;
+            public set sortingOrder(value: number);
+            public get color(): UnityEngine.Color;
+            public set color(value: UnityEngine.Color);
+            public get vertexMatrix(): FairyGUI.NGraphics.VertexMatrix;
+            public set vertexMatrix(value: FairyGUI.NGraphics.VertexMatrix);
+            public get materialPropertyBlock(): UnityEngine.MaterialPropertyBlock;
+            public add_meshModifier ($value: System.Action) : void
+            public remove_meshModifier ($value: System.Action) : void
+            public SetShaderAndTexture ($shader: string, $texture: FairyGUI.NTexture) : void
+            public SetMaterial ($material: UnityEngine.Material) : void
+            public ToggleKeyword ($keyword: string, $enabled: boolean) : void
+            public Tint () : void
+            public SetMeshDirty () : void
+            public UpdateMesh () : boolean
+            public Dispose () : void
+            public Update ($context: FairyGUI.UpdateContext, $alpha: number, $grayed: boolean) : void
+            public OnPopulateMesh ($vb: FairyGUI.VertexBuffer) : void
+            public constructor ($gameObject: UnityEngine.GameObject)
+            public constructor ()
+        }
+        interface IMeshFactory
+        {
+            OnPopulateMesh ($vb: FairyGUI.VertexBuffer) : void
+        }
+        class TextFormat extends System.Object
+        {
+            protected [__keep_incompatibility]: never;
+            public faceDilate : number
+            public outlineSoftness : number
+            public underlaySoftness : number
+            public size : number
+            public font : string
+            public color : UnityEngine.Color
+            public lineSpacing : number
+            public letterSpacing : number
+            public bold : boolean
+            public underline : boolean
+            public italic : boolean
+            public strikethrough : boolean
+            public gradientColor : System.Array$1<UnityEngine.Color32>
+            public align : FairyGUI.AlignType
+            public specialStyle : FairyGUI.TextFormat.SpecialStyle
+            public outline : number
+            public outlineColor : UnityEngine.Color
+            public shadowOffset : UnityEngine.Vector2
+            public shadowColor : UnityEngine.Color
+            public SetColor ($value: number) : void
+            public EqualStyle ($aFormat: FairyGUI.TextFormat) : boolean
+            public CopyFrom ($source: FairyGUI.TextFormat) : void
+            public FillVertexColors ($vertexColors: System.Array$1<UnityEngine.Color32>) : void
+            public constructor ()
+        }
+        enum AlignType
+        { Left = 0, Center = 1, Right = 2 }
         class BlendModeUtils extends System.Object
         {
             protected [__keep_incompatibility]: never;
@@ -4002,56 +4120,6 @@
             public TweenFade ($endValue: number, $duration: number) : FairyGUI.GTweener
             public TweenRotate ($endValue: number, $duration: number) : FairyGUI.GTweener
             public constructor ()
-        }
-        class NGraphics extends System.Object implements FairyGUI.IMeshFactory
-        {
-            protected [__keep_incompatibility]: never;
-            public blendMode : FairyGUI.BlendMode
-            public dontClip : boolean
-            public get gameObject(): UnityEngine.GameObject;
-            public get meshFilter(): UnityEngine.MeshFilter;
-            public get meshRenderer(): UnityEngine.MeshRenderer;
-            public get mesh(): UnityEngine.Mesh;
-            public get meshFactory(): FairyGUI.IMeshFactory;
-            public set meshFactory(value: FairyGUI.IMeshFactory);
-            public get contentRect(): UnityEngine.Rect;
-            public set contentRect(value: UnityEngine.Rect);
-            public get flip(): FairyGUI.FlipType;
-            public set flip(value: FairyGUI.FlipType);
-            public get texture(): FairyGUI.NTexture;
-            public set texture(value: FairyGUI.NTexture);
-            public get shader(): string;
-            public set shader(value: string);
-            public get material(): UnityEngine.Material;
-            public set material(value: UnityEngine.Material);
-            public get materialKeywords(): System.Array$1<string>;
-            public set materialKeywords(value: System.Array$1<string>);
-            public get enabled(): boolean;
-            public set enabled(value: boolean);
-            public get sortingOrder(): number;
-            public set sortingOrder(value: number);
-            public get color(): UnityEngine.Color;
-            public set color(value: UnityEngine.Color);
-            public get vertexMatrix(): FairyGUI.NGraphics.VertexMatrix;
-            public set vertexMatrix(value: FairyGUI.NGraphics.VertexMatrix);
-            public get materialPropertyBlock(): UnityEngine.MaterialPropertyBlock;
-            public add_meshModifier ($value: System.Action) : void
-            public remove_meshModifier ($value: System.Action) : void
-            public SetShaderAndTexture ($shader: string, $texture: FairyGUI.NTexture) : void
-            public SetMaterial ($material: UnityEngine.Material) : void
-            public ToggleKeyword ($keyword: string, $enabled: boolean) : void
-            public Tint () : void
-            public SetMeshDirty () : void
-            public UpdateMesh () : boolean
-            public Dispose () : void
-            public Update ($context: FairyGUI.UpdateContext, $alpha: number, $grayed: boolean) : void
-            public OnPopulateMesh ($vb: FairyGUI.VertexBuffer) : void
-            public constructor ($gameObject: UnityEngine.GameObject)
-            public constructor ()
-        }
-        interface IMeshFactory
-        {
-            OnPopulateMesh ($vb: FairyGUI.VertexBuffer) : void
         }
         class EventListener extends System.Object
         {
@@ -4624,54 +4692,6 @@
             public static LatestGraphicsCreation : number
             public constructor ()
         }
-        class BaseFont extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            public name : string
-            public mainTexture : FairyGUI.NTexture
-            public canTint : boolean
-            public customBold : boolean
-            public customBoldAndItalic : boolean
-            public customOutline : boolean
-            public shader : string
-            public keepCrisp : boolean
-            public version : number
-            public UpdateGraphics ($graphics: FairyGUI.NGraphics) : void
-            public SetFormat ($format: FairyGUI.TextFormat, $fontSizeScale: number) : void
-            public PrepareCharacters ($text: string) : void
-            public GetGlyph ($ch: number, $width: $Ref<number>, $height: $Ref<number>, $baseline: $Ref<number>) : boolean
-            public DrawGlyph ($x: number, $y: number, $vertList: System.Collections.Generic.List$1<UnityEngine.Vector3>, $uvList: System.Collections.Generic.List$1<UnityEngine.Vector2>, $uv2List: System.Collections.Generic.List$1<UnityEngine.Vector2>, $colList: System.Collections.Generic.List$1<UnityEngine.Color32>) : number
-            public DrawLine ($x: number, $y: number, $width: number, $fontSize: number, $type: number, $vertList: System.Collections.Generic.List$1<UnityEngine.Vector3>, $uvList: System.Collections.Generic.List$1<UnityEngine.Vector2>, $uv2List: System.Collections.Generic.List$1<UnityEngine.Vector2>, $colList: System.Collections.Generic.List$1<UnityEngine.Color32>) : number
-            public HasCharacter ($ch: number) : boolean
-            public GetLineHeight ($size: number) : number
-            public Dispose () : void
-            public constructor ()
-        }
-        class TextFormat extends System.Object
-        {
-            protected [__keep_incompatibility]: never;
-            public size : number
-            public font : string
-            public color : UnityEngine.Color
-            public lineSpacing : number
-            public letterSpacing : number
-            public bold : boolean
-            public underline : boolean
-            public italic : boolean
-            public strikethrough : boolean
-            public gradientColor : System.Array$1<UnityEngine.Color32>
-            public align : FairyGUI.AlignType
-            public specialStyle : FairyGUI.TextFormat.SpecialStyle
-            public outline : number
-            public outlineColor : UnityEngine.Color
-            public shadowOffset : UnityEngine.Vector2
-            public shadowColor : UnityEngine.Color
-            public SetColor ($value: number) : void
-            public EqualStyle ($aFormat: FairyGUI.TextFormat) : boolean
-            public CopyFrom ($source: FairyGUI.TextFormat) : void
-            public FillVertexColors ($vertexColors: System.Array$1<UnityEngine.Color32>) : void
-            public constructor ()
-        }
         class BitmapFont extends FairyGUI.BaseFont
         {
             protected [__keep_incompatibility]: never;
@@ -4881,8 +4901,6 @@
             public OnPopulateMesh ($vb: FairyGUI.VertexBuffer) : void
             public constructor ()
         }
-        enum AlignType
-        { Left = 0, Center = 1, Right = 2 }
         enum VertAlignType
         { Top = 0, Middle = 1, Bottom = 2 }
         enum AutoSizeType
@@ -5339,6 +5357,8 @@
         {
             protected [__keep_incompatibility]: never;
             public showErrorSign : boolean
+            public __loadExternal : System.Action
+            public __freeExternal : System.Action$1<FairyGUI.NTexture>
             public get url(): string;
             public set url(value: string);
             public get icon(): string;
@@ -5419,6 +5439,8 @@
         class GComponent extends FairyGUI.GObject implements FairyGUI.IEventDispatcher
         {
             protected [__keep_incompatibility]: never;
+            public __onConstruct : System.Action
+            public __onDispose : System.Action
             public get rootContainer(): FairyGUI.Container;
             public get container(): FairyGUI.Container;
             public get scrollPane(): FairyGUI.ScrollPane;
@@ -6283,6 +6305,11 @@
         {
             protected [__keep_incompatibility]: never;
             public bringToFontOnClick : boolean
+            public __onInit : System.Action
+            public __onShown : System.Action
+            public __onHide : System.Action
+            public __doShowAnimation : System.Action
+            public __doHideAnimation : System.Action
             public get contentPane(): FairyGUI.GComponent;
             public set contentPane(value: FairyGUI.GComponent);
             public get frame(): FairyGUI.GComponent;
@@ -6612,6 +6639,22 @@
         Invoke?: (param: any) => void;
         }
         var TimerCallback: { new (func: (param: any) => void): TimerCallback; }
+    }
+    namespace TMPro {
+        class TMP_Asset extends UnityEngine.ScriptableObject
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        class TMP_FontAsset extends TMPro.TMP_Asset
+        {
+            protected [__keep_incompatibility]: never;
+        }
+        enum FontWeight
+        { Thin = 100, ExtraLight = 200, Light = 300, Regular = 400, Medium = 500, SemiBold = 600, Bold = 700, Heavy = 800, Black = 900 }
+    }
+    namespace FairyGUI.TextFormat {
+        enum SpecialStyle
+        { None = 0, Superscript = 1, Subscript = 2 }
     }
     namespace FairyGUI.BlendModeUtils {
         class BlendFactor extends System.Object
@@ -7039,10 +7082,6 @@
             public baseline : number
         }
     }
-    namespace FairyGUI.TextFormat {
-        enum SpecialStyle
-        { None = 0, Superscript = 1, Subscript = 2 }
-    }
     namespace FairyGUI.UpdateContext {
         class ClipInfo extends System.ValueType
         {
@@ -7209,7 +7248,4 @@
             public constructor ()
         }
     }
-}
-declare module 'csharp' {
-export = CS;
 }
